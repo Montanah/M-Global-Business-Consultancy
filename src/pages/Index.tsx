@@ -7,6 +7,11 @@ import Footer from "@/components/Footer";
 import { Globe, Code, Smartphone, PenTool, Share, Search, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+};
+
 const Index = () => {
   const services = [
     {
@@ -56,10 +61,8 @@ const Index = () => {
         className="border-b border-purple-700 bg-gray-900/80 backdrop-blur-lg fixed w-full z-10"
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="flex justify-between h-20">
-            <div className="flex items-center">
-              <Logo />
-            </div>
+          <div className="flex justify-between h-20 items-center">
+            <Logo />
             <NavigationMenu>
               <NavigationMenuList className="hidden md:flex items-center space-x-6">
                 <NavigationMenuItem>
@@ -84,32 +87,32 @@ const Index = () => {
       </motion.nav>
   
       {/* Hero Section */}
-      <motion.div initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="pt-32 pb-20 px-6 text-center bg-gradient-to-b from-indigo-800 to-purple-700">
+      <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="pt-32 pb-20 px-6 text-center bg-gradient-to-b from-indigo-800 to-purple-700">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-6xl font-extrabold text-white mb-6 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 animate-fade-in">
             M'Global Business Consultancy
           </h1>
-          <p className="text-3xl font-semibold text-purple-200 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-3xl font-semibold text-purple-200 mb-8 max-w-2xl mx-auto">
             Guaranteeing Excellence
           </p>
-          <p className="text-xl text-purple-100 mb-10 max-w-3xl mx-auto">
+          <p className="text-md md:text-xl text-purple-100 mb-10 max-w-3xl mx-auto">
             Transforming ideas into successful digital solutions for businesses worldwide
           </p>
         </div>
       </motion.div>
   
       {/* Services Section with Animations */}
-      <div className="py-20 bg-gray-100 text-gray-900" id="services">
+      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="py-20 bg-gray-100 text-gray-900" id="services">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-4 text-purple-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-purple-900">
             Our Services
           </h2>
-          <p className="text-lg text-center mb-12 text-gray-700 max-w-3xl mx-auto">
+          <p className="text-md md:text-lg text-center mb-12 text-gray-700 max-w-3xl mx-auto">
             We provide comprehensive solutions to help your business grow and succeed in the digital landscape
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service, index) => (
-              <motion.div key={index} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} whileHover={{ scale: 1.05 }} transition={{ duration: 0.5, delay: index * 0.2 }}>
+              <motion.div key={index} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} whileHover={{ scale: 1.05 }}>
                 <ServiceCard 
                   title={service.title}
                   description={service.description}
@@ -119,10 +122,10 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
   
       {/* Footer */}
-      <div id="footer">
+      <div id="footer" className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-10 bg-blue-950 text-white text-center md:text-left">
         <Footer />
       </div>
     </div>
