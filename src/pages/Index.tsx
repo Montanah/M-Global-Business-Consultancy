@@ -1,48 +1,70 @@
+
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu";
 import { Link } from "react-router-dom";
+import ServiceCard from "@/components/ServiceCard";
+import Logo from "@/components/Logo";
+import Footer from "@/components/Footer";
+import { Globe, Code, Smartphone, PenTool, Share, Search, FileText } from "lucide-react";
 
 const Index = () => {
+  const services = [
+    {
+      title: "Web Design & Development",
+      description: "Custom websites that are responsive, fast, and optimized for user experience.",
+      icon: <Code className="h-10 w-10 text-blue-500" />
+    },
+    {
+      title: "App Development",
+      description: "Native and cross-platform mobile applications for iOS and Android.",
+      icon: <Smartphone className="h-10 w-10 text-blue-500" />
+    },
+    {
+      title: "Graphic Design",
+      description: "Creative designs for branding, marketing materials, and digital assets.",
+      icon: <PenTool className="h-10 w-10 text-blue-500" />
+    },
+    {
+      title: "Social Media Management",
+      description: "Strategic content creation and community engagement across platforms.",
+      icon: <Share className="h-10 w-10 text-blue-500" />
+    },
+    {
+      title: "Digital Marketing",
+      description: "SEO, PPC, and content marketing strategies to grow your online presence.",
+      icon: <Search className="h-10 w-10 text-blue-500" />
+    },
+    {
+      title: "Business Plan Design & Registration",
+      description: "Comprehensive business planning and registration services for startups and SMEs.",
+      icon: <FileText className="h-10 w-10 text-blue-500" />
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-blue-900 via-blue-700 to-blue-900">
       {/* Navigation */}
-      <nav className="border-b bg-white/50 backdrop-blur-sm fixed w-full z-10">
+      <nav className="border-b border-blue-800 bg-blue-900/90 backdrop-blur-sm fixed w-full z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <span className="text-2xl font-bold text-blue-900">DeliverEase</span>
+              <Logo />
             </div>
             <NavigationMenuList className="hidden md:flex items-center space-x-4">
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="p-4 w-[400px]">
-                    <div className="grid gap-3">
-                      <div className="row-span-3">
-                        <NavigationMenuLink asChild>
-                          <a className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-blue-500 to-blue-700 p-6 no-underline outline-none focus:shadow-md">
-                            <div className="mt-4 mb-2 text-lg font-medium text-white">
-                              Browse Products
-                            </div>
-                            <p className="text-sm leading-tight text-white/90">
-                              Explore items waiting to be delivered worldwide
-                            </p>
-                          </a>
-                        </NavigationMenuLink>
-                      </div>
-                    </div>
-                  </div>
-                </NavigationMenuContent>
+                <Button variant="ghost" className="text-white hover:text-blue-200">Services</Button>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Button variant="ghost">Sign In</Button>
+                <Button variant="ghost" className="text-white hover:text-blue-200">About Us</Button>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Button>Sign Up</Button>
+                <Button variant="ghost" className="text-white hover:text-blue-200">Portfolio</Button>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Button variant="ghost" className="text-white hover:text-blue-200">Contact</Button>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Button className="bg-blue-500 hover:bg-blue-600 text-white">Get a Quote</Button>
               </NavigationMenuItem>
             </NavigationMenuList>
           </div>
@@ -52,101 +74,102 @@ const Index = () => {
       {/* Hero Section */}
       <div className="pt-32 pb-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl font-bold text-blue-900 mb-6">
-            Global Shopping Made Easy
+          <h1 className="text-5xl font-bold text-white mb-6 animate-fade-in">
+            M'Global Business Consultancy
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Connect with travelers worldwide to get your favorite products delivered to your doorstep
+          <p className="text-3xl font-semibold text-blue-200 mb-8 max-w-2xl mx-auto">
+            Guaranteeing Excellence
+          </p>
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+            Transforming ideas into successful digital solutions for businesses worldwide
           </p>
           <div className="flex justify-center gap-4">
-            <Button size="lg">List Your Product</Button>
-            <Button size="lg" variant="outline">Become a Traveler</Button>
+            <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-100">
+              Our Services
+            </Button>
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-blue-800/50">
+              Contact Us
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* How It Works Section */}
+      {/* Services Section */}
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-blue-900">
-            How It Works
+          <h2 className="text-3xl font-bold text-center mb-4 text-blue-900">
+            Our Services
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle>1. List Your Product</CardTitle>
-                <CardDescription>
-                  Tell us what you want to be delivered
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Create a listing with product details, delivery location, and your offer price
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>2. Secure Payment</CardTitle>
-                <CardDescription>
-                  Your payment is held safely in escrow
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Make a secure payment that will only be released when you receive your item
-                </p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>3. Get Delivered</CardTitle>
-                <CardDescription>
-                  A verified traveler delivers your item
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Track your order and receive your product from a trusted traveler
-                </p>
-              </CardContent>
-            </Card>
+          <p className="text-lg text-center mb-12 text-gray-600 max-w-3xl mx-auto">
+            We provide comprehensive solutions to help your business grow and succeed in the digital landscape
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard 
+                key={index}
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+              />
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Join Section */}
-      <div className="py-20 bg-gradient-to-t from-blue-50 to-white">
+      
+      {/* Why Choose Us Section */}
+      <div className="py-20 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h2 className="text-3xl font-bold text-center mb-8 text-blue-900">
-              Join DeliverEase Today
-            </h2>
-            <div className="max-w-md mx-auto">
-              <div className="mb-6">
-                <Label htmlFor="role">I want to:</Label>
-                <RadioGroup defaultValue="client" className="mt-2">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="client" id="client" />
-                    <Label htmlFor="client">List Products for Delivery</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="traveler" id="traveler" />
-                    <Label htmlFor="traveler">Become a Traveler</Label>
-                  </div>
-                </RadioGroup>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="email">Email</Label>
-                  <Input type="email" id="email" placeholder="Enter your email" />
+          <h2 className="text-3xl font-bold text-center mb-4 text-blue-900">
+            Why Choose M'Global
+          </h2>
+          <p className="text-lg text-center mb-12 text-gray-600 max-w-3xl mx-auto">
+            We combine expertise, innovation, and dedication to deliver exceptional results for our clients
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Globe className="h-6 w-6 text-blue-600" />
                 </div>
-                <Button className="w-full">Get Started</Button>
+                <h3 className="text-xl font-semibold ml-4 text-blue-900">Global Reach</h3>
               </div>
+              <p className="text-gray-600">Working with clients worldwide to deliver solutions that transcend borders.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <PenTool className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold ml-4 text-blue-900">Creative Approach</h3>
+              </div>
+              <p className="text-gray-600">Innovative thinking to solve complex business challenges with elegant solutions.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <FileText className="h-6 w-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-semibold ml-4 text-blue-900">Results Focused</h3>
+              </div>
+              <p className="text-gray-600">Committed to delivering measurable results that impact your bottom line.</p>
             </div>
           </div>
         </div>
       </div>
+
+      {/* CTA Section */}
+      <div className="py-20 bg-gradient-to-r from-blue-800 to-blue-900 text-white">
+        <div className="max-w-5xl mx-auto text-center px-4">
+          <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
+          <p className="text-xl mb-8 text-blue-100">Get in touch with our expert team today and discover how M'Global can help you achieve your business goals.</p>
+          <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-100">
+            Contact Us Now
+          </Button>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
