@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Instagram, Twitter, TiktokIcon } from 'lucide-react';
+import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -24,6 +24,7 @@ const Footer = () => {
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link to="#" className="text-white hover:text-blue-300">
+                {/* Custom TikTok SVG icon */}
                 <svg 
                   className="h-5 w-5" 
                   xmlns="http://www.w3.org/2000/svg" 
@@ -36,10 +37,10 @@ const Footer = () => {
                   strokeLinecap="round" 
                   strokeLinejoin="round"
                 >
-                  <path d="M15 11a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 0V9a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"></path>
-                  <path d="M8 12h7"></path>
-                  <path d="M15 5v8"></path>
-                  <path d="M8 19h7"></path>
+                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"></path>
+                  <path d="M15 8a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"></path>
+                  <path d="M15 8v8a4 4 0 0 1-4 4"></path>
+                  <path d="M15 8h-4"></path>
                 </svg>
               </Link>
             </div>
