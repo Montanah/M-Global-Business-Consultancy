@@ -50,23 +50,25 @@ const Index = () => {
             <div className="flex items-center">
               <Logo />
             </div>
-            <NavigationMenuList className="hidden md:flex items-center space-x-4">
-              <NavigationMenuItem>
-                <Button variant="ghost" className="text-white hover:text-blue-200">Services</Button>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Button variant="ghost" className="text-white hover:text-blue-200">About Us</Button>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Button variant="ghost" className="text-white hover:text-blue-200">Portfolio</Button>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Button variant="ghost" className="text-white hover:text-blue-200">Contact</Button>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Button className="bg-blue-500 hover:bg-blue-600 text-white">Get a Quote</Button>
-              </NavigationMenuItem>
-            </NavigationMenuList>
+            <NavigationMenu>
+              <NavigationMenuList className="hidden md:flex items-center space-x-4">
+                <NavigationMenuItem>
+                  <Button variant="ghost" className="text-white hover:text-blue-200">Services</Button>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Button variant="ghost" className="text-white hover:text-blue-200">About Us</Button>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Button variant="ghost" className="text-white hover:text-blue-200">Portfolio</Button>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Button variant="ghost" className="text-white hover:text-blue-200">Contact</Button>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Button className="bg-blue-500 hover:bg-blue-600 text-white">Get a Quote</Button>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
         </div>
       </nav>
