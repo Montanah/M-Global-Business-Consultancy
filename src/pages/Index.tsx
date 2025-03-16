@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { Globe, Code, Smartphone, PenTool, Share, Search, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -58,6 +59,7 @@ const Index = () => {
   const smoothScroll = (e, targetId) => {
     e.preventDefault();
     document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
+    setMenuOpen(false);
   };
   
   return (
@@ -67,36 +69,48 @@ const Index = () => {
         initial={{ opacity: 0, y: -50 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 0.8 }} 
-        className="border-b border-purple-700 bg-gray-900/80 backdrop-blur-lg fixed w-full z-10"
+        className="border-b border-purple-700 bg-gray-900/80 backdrop-blur-lg fixed w-full z-20"
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="flex justify-between h-20 items-center">
             <Logo />
-            <NavigationMenu>
-              <NavigationMenuList className={`absolute md:static top-20 left-0 w-full md:flex md:items-center md:space-x-6 ${menuOpen ? "block" : "hidden"}`}>
-                <NavigationMenuItem className="text-center py-2 md:py-0">
-                  <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                    <Button variant="ghost">Services</Button>
-                  </a>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="text-center py-2 md:py-0">
-                  <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                    <Button variant="ghost">Contact</Button>
-                  </a>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="text-center py-2 md:py-0">
-                  <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                    <Button className="bg-purple-500 hover:bg-purple-600 text-white">Get a Quote</Button>
-                  </a>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+            <div className="flex items-center">
+              <NavigationMenu>
+                <NavigationMenuList className={`md:flex md:items-center md:space-x-6 ${
+                  menuOpen 
+                    ? "flex flex-col absolute top-full left-0 w-full p-4 mt-2 shadow-lg"
+                    : "hidden md:flex"
+                }`}>
+                  <NavigationMenuItem className="text-center py-2 md:py-0">
+                    <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
+                      <Button variant="ghost">Services</Button>
+                    </a>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem className="text-center py-2 md:py-0">
+                    <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
+                      <Button variant="ghost">Contact</Button>
+                    </a>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem className="text-center py-2 md:py-0">
+                    <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
+                      <Button className="bg-purple-500 hover:bg-purple-600 text-white">Get a Quote</Button>
+                    </a>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+              <button 
+                className="md:hidden text-white p-2"
+                onClick={() => setMenuOpen(!menuOpen)}
+              >
+                {menuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>
   
       {/* Hero Section */}
-      <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="pt-32 pb-20 px-6 text-center bg-gradient-to-b from-indigo-800 to-purple-700">
+      <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="pt-32 pb-5 px-6 text-center bg-gradient-to-b from-indigo-800 to-purple-700 relative z-10"> {/* Added relative z-index */}
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-300 to-pink-400 mb-6 animate-fade-in">
             M'Global Business Consultancy
@@ -135,9 +149,11 @@ const Index = () => {
       </motion.div>
   
       {/* Footer */}
-      <div id="footer" className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-10 bg-blue-950 text-white text-center md:text-left">
-        <Footer />
-      </div>
+      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} id="footer">
+        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-10 bg-blue-950 text-white text-center md:text-left">
+          <Footer />
+        </div>
+      </motion.div>
     </div>
   );
 };

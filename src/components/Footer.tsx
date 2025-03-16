@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Facebook, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { FiTwitter } from 'react-icons/fi';
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" className={className}>
@@ -20,7 +18,7 @@ const Footer = () => {
             <p className="text-blue-200 mb-4">
               Transforming businesses through innovative digital solutions.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start"> {/* Added justify-center for sm, md:justify-start for md+ */}
               <Link to="https://x.com/mglobalbconsult?s=11&t=p6v18hsMnUboiUq__V9F5A" target='_blank' className="text-white hover:text-blue-300">
                 <XLogo className="h-5 w-5" />
               </Link>
@@ -70,8 +68,8 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-blue-800 mt-12 pt-6 text-center text-blue-300">
-          <p>&copy; {new Date().getFullYear()} M'Global Business Consultancy. All rights reserved.</p>
+        <div className="border-t border-blue-800 mt-12 pt-6 text-center bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">
+          <p>© {new Date().getFullYear()} M'Global Business Consultancy. All rights reserved.</p>
         </div>
       </div>
     </footer>
