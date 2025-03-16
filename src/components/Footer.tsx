@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">M'Global Business Consultancy</h3>
+            <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">M'Global Business Consultancy</h3>
             <p className="text-blue-200 mb-4">
               Transforming businesses through innovative digital solutions.
             </p>
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">Services</h3>
             <ul className="space-y-2">
               <li><Link to="#" className="text-blue-200 hover:text-white">Web Design & Development</Link></li>
               <li><Link to="#" className="text-blue-200 hover:text-white">App Development</Link></li>
@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">Company</h3>
             <ul className="space-y-2">
               <li><Link to="#" className="text-blue-200 hover:text-white">About Us</Link></li>
               <li><Link to="#" className="text-blue-200 hover:text-white">Our Team</Link></li>
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">Contact Us</h3>
               <p className="text-blue-200 mb-2">
                 <a href="mailto:mglobalbizconsult@gmail.com" className="hover:underline">
                   mglobalbizconsult@gmail.com

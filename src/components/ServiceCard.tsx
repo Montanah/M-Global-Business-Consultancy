@@ -6,11 +6,12 @@ interface ServiceCardProps {
   title: string;
   description: string;
   icon: React.ReactNode;
+  bg: string;
 }
 
-const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, icon, bg }: ServiceCardProps) => {
   return (
-    <Card className="transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+    <Card className={`transition-all duration-400 hover:shadow-lg ${bg} hover:-translate-y-2`}>
       <CardHeader className="pb-2">
         <div className="flex items-center gap-4">
           {icon}
