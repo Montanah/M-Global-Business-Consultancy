@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu";
 import { Link } from "react-router-dom";
 import ServiceCard from "@/components/ServiceCard";
+import TestimonialSection from "@/components/TestimonialSection";
 import Logo from "@/components/Logo";
 import Footer from "@/components/Footer";
 import { Globe, Code, Smartphone, PenTool, Share, Search, FileText } from "lucide-react";
@@ -146,6 +147,13 @@ const Index = () => {
             ))}
           </div>
         </div>
+      </motion.div>
+
+      {/* Testimonial Section */}
+      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} id="testimonials"
+      className="py-20 bg-gradient-to-b from-gray-900 to-indigo-900 text-white"
+      >
+        <TestimonialSection />
       </motion.div>
   
       {/* Footer */}
