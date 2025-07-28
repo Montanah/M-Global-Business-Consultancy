@@ -156,9 +156,7 @@ const Index = () => {
       </motion.div>
 
       {/* Portfolio Section */}
-      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-        <PortfolioSection />
-      </motion.div>
+      <PortfolioSection />
 
       {/* Testimonial Section */}
       <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} id="testimonials"
