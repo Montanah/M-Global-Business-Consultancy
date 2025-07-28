@@ -3,6 +3,7 @@ import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/compon
 import { Link } from "react-router-dom";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialSection from "@/components/TestimonialSection";
+import PortfolioSection from "@/components/PortfolioSection";
 import Logo from "@/components/Logo";
 import Footer from "@/components/Footer";
 import { Globe, Code, Smartphone, PenTool, Share, Search, FileText } from "lucide-react";
@@ -88,6 +89,11 @@ const Index = () => {
                     </a>
                   </NavigationMenuItem>
                   <NavigationMenuItem className="text-center py-2 md:py-0">
+                    <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
+                      <Button variant="ghost">Portfolio</Button>
+                    </a>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem className="text-center py-2 md:py-0">
                     <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
                       <Button variant="ghost">Contact</Button>
                     </a>
@@ -147,6 +153,11 @@ const Index = () => {
             ))}
           </div>
         </div>
+      </motion.div>
+
+      {/* Portfolio Section */}
+      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <PortfolioSection />
       </motion.div>
 
       {/* Testimonial Section */}
