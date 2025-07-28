@@ -58,8 +58,30 @@ const portfolioItems: PortfolioItem[] = [
 
 const PortfolioSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 3;
+  
+  // Responsive items per view
+  const getItemsPerView = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 768) return 1; // mobile
+      if (window.innerWidth < 1024) return 2; // tablet
+      return 3; // desktop
+    }
+    return 3;
+  };
+  
+  const [itemsPerView, setItemsPerView] = useState(getItemsPerView);
   const maxIndex = Math.max(0, portfolioItems.length - itemsPerView);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      const newItemsPerView = getItemsPerView();
+      setItemsPerView(newItemsPerView);
+      setCurrentIndex(0); // Reset to first slide on resize
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const goToPrevious = () => {
     setCurrentIndex(prev => Math.max(0, prev - 1));
@@ -95,23 +117,23 @@ const PortfolioSection = () => {
 
         <div className="relative">
           {/* Navigation Buttons */}
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mb-8 px-2">
             <Button
               variant="outline"
               size="icon"
               onClick={goToPrevious}
               disabled={currentIndex === 0}
-              className="h-12 w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50 flex-shrink-0"
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
             </Button>
             
-            <div className="flex space-x-2">
+            <div className="flex space-x-2 mx-4">
               {Array.from({ length: maxIndex + 1 }).map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                     currentIndex === index ? 'bg-primary' : 'bg-gray-300'
                   }`}
                 />
@@ -123,9 +145,9 @@ const PortfolioSection = () => {
               size="icon"
               onClick={goToNext}
               disabled={currentIndex === maxIndex}
-              className="h-12 w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50 flex-shrink-0"
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight className="h-4 w-4 md:h-6 md:w-6" />
             </Button>
           </div>
 
@@ -138,7 +160,11 @@ const PortfolioSection = () => {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -300, opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                className={`grid gap-4 md:gap-6 lg:gap-8 ${
+                  itemsPerView === 1 ? 'grid-cols-1' : 
+                  itemsPerView === 2 ? 'grid-cols-1 md:grid-cols-2' : 
+                  'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                }`}
               >
                 {portfolioItems.slice(currentIndex, currentIndex + itemsPerView).map((item) => (
                   <motion.div
@@ -151,7 +177,7 @@ const PortfolioSection = () => {
                         <img
                           src={item.image}
                           alt={item.title}
-                          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                          className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -166,9 +192,9 @@ const PortfolioSection = () => {
                           </Button>
                         </div>
                       </div>
-                      <CardContent className="p-6">
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                        <p className="text-gray-600 mb-4 text-sm leading-relaxed">{item.description}</p>
+                      <CardContent className="p-4 md:p-6">
+                        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">{item.title}</h3>
+                        <p className="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">{item.description}</p>
                         <div className="flex flex-wrap gap-2 mb-4">
                           {item.tags.map((tag, index) => (
                             <span

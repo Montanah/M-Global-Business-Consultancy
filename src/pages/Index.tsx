@@ -80,7 +80,7 @@ const Index = () => {
               <NavigationMenu>
                 <NavigationMenuList className={`md:flex md:items-center md:space-x-6 ${
                   menuOpen 
-                    ? "flex flex-col absolute top-full left-0 w-full p-4 mt-2 shadow-lg"
+                    ? "flex flex-col absolute top-full left-0 w-full bg-gray-900/95 backdrop-blur-lg p-4 mt-2 shadow-lg border border-purple-700 rounded-lg z-30"
                     : "hidden md:flex"
                 }`}>
                   <NavigationMenuItem className="text-center py-2 md:py-0">
