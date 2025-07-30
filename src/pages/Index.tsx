@@ -85,22 +85,22 @@ const Index = () => {
                 }`}>
                   <NavigationMenuItem className="text-center py-2 md:py-0">
                     <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                      <Button variant="ghost">Services</Button>
+                      <Button variant="ghost" className="hover:rounded-full">Services</Button>
                     </a>
                   </NavigationMenuItem>
                   <NavigationMenuItem className="text-center py-2 md:py-0">
                     <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                      <Button variant="ghost">Portfolio</Button>
+                      <Button variant="ghost" className="hover:rounded-full">Portfolio</Button>
                     </a>
                   </NavigationMenuItem>
                   <NavigationMenuItem className="text-center py-2 md:py-0">
                     <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                      <Button variant="ghost">Contact</Button>
+                      <Button variant="ghost" className="hover:rounded-full">Contact</Button>
                     </a>
                   </NavigationMenuItem>
                   <NavigationMenuItem className="text-center py-2 md:py-0">
                     <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                      <Button className="bg-purple-500 hover:bg-purple-600 text-white">Get a Quote</Button>
+                      <Button className="bg-purple-500 hover:bg-purple-600 text-white rounded-full">Get a Quote</Button>
                     </a>
                   </NavigationMenuItem>
                 </NavigationMenuList>

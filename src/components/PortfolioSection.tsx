@@ -16,18 +16,18 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
   {
     id: 1,
-    title: "TechCorp Enterprise Solution",
-    description: "Complete digital transformation with custom web platform and mobile app for enterprise resource management.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    liveUrl: "https://techcorp-demo.com",
+    title: "Logistics Platfrom Website & Mobile Application",
+    description: "A fully developed website featuring a dedicated services section and seamless redirects to mobile app downloads, complemented by a modern, user-friendly mobile application designed for both Android and iOS platforms",
+    image: "/TRUK Screenshot.png",
+    liveUrl: "https://trukafrica.com",
     tags: ["Web Development", "Mobile App", "Enterprise"]
   },
   {
     id: 2,
-    title: "E-Commerce Revolution",
-    description: "Modern e-commerce platform with advanced analytics, inventory management, and seamless payment integration.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    liveUrl: "https://ecommerce-demo.com",
+    title: "Comprehensive Church Website",
+    description: "A modern, dynamic website showcasing church programs, enhanced with integrated audio recordings and a seamlessly embedded YouTube channel.",
+    image: "/DCIN Screenshot.png",
+    liveUrl: "https://www.deliverancechurchinternationalnyansiongo.org",
     tags: ["E-Commerce", "Analytics", "Payment Integration"]
   },
   {
