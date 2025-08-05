@@ -22,11 +22,11 @@ const Footer = () => {
               <Link to="https://x.com/mglobalbconsult?s=11&t=p6v18hsMnUboiUq__V9F5A" target='_blank' className="text-white hover:text-blue-300">
                 <XLogo className="h-5 w-5" />
               </Link>
-              <Link to="https://www.instagram.com/mglobalbconsult?igsh=MWt1ODdkN3Qxdmdwdw%3D%3D&utm_source=qr" target='_blank' className="text-white hover:text-blue-300">
-                <Instagram className="h-5 w-5" />
-              </Link>
               <Link to="https://www.facebook.com/share/1ABgx22hrx/?mibextid=wwXIfr" target='_blank' className="text-white hover:text-blue-300">
                 <Facebook className="h-5 w-5" />
+              </Link>
+              <Link to="https://www.instagram.com/mglobalbconsult?igsh=MWt1ODdkN3Qxdmdwdw%3D%3D&utm_source=qr" target='_blank' className="text-white hover:text-blue-300">
+                <Instagram className="h-5 w-5" />
               </Link>
             </div>
           </div>
