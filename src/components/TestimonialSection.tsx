@@ -72,23 +72,23 @@ const TestimonialSection = () => {
           {/* Testimonial Cards */}
           <div 
             ref={scrollRef}
-            className="flex overflow-x-auto space-x-4 pb-4 snap-x snap-mandatory scrollbar-hide flex-1"
+            className="flex overflow-x-auto space-x-6 pb-4 snap-x snap-mandatory scrollbar-hide flex-1"
             style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
           >
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
-                className="flex-none w-64 md:w-72 snap-center"
+                className="flex-none w-80 md:w-96 snap-center"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className={`bg-gray-800 rounded-lg p-4 h-48 flex flex-col justify-between shadow-lg`}>
-                  <p className="text-gray-200 italic text-sm leading-relaxed">
+                <div className={`bg-gray-800 rounded-lg p-6 h-64 flex flex-col justify-between shadow-lg`}>
+                  <p className="text-gray-200 italic text-md">
                     "{testimonial.quote}"
                   </p>
-                  <div className="text-right mt-3">
-                    <p className="text-purple-300 font-semibold text-sm">{testimonial.name}</p>
-                    <p className="text-gray-400 text-xs">{testimonial.location}</p>
+                  <div className="text-right mt-4">
+                    <p className="text-purple-300 font-semibold">{testimonial.name}</p>
+                    <p className="text-gray-400 text-sm">{testimonial.location}</p>
                   </div>
                 </div>
               </motion.div>
