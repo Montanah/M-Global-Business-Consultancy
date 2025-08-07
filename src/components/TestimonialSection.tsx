@@ -60,35 +60,35 @@ const TestimonialSection = () => {
           Real stories from satisfied clients around the world
         </p>
         
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           {/* Left Navigation Arrow */}
           <button 
             onClick={() => scroll("left")}
-            className="bg-purple-600 p-3 rounded-full hover:bg-purple-700 transition-colors flex-shrink-0"
+            className="bg-purple-600 p-2 sm:p-3 rounded-full hover:bg-purple-700 transition-colors flex-shrink-0"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
           </button>
 
           {/* Testimonial Cards */}
           <div 
             ref={scrollRef}
-            className="flex overflow-x-auto space-x-6 pb-4 snap-x snap-mandatory scrollbar-hide flex-1"
+            className="flex overflow-x-auto space-x-3 sm:space-x-6 pb-4 snap-x snap-mandatory scrollbar-hide flex-1"
             style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
           >
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
-                className="flex-none w-80 md:w-96 snap-center"
+                className="flex-none w-64 sm:w-80 md:w-96 snap-center"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className={`bg-gray-800 rounded-lg p-6 h-64 flex flex-col justify-between shadow-lg`}>
-                  <p className="text-gray-200 italic text-md">
+                <div className={`bg-gray-800 rounded-lg p-4 sm:p-6 h-52 sm:h-64 flex flex-col justify-between shadow-lg`}>
+                  <p className="text-gray-200 italic text-sm sm:text-md">
                     "{testimonial.quote}"
                   </p>
                   <div className="text-right mt-4">
-                    <p className="text-purple-300 font-semibold">{testimonial.name}</p>
-                    <p className="text-gray-400 text-sm">{testimonial.location}</p>
+                    <p className="text-purple-300 font-semibold text-sm sm:text-base">{testimonial.name}</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">{testimonial.location}</p>
                   </div>
                 </div>
               </motion.div>
@@ -98,9 +98,9 @@ const TestimonialSection = () => {
           {/* Right Navigation Arrow */}
           <button 
             onClick={() => scroll("right")}
-            className="bg-purple-600 p-3 rounded-full hover:bg-purple-700 transition-colors flex-shrink-0"
+            className="bg-purple-600 p-2 sm:p-3 rounded-full hover:bg-purple-700 transition-colors flex-shrink-0"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
           </button>
         </div>
       </div>
