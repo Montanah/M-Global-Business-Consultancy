@@ -108,6 +108,9 @@ const Team = () => {
                   </p>
                   
                   <div className="space-y-4 text-gray-700">
+                    <p className="text-lg font-medium text-gray-800 mb-3">
+                      Full-stack Software Engineer and UX designer with 5+ years of experience
+                    </p>
                     <p className="leading-relaxed">
                       With over a decade of experience in business consultancy and digital transformation, 
                       Mititi Isaac brings a wealth of knowledge in strategic planning, operations management, 
