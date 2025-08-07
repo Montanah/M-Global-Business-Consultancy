@@ -82,11 +82,11 @@ const TestimonialSection = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className={`bg-gray-800 rounded-lg p-3 sm:p-6 h-48 sm:h-64 flex flex-col justify-between shadow-lg`}>
-                  <p className="text-gray-200 italic text-xs sm:text-md leading-relaxed">
+                <div className={`bg-gray-800 rounded-lg p-3 sm:p-6 h-56 sm:h-64 flex flex-col justify-between shadow-lg`}>
+                  <p className="text-gray-200 italic text-xs sm:text-md leading-tight">
                     "{testimonial.quote}"
                   </p>
-                  <div className="text-right mt-2 sm:mt-4">
+                  <div className="text-right mt-1 sm:mt-4 flex-shrink-0">
                     <p className="text-purple-300 font-semibold text-xs sm:text-base">{testimonial.name}</p>
                     <p className="text-gray-400 text-xs">{testimonial.location}</p>
                   </div>
