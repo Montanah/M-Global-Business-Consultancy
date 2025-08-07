@@ -13,13 +13,13 @@ const TestimonialSection = () => {
       bg: "bg-gradient-to-br from-blue-400 to-indigo-500"
     },
     {
-        quote: "M'Global Business Consultancy has been a blessing to our ministry, providing beautifully designed e-cards that help us connect with our congregation. Their creativity, professionalism, and understanding of our vision keep us coming back!",
+        quote: "M'Global's creative, professional e-cards help us connect deeply with our congregation. A true blessing to our ministry.",
         name: "Pst. Laban",
         location: "Nairobi, Kenya",
         bg: "bg-gradient-to-br from-green-400 to-teal-500"
     },
     {
-        quote: "M'Global Business Consultancy creates stunning e-cards that capture the spirit of adventure, helping us connect with clients and promote our tours. Their creativity, professionalism, and efficiency make them a valued partner!",
+        quote: "M'Global's stunning e-cards capture the spirit of adventure, helping us connect with clients and promote our tours. Their creativity, professionalism, and efficiency make them a valued partner!",
         name: "Isaac",
         location: "Kisii, Kenya",
         bg: "bg-gradient-to-br from-pink-400 to-purple-500"
