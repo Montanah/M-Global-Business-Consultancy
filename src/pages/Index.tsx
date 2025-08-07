@@ -1,15 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu";
-import { Link } from "react-router-dom";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialSection from "@/components/TestimonialSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import Logo from "@/components/Logo";
 import Footer from "@/components/Footer";
-import { Globe, Code, Smartphone, PenTool, Share, Search, FileText } from "lucide-react";
+import { Globe, Code, Smartphone, PenTool, Share, Search, FileText, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -17,7 +15,7 @@ const fadeInUp = {
 };
 
 const Index = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const services = [
     {
@@ -61,7 +59,7 @@ const Index = () => {
   const smoothScroll = (e, targetId) => {
     e.preventDefault();
     document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
-    setMenuOpen(false);
+    setIsOpen(false);
   };
   
   return (
@@ -76,41 +74,65 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="flex justify-between h-20 items-center">
             <Logo />
-            <div className="flex items-center">
-              <NavigationMenu>
-                <NavigationMenuList className={`md:flex md:items-center md:space-x-6 ${
-                  menuOpen 
-                    ? "flex flex-col absolute top-full left-0 w-full bg-gray-900/95 backdrop-blur-lg p-4 mt-2 shadow-lg border border-purple-700 rounded-lg z-30"
-                    : "hidden md:flex"
-                }`}>
-                  <NavigationMenuItem className="text-center py-2 md:py-0">
-                    <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                      <Button variant="ghost" className="hover:rounded-full">Services</Button>
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
+              <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
+                <Button variant="ghost" className="hover:rounded-full">Services</Button>
+              </a>
+              <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
+                <Button variant="ghost" className="hover:rounded-full">Portfolio</Button>
+              </a>
+              <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
+                <Button variant="ghost" className="hover:rounded-full">Contact</Button>
+              </a>
+              <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
+                <Button className="bg-purple-500 hover:bg-purple-600 text-white rounded-full">Get a Quote</Button>
+              </a>
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="md:hidden">
+              <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="h-10 w-10 text-white">
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Open menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-gray-900/95 border-purple-700">
+                  <nav className="flex flex-col space-y-4 mt-8">
+                    <a 
+                      href="#services" 
+                      onClick={(e) => smoothScroll(e, '#services')}
+                      className="text-lg font-medium text-white hover:text-purple-300 transition-colors py-3 px-4 rounded-md hover:bg-purple-800/50"
+                    >
+                      Services
                     </a>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className="text-center py-2 md:py-0">
-                    <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                      <Button variant="ghost" className="hover:rounded-full">Portfolio</Button>
+                    <a 
+                      href="#portfolio" 
+                      onClick={(e) => smoothScroll(e, '#portfolio')}
+                      className="text-lg font-medium text-white hover:text-purple-300 transition-colors py-3 px-4 rounded-md hover:bg-purple-800/50"
+                    >
+                      Portfolio
                     </a>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className="text-center py-2 md:py-0">
-                    <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                      <Button variant="ghost" className="hover:rounded-full">Contact</Button>
+                    <a 
+                      href="#footer" 
+                      onClick={(e) => smoothScroll(e, '#footer')}
+                      className="text-lg font-medium text-white hover:text-purple-300 transition-colors py-3 px-4 rounded-md hover:bg-purple-800/50"
+                    >
+                      Contact
                     </a>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem className="text-center py-2 md:py-0">
-                    <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110 block md:inline">
-                      <Button className="bg-purple-500 hover:bg-purple-600 text-white rounded-full">Get a Quote</Button>
+                    <a 
+                      href="#footer" 
+                      onClick={(e) => smoothScroll(e, '#footer')}
+                      className="text-lg font-medium bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-md transition-colors"
+                    >
+                      Get a Quote
                     </a>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-              <button 
-                className="md:hidden text-white p-2"
-                onClick={() => setMenuOpen(!menuOpen)}
-              >
-                {menuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
+                  </nav>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>

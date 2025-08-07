@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Footer from '@/components/Footer';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
+import { Menu } from 'lucide-react';
 
 const Team = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -22,6 +27,8 @@ const Team = () => {
                 M'Global Business Consultancy
               </span>
             </a>
+            
+            {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <a href="/" className="text-gray-700 hover:text-pink-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
@@ -43,6 +50,64 @@ const Team = () => {
                   Contact
                 </a>
               </div>
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="md:hidden">
+              <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="h-10 w-10">
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Open menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                  <nav className="flex flex-col space-y-4 mt-8">
+                    <a 
+                      href="/" 
+                      className="text-lg font-medium text-gray-700 hover:text-pink-600 transition-colors py-2 px-4 rounded-md hover:bg-gray-50"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Home
+                    </a>
+                    <a 
+                      href="/#services" 
+                      className="text-lg font-medium text-gray-700 hover:text-pink-600 transition-colors py-2 px-4 rounded-md hover:bg-gray-50"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Services
+                    </a>
+                    <a 
+                      href="/#portfolio" 
+                      className="text-lg font-medium text-gray-700 hover:text-pink-600 transition-colors py-2 px-4 rounded-md hover:bg-gray-50"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Portfolio
+                    </a>
+                    <a 
+                      href="/about" 
+                      className="text-lg font-medium text-gray-700 hover:text-pink-600 transition-colors py-2 px-4 rounded-md hover:bg-gray-50"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      About Us
+                    </a>
+                    <a 
+                      href="/team" 
+                      className="text-lg font-medium text-pink-600 py-2 px-4 rounded-md bg-pink-50"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Our Team
+                    </a>
+                    <a 
+                      href="/#contact" 
+                      className="text-lg font-medium text-gray-700 hover:text-pink-600 transition-colors py-2 px-4 rounded-md hover:bg-gray-50"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      Contact
+                    </a>
+                  </nav>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>
