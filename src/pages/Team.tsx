@@ -127,8 +127,10 @@ const Team = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
                       <div>
                         <h4 className="font-semibold text-gray-800 mb-2">Education</h4>
-                        <p className="text-sm text-gray-600">MBA in Strategic Management</p>
-                        <p className="text-sm text-gray-600">BSc in Business Administration</p>
+                        <p className="text-sm text-gray-600">Software Engineering</p>
+                        <p className="text-sm text-gray-600">Business Administration</p>
+                        <p className="text-sm text-gray-600">Entrepreneurship</p>
+                        <p className="text-sm text-gray-600">Leadership</p>
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-800 mb-2">Expertise</h4>
