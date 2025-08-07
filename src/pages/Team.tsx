@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '@/components/Footer';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const Team = () => {
   const fadeInUp = {
@@ -90,12 +91,17 @@ const Team = () => {
             <div className="bg-gradient-to-r from-pink-50 to-yellow-50 rounded-2xl p-8 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <div className="md:col-span-1 text-center">
-                  <div className="w-48 h-48 mx-auto mb-6 rounded-full bg-gradient-to-r from-pink-200 to-yellow-200 flex items-center justify-center">
-                    <div className="w-44 h-44 rounded-full bg-white flex items-center justify-center">
-                      <span className="text-6xl font-bold bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text text-transparent">
+                  <div className="w-48 h-48 mx-auto mb-6 rounded-full bg-gradient-to-r from-pink-200 to-yellow-200 flex items-center justify-center p-2">
+                    <Avatar className="w-44 h-44">
+                      <AvatarImage 
+                        src="/Official Photo.jpg" 
+                        alt="Mititi Isaac" 
+                        className="object-cover"
+                      />
+                      <AvatarFallback className="text-4xl font-bold bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text text-transparent">
                         MI
-                      </span>
-                    </div>
+                      </AvatarFallback>
+                    </Avatar>
                   </div>
                 </div>
                 
