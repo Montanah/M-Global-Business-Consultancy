@@ -60,11 +60,19 @@ const TestimonialSection = () => {
           Real stories from satisfied clients around the world
         </p>
         
-        <div className="relative">
+        <div className="flex items-center gap-4">
+          {/* Left Navigation Arrow */}
+          <button 
+            onClick={() => scroll("left")}
+            className="bg-purple-600 p-3 rounded-full hover:bg-purple-700 transition-colors flex-shrink-0"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+
           {/* Testimonial Cards */}
           <div 
             ref={scrollRef}
-            className="flex overflow-x-auto space-x-6 pb-4 snap-x snap-mandatory scrollbar-hide"
+            className="flex overflow-x-auto space-x-6 pb-4 snap-x snap-mandatory scrollbar-hide flex-1"
             style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
           >
             {testimonials.map((testimonial, index) => (
@@ -86,6 +94,14 @@ const TestimonialSection = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Right Navigation Arrow */}
+          <button 
+            onClick={() => scroll("right")}
+            className="bg-purple-600 p-3 rounded-full hover:bg-purple-700 transition-colors flex-shrink-0"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
         </div>
       </div>
   );
