@@ -100,26 +100,26 @@ const Index = () => {
                     <span className="sr-only">Open menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-gray-900/95 border-purple-700">
+                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white border-gray-200">
                   <nav className="flex flex-col space-y-4 mt-8">
                     <a 
                       href="#services" 
                       onClick={(e) => smoothScroll(e, '#services')}
-                      className="text-lg font-medium text-white hover:text-purple-300 transition-colors py-3 px-4 rounded-md hover:bg-purple-800/50"
+                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
                     >
                       Services
                     </a>
                     <a 
                       href="#portfolio" 
                       onClick={(e) => smoothScroll(e, '#portfolio')}
-                      className="text-lg font-medium text-white hover:text-purple-300 transition-colors py-3 px-4 rounded-md hover:bg-purple-800/50"
+                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
                     >
                       Portfolio
                     </a>
                     <a 
                       href="#footer" 
                       onClick={(e) => smoothScroll(e, '#footer')}
-                      className="text-lg font-medium text-white hover:text-purple-300 transition-colors py-3 px-4 rounded-md hover:bg-purple-800/50"
+                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
                     >
                       Contact
                     </a>

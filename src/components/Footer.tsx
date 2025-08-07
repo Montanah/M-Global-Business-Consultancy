@@ -12,13 +12,13 @@ const Footer = () => {
   return (
     <footer className="bg-blue-950 text-white">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
           <div>
             <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">M'Global Business Consultancy</h3>
             <p className="text-blue-200 mb-4">
               Transforming businesses through innovative digital solutions.
             </p>
-            <div className="flex space-x-4 justify-center md:justify-start"> {/* Added justify-center for sm, md:justify-start for md+ */}
+            <div className="flex space-x-4 justify-center md:justify-start">
               <Link to="https://x.com/mglobalbconsult?s=11&t=p6v18hsMnUboiUq__V9F5A" target='_blank' className="text-white hover:text-blue-300">
                 <XLogo className="h-5 w-5" />
               </Link>
