@@ -123,7 +123,8 @@ const PortfolioSection = () => {
               size="icon"
               onClick={goToPrevious}
               disabled={currentIndex === 0}
-              className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50 flex-shrink-0"
+              aria-label="Previous projects"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50 flex-shrink-0"
             >
               <ChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
             </Button>
@@ -145,7 +146,8 @@ const PortfolioSection = () => {
               size="icon"
               onClick={goToNext}
               disabled={currentIndex === maxIndex}
-              className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50 flex-shrink-0"
+              aria-label="Next projects"
+              className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50 flex-shrink-0"
             >
               <ChevronRight className="h-4 w-4 md:h-6 md:w-6" />
             </Button>
