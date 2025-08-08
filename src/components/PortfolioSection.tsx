@@ -34,7 +34,7 @@ const portfolioItems: PortfolioItem[] = [
     id: 3,
     title: "HealthTech Mobile App",
     description: "Revolutionary healthcare app connecting patients with doctors, featuring telemedicine and health tracking.",
-    image: "/portfolio-health.jpg",
+    image: "/portfolio-health-africa.jpg",
     liveUrl: "https://healthtech-demo.com",
     tags: ["Healthcare", "Mobile App", "Telemedicine"]
   },
