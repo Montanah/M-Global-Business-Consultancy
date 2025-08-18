@@ -78,22 +78,22 @@ const Index = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-3">
               <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">Services</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">Services</Button>
               </a>
               <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">Portfolio</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">Portfolio</Button>
               </a>
               <a href="/about" className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">About Us</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">About Us</Button>
               </a>
               <a href="/team" className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">Our Team</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">Our Team</Button>
               </a>
               <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">Contact</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">Contact</Button>
               </a>
               <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button size="sm" className="bg-purple-500 hover:bg-purple-600 text-white text-sm px-4 py-2">Get a Quote</Button>
+                <Button size="sm" className="bg-purple-500 hover:bg-purple-600 text-white text-sm px-6 py-2 rounded-full">Get a Quote</Button>
               </a>
             </div>
 
