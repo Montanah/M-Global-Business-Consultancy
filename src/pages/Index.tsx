@@ -71,29 +71,29 @@ const Index = () => {
         transition={{ duration: 0.8 }} 
         className="border-b border-purple-700 bg-gray-900/80 backdrop-blur-lg fixed w-full z-20"
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="flex justify-between h-20 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
             <Logo />
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
-              <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
-                <Button variant="ghost" className="hover:rounded-full">Services</Button>
+            <div className="hidden md:flex items-center space-x-3">
+              <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300">
+                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">Services</Button>
               </a>
-              <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
-                <Button variant="ghost" className="hover:rounded-full">Portfolio</Button>
+              <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300">
+                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">Portfolio</Button>
               </a>
-              <a href="/about" className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
-                <Button variant="ghost" className="hover:rounded-full">About Us</Button>
+              <a href="/about" className="text-white hover:text-purple-300 transition duration-300">
+                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">About Us</Button>
               </a>
-              <a href="/team" className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
-                <Button variant="ghost" className="hover:rounded-full">Our Team</Button>
+              <a href="/team" className="text-white hover:text-purple-300 transition duration-300">
+                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">Our Team</Button>
               </a>
-              <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
-                <Button variant="ghost" className="hover:rounded-full">Contact</Button>
+              <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300">
+                <Button variant="ghost" size="sm" className="text-sm px-3 py-2">Contact</Button>
               </a>
-              <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
-                <Button className="bg-purple-500 hover:bg-purple-600 text-white rounded-full">Get a Quote</Button>
+              <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300">
+                <Button size="sm" className="bg-purple-500 hover:bg-purple-600 text-white text-sm px-4 py-2">Get a Quote</Button>
               </a>
             </div>
 
@@ -101,8 +101,8 @@ const Index = () => {
             <div className="md:hidden">
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-10 w-10 text-white">
-                    <Menu className="h-6 w-6" />
+                  <Button variant="ghost" size="icon" className="h-8 w-8 text-white">
+                    <Menu className="h-5 w-5" />
                     <span className="sr-only">Open menu</span>
                   </Button>
                 </SheetTrigger>
@@ -157,7 +157,7 @@ const Index = () => {
       </motion.nav>
   
       {/* Hero Section */}
-      <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="pt-32 pb-5 px-6 text-center bg-gradient-to-b from-indigo-800 to-purple-700 relative z-10"> {/* Added relative z-index */}
+      <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="pt-24 pb-5 px-6 text-center bg-gradient-to-b from-indigo-800 to-purple-700 relative z-10"> {/* Added relative z-index */}
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-300 to-pink-400 mb-6 animate-fade-in">
             M'Global Business Consultancy
