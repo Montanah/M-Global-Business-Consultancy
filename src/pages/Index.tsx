@@ -83,6 +83,12 @@ const Index = () => {
               <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
                 <Button variant="ghost" className="hover:rounded-full">Portfolio</Button>
               </a>
+              <a href="/about" className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
+                <Button variant="ghost" className="hover:rounded-full">About Us</Button>
+              </a>
+              <a href="/team" className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
+                <Button variant="ghost" className="hover:rounded-full">Our Team</Button>
+              </a>
               <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300 ease-in-out transform hover:scale-110">
                 <Button variant="ghost" className="hover:rounded-full">Contact</Button>
               </a>
@@ -115,6 +121,18 @@ const Index = () => {
                       className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
                     >
                       Portfolio
+                    </a>
+                    <a 
+                      href="/about"
+                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
+                    >
+                      About Us
+                    </a>
+                    <a 
+                      href="/team"
+                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
+                    >
+                      Our Team
                     </a>
                     <a 
                       href="#footer" 
