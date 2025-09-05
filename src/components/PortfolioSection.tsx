@@ -28,7 +28,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "A modern, dynamic website showcasing church programs, enhanced with integrated audio recordings and a seamlessly embedded YouTube channel.",
     image: "/DCIN Screenshot.png",
     liveUrl: "https://www.deliverancechurchinternationalnyansiongo.org",
-    tags: ["E-Commerce", "Analytics", "Payment Integration"]
+    tags: ["Church Management", "Audio Streaming", "Ministry Tools"]
   },
   {
     id: 3,
