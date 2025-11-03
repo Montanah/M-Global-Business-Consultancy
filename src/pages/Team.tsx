@@ -128,7 +128,7 @@ const Team = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Meet the dedicated professionals who drive innovation and excellence at M'Global Business Consultancy.
+              Meet the dedicated professional who drives innovation and excellence at M'Global Business Consultancy.
             </p>
           </motion.div>
         </div>
@@ -145,7 +145,7 @@ const Team = () => {
               Leadership Team
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Meet the visionary leaders driving innovation and excellence at M'Global
+              Meet the visionary leader driving innovation and excellence at M'Global
             </p>
           </motion.div>
 

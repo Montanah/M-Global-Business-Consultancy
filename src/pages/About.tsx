@@ -245,7 +245,7 @@ const About = () => {
             >
               <h3 className="text-xl font-semibold mb-3 text-gray-800">Proven Track Record</h3>
               <p className="text-gray-600">
-                Successfully delivered 100+ projects across various industries with measurable results.
+                Successfully delivered 10+ projects across various industries with measurable results.
               </p>
             </motion.div>
             

@@ -16,7 +16,7 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
   {
     id: 1,
-    title: "Logistics Platfrom Website & Mobile Application",
+    title: "Logistics Platform Website & Mobile Application",
     description: "A fully developed website featuring a dedicated services section and seamless redirects to mobile app downloads, complemented by a modern, user-friendly mobile application designed for both Android and iOS platforms",
     image: "/TRUK Screenshot.png",
     liveUrl: "https://trukafrica.com",
@@ -24,6 +24,14 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     id: 2,
+    title: "TRUK Admin Panel Web Application",
+    description: "A fully developed responsive and intuitive admin dashboard delivering real-time insights into the TRUK mobile app's key metrics and user behavior.",
+    image: "/Admin Panel.jpg",
+    liveUrl: "https://truk-admin-panel.netlify.app/",
+    tags: ["Web Development", "Web App", "Enterprise"]
+  },
+  {
+    id: 3,
     title: "Comprehensive Church Website",
     description: "A modern, dynamic website showcasing church programs, enhanced with integrated audio recordings and a seamlessly embedded YouTube channel.",
     image: "/DCIN Screenshot.png",
@@ -31,7 +39,7 @@ const portfolioItems: PortfolioItem[] = [
     tags: ["Church Management", "Audio Streaming", "Ministry Tools"]
   },
   {
-    id: 3,
+    id: 4,
     title: "HealthTech Mobile App",
     description: "Revolutionary healthcare app connecting patients with doctors, featuring telemedicine and health tracking.",
     image: "/portfolio-health-africa.jpg",
@@ -39,7 +47,7 @@ const portfolioItems: PortfolioItem[] = [
     tags: ["Healthcare", "Mobile App", "Telemedicine"]
   },
   {
-    id: 4,
+    id: 5,
     title: "FinTech Dashboard",
     description: "Comprehensive financial dashboard with real-time analytics, portfolio tracking, and investment insights.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
