@@ -128,7 +128,7 @@ const Team = () => {
               </span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Meet the dedicated professional who drives innovation and excellence at M'Global Business Consultancy.
+              Meet the dedicated professionals who drive innovation and excellence at M'Global Business Consultancy.
             </p>
           </motion.div>
         </div>
@@ -145,7 +145,7 @@ const Team = () => {
               Leadership Team
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Meet the visionary leader driving innovation and excellence at M'Global
+              Meet the visionary leaders driving innovation and excellence at M'Global Business Consultancy
             </p>
           </motion.div>
 
@@ -202,6 +202,61 @@ const Team = () => {
                         <p className="text-sm text-gray-600">Business Strategy</p>
                         <p className="text-sm text-gray-600">Digital Transformation</p>
                         <p className="text-sm text-gray-600">Operations Management</p>
+                        <p className="text-sm text-gray-600">Graphic Design & Digital Marketing</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+            <div className="bg-gradient-to-r from-pink-50 to-yellow-50 rounded-2xl p-8 md:p-12">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div className="md:col-span-1 text-center">
+                  <div className="w-48 h-48 mx-auto mb-6 rounded-full bg-gradient-to-r from-pink-200 to-yellow-200 flex items-center justify-center p-2">
+                    <Avatar className="w-44 h-44">
+                      <AvatarImage 
+                        src="/Mumbua Photo.jpeg" 
+                        alt="Mumbua Mutuku" 
+                        className="object-cover"
+                      />
+                      <AvatarFallback className="text-4xl font-bold bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text text-transparent">
+                        MM
+                      </AvatarFallback>
+                    </Avatar>
+                  </div>
+                </div>
+                
+                <div className="md:col-span-2">
+                  <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text text-transparent">
+                    Mumbua Mutuku
+                  </h3>
+                  <p className="text-xl text-pink-600 font-semibold mb-4">
+                    Senior Software Engineer
+                  </p>
+                  
+                  <div className="space-y-4 text-gray-700">
+                    <p className="text-lg font-medium text-gray-800 mb-3">
+                      Backend Softwarer and DevOps Engineer with 5+ years of experience
+                    </p>
+                    <p className="leading-relaxed">
+                    A passionate and experienced backend developer, IT consultant, and virtual assistant. With a deep love for all things technology, I have dedicated myself to helping businesses thrive by leveraging my expertise in these three distinct yet interrelated fields.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-2">Education</h4>
+                        <p className="text-sm text-gray-600">Software Engineering</p>
+                        <p className="text-sm text-gray-600">Computer Science & Technology</p>
+                        <p className="text-sm text-gray-600">Artificial Intelligence</p>
+                        <p className="text-sm text-gray-600">Virtual Assistance</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-2">Expertise</h4>
+                        <p className="text-sm text-gray-600">Backend Development</p>
+                        <p className="text-sm text-gray-600">Database Management</p>
+                        <p className="text-sm text-gray-600">IT Consulting</p>
+                        <p className="text-sm text-gray-600">Virtual Assistance</p>
                       </div>
                     </div>
                   </div>
