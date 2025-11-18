@@ -20,7 +20,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "AI-powered poultry management platform with IoT-integrated smart brooders, real-time analytics, and solar-powered technology for smallholder farmers",
     image: "/agriflock360-screenshot.png",
     liveUrl: "https://agriflock360.netlify.app",
-    tags: ["AgriTech", "IoT", "AI Analytics"]
+    tags: ["AgriTech", "Mobile App", "IoT", "AI Analytics"]
   },
   {
     id: 2,
