@@ -17,10 +17,10 @@ const portfolioItems: PortfolioItem[] = [
   {
     id: 1,
     title: "AgriFlock360 Platform Website & Mobile Application",
-    description: "AI-powered poultry management platform with IoT-integrated smart brooders, real-time analytics, and solar-powered technology for smallholder farmers",
+    description: "Comprehensive AI-powered poultry management ecosystem featuring custom IoT hardware and software. Our team handled the complete hardware development cycle: PCB design and schematic creation, Gerber file generation, and international fabrication coordination with manufacturers in China. Post-fabrication, we conducted rigorous testing and assembly verification of the smart brooder chips. The platform includes a mobile application with advanced offline functionality for seamless operation in low-connectivity areas, real-time environmental monitoring, automated climate control, and solar-powered IoT sensors. The system integrates AI-driven analytics to optimize poultry health and productivity for smallholder farmers across Africa.",
     image: "/agriflock360-screenshot.png",
     liveUrl: "https://agriflock360.netlify.app",
-    tags: ["AgriTech", "Mobile App", "IoT", "AI Analytics"]
+    tags: ["AgriTech", "Mobile App", "IoT", "PCB Design", "AI Analytics", "Hardware Development"]
   },
   {
     id: 2,
