@@ -56,8 +56,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">Contact Us</h3>
               <p className="text-blue-200 mb-2">
-                <a href="mailto:mglobalbizconsult@gmail.com" className="hover:underline">
-                  mglobalbizconsult@gmail.com
+                <a href="mailto:hello@mglobalbusinessconsultancy.com" className="hover:underline">
+                  hello@mglobalbusinessconsultancy.com
                 </a>
               </p>
               <p className="text-blue-200 mb-2">
