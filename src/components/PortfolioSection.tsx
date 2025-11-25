@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 interface PortfolioItem {
   id: number;
@@ -10,6 +11,7 @@ interface PortfolioItem {
   description: string;
   image: string;
   liveUrl: string;
+  detailsUrl: string;
   tags: string[];
 }
 
@@ -20,6 +22,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "Comprehensive AI-powered poultry management ecosystem featuring custom IoT hardware and software. Our team handled the complete hardware development cycle: PCB design and schematic creation, Gerber file generation, and international fabrication coordination with manufacturers in China. Post-fabrication, we conducted rigorous testing and assembly verification of the smart brooder chips. The platform includes a mobile application with advanced offline functionality for seamless operation in low-connectivity areas, real-time environmental monitoring, automated climate control, and solar-powered IoT sensors. The system integrates AI-driven analytics to optimize poultry health and productivity for smallholder farmers across Africa.",
     image: "/agriflock-new.png",
     liveUrl: "https://agriflock360.netlify.app",
+    detailsUrl: "/projects/agriflock360",
     tags: ["AgriTech", "Mobile App", "IoT", "PCB Design", "AI Analytics", "Hardware Development"]
   },
   {
@@ -28,6 +31,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "A fully developed website featuring a dedicated services section and seamless redirects to mobile app downloads, complemented by a modern, user-friendly mobile application designed for both Android and iOS platforms",
     image: "/TRUK Screenshot.png",
     liveUrl: "https://trukafrica.com",
+    detailsUrl: "/projects/truk-logistics",
     tags: ["Web Development", "Mobile App", "Enterprise"]
   },
   {
@@ -36,6 +40,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "A fully developed responsive and intuitive admin dashboard delivering real-time insights into the TRUK mobile app's key metrics and user behavior.",
     image: "/Admin Panel.jpg",
     liveUrl: "https://truk-admin-panel.netlify.app/",
+    detailsUrl: "/projects/truk-admin",
     tags: ["Web Development", "Web App", "Enterprise"]
   },
   {
@@ -44,6 +49,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "A modern, dynamic website showcasing church programs, enhanced with integrated audio recordings and a seamlessly embedded YouTube channel.",
     image: "/DCIN Screenshot.png",
     liveUrl: "https://www.deliverancechurchinternationalnyansiongo.org",
+    detailsUrl: "/projects/church-website",
     tags: ["Church Management", "Audio Streaming", "Ministry Tools"]
   },
   {
@@ -52,6 +58,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "Revolutionary healthcare app connecting patients with doctors, featuring telemedicine and health tracking.",
     image: "/portfolio-health-africa.jpg",
     liveUrl: "https://healthtech-demo.com",
+    detailsUrl: "/projects/healthtech",
     tags: ["Healthcare", "Mobile App", "Telemedicine"]
   },
   {
@@ -60,6 +67,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "Comprehensive financial dashboard with real-time analytics, portfolio tracking, and investment insights.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
     liveUrl: "https://fintech-demo.com",
+    detailsUrl: "/projects/fintech",
     tags: ["FinTech", "Dashboard", "Analytics"]
   },
   {
@@ -68,6 +76,7 @@ const portfolioItems: PortfolioItem[] = [
     description: "Interactive learning management system with video streaming, progress tracking, and collaborative tools.",
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
     liveUrl: "https://eduplatform-demo.com",
+    detailsUrl: "/projects/educational-platform",
     tags: ["Education", "LMS", "Video Streaming"]
   }
 ];
@@ -223,16 +232,29 @@ const PortfolioSection = () => {
                             </span>
                           ))}
                         </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                          asChild
-                        >
-                          <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
-                            View Live Project
-                          </a>
-                        </Button>
+                        <div className="flex gap-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                            asChild
+                          >
+                            <Link to={item.detailsUrl}>
+                              Learn More
+                            </Link>
+                          </Button>
+                          <Button
+                            variant="default"
+                            size="sm"
+                            className="flex-1"
+                            asChild
+                          >
+                            <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink className="mr-1 h-4 w-4" />
+                              Live
+                            </a>
+                          </Button>
+                        </div>
                       </CardContent>
                     </Card>
                   </motion.div>
