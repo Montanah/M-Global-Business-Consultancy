@@ -93,7 +93,7 @@ const Index = () => {
               <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300">
                 <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">Contact</Button>
               </a>
-              <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300">
+              <a href="#contact" onClick={(e) => smoothScroll(e, '#contact')} className="text-white hover:text-purple-300 transition duration-300">
                 <Button size="sm" className="bg-purple-500 hover:bg-purple-600 text-white text-sm px-6 py-2 rounded-full">Get a Quote</Button>
               </a>
             </div>
@@ -143,8 +143,8 @@ const Index = () => {
                       Contact
                     </a>
                     <a 
-                      href="#footer" 
-                      onClick={(e) => smoothScroll(e, '#footer')}
+                      href="#contact" 
+                      onClick={(e) => smoothScroll(e, '#contact')}
                       className="text-lg font-medium bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-md transition-colors"
                     >
                       Get a Quote
