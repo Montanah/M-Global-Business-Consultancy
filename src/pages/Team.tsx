@@ -207,7 +207,7 @@ const Team = () => {
                         <p className="text-sm text-gray-600">Business Strategy</p>
                         <p className="text-sm text-gray-600">Digital Transformation</p>
                         <p className="text-sm text-gray-600">Operations Management</p>
-                        <p className="text-sm text-gray-600">Graphic Design & Digital Marketing</p>
+                        <p className="text-sm text-gray-600">Branding Strategist</p>
                       </div>
                     </div>
                   </div>
