@@ -22,8 +22,8 @@ const ContactForm = () => {
       return;
     }
 
-    // Create mailto link with pre-filled data
-    const mailtoLink = `mailto:hello@mglobalbusinessconsultancy.com?subject=${encodeURIComponent(formData.subject || `Message from ${formData.name}`)}&body=${encodeURIComponent(
+    // Create mailto link with pre-filled data and CC to both emails
+    const mailtoLink = `mailto:hello@mglobalbusinessconsultancy.com?cc=mititi.isaac@mglobalbusinessconsultancy.com&subject=${encodeURIComponent(formData.subject || `Message from ${formData.name}`)}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
 
