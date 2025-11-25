@@ -174,8 +174,11 @@ const Team = () => {
                   <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-pink-600 to-yellow-500 bg-clip-text text-transparent">
                     Mititi Isaac
                   </h3>
-                  <p className="text-xl text-pink-600 font-semibold mb-4">
+                  <p className="text-xl text-pink-600 font-semibold mb-2">
                     Director & Founder
+                  </p>
+                  <p className="text-gray-600 mb-4">
+                    mititi.isaac@mglobalbusinessconsultancy.com
                   </p>
                   
                   <div className="space-y-4 text-gray-700">
