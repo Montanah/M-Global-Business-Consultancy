@@ -5,6 +5,7 @@ import TestimonialSection from "@/components/TestimonialSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import Logo from "@/components/Logo";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 import { Globe, Code, Smartphone, PenTool, Share, Search, FileText, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -203,6 +204,26 @@ const Index = () => {
       className="py-20 bg-gradient-to-r from-gray-900 to-indigo-900 text-white"
       >
         <TestimonialSection />
+      </motion.div>
+
+      {/* Contact Form Section */}
+      <motion.div 
+        variants={fadeInUp} 
+        initial="hidden" 
+        whileInView="visible" 
+        viewport={{ once: true }} 
+        id="contact"
+        className="py-20 bg-gradient-to-r from-indigo-900 via-purple-800 to-indigo-900 text-white"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">
+            Get In Touch
+          </h2>
+          <p className="text-md md:text-lg text-center mb-12 text-purple-100 max-w-3xl mx-auto">
+            Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+          </p>
+          <ContactForm />
+        </div>
       </motion.div>
   
       {/* Footer */}
