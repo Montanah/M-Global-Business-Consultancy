@@ -178,7 +178,9 @@ const Team = () => {
                     Director & Founder
                   </p>
                   <p className="text-gray-600 mb-4">
-                    mititi.isaac@mglobalbusinessconsultancy.com
+                    <a href="mailto:mititi.isaac@mglobalbusinessconsultancy.com" className="hover:underline hover:text-pink-600 transition-colors">
+                      mititi.isaac@mglobalbusinessconsultancy.com
+                    </a>
                   </p>
                   
                   <div className="space-y-4 text-gray-700">
