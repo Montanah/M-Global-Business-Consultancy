@@ -110,11 +110,16 @@ const portfolioCategories: PortfolioCategory[] = [
       {
         id: 1,
         title: "Deliverance Church International Nyansiongo - Social Media Management",
-        description: "Comprehensive social media management across LinkedIn, Facebook, Instagram, X (Twitter), and TikTok. We create engaging content, manage community interactions, and build an active online presence to connect the church with its congregation and wider community.",
+        description: "Comprehensive social media management across Facebook, Instagram, and X (Twitter). We create engaging content, manage community interactions, and build an active online presence to connect the church with its congregation and wider community.",
         image: "/DCIN Screenshot.png",
         liveUrl: "https://www.facebook.com/DCINyansiongo",
         detailsUrl: "/projects/church-website",
-        tags: ["Social Media", "Content Creation", "Community Management"]
+        tags: ["Social Media", "Content Creation", "Community Management"],
+        socialLinks: {
+          facebook: "https://www.facebook.com/DCINyansiongo",
+          instagram: "https://www.instagram.com/dcinyansiongo",
+          x: "https://x.com/dcinyansiongo"
+        }
       },
       {
         id: 2,
