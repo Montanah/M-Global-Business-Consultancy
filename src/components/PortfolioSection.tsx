@@ -157,7 +157,7 @@ const portfolioCategories: PortfolioCategory[] = [
         id: 4,
         title: "M'Global Farm - Social Media Management",
         description: "Complete social media presence management for M'Global Farm. We develop and execute content calendars, engage with the farming community, and promote sustainable agricultural practices across LinkedIn, Facebook, Instagram, X, and TikTok.",
-        image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&h=400&fit=crop",
+        image: "/M_Global_Farm_Logo.png",
         liveUrl: "https://www.facebook.com/profile.php?id=100068009874336",
         detailsUrl: "#",
         tags: ["Social Media", "Agriculture", "Brand Building"],
