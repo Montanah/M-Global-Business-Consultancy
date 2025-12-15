@@ -128,7 +128,14 @@ const portfolioCategories: PortfolioCategory[] = [
         image: "/TRUK Screenshot.png",
         liveUrl: "https://www.linkedin.com/company/truk-africa",
         detailsUrl: "/projects/truk-logistics",
-        tags: ["Social Media", "Brand Strategy", "Digital Marketing"]
+        tags: ["Social Media", "Brand Strategy", "Digital Marketing"],
+        socialLinks: {
+          facebook: "https://www.facebook.com/profile.php?id=61577130358564",
+          linkedin: "https://www.linkedin.com/company/truk-ltd",
+          instagram: "https://www.instagram.com/truk_ltd",
+          x: "https://x.com/trukltd",
+          tiktok: "https://www.tiktok.com/@truk_ltd"
+        }
       },
       {
         id: 3,
