@@ -20,8 +20,7 @@ interface PortfolioItem {
   id: number;
   title: string;
   description: string;
-  image?: string;
-  video?: string;
+  image: string;
   liveUrl: string;
   detailsUrl: string;
   tags: string[];
@@ -167,15 +166,6 @@ const portfolioCategories: PortfolioCategory[] = [
           instagram: "https://www.instagram.com/m_global_farm",
           x: "https://x.com/m_global_farm"
         }
-      },
-      {
-        id: 5,
-        title: "TRUK Animation Video",
-        description: "Professional animation video created for TRUK logistics platform showcasing their brand identity and services through engaging motion graphics.",
-        video: "/TRUK_Animation_video_1.mp4",
-        liveUrl: "#",
-        detailsUrl: "/projects/truk-logistics",
-        tags: ["Animation", "Motion Graphics", "Brand Video"]
       }
     ]
   },
@@ -183,6 +173,23 @@ const portfolioCategories: PortfolioCategory[] = [
     id: "business",
     label: "Business Plans & Registration",
     items: []
+  }
+];
+
+// Design work items (videos and images) for the Design & Marketing tab
+interface DesignWorkItem {
+  id: number;
+  title: string;
+  type: 'video' | 'image';
+  src: string;
+}
+
+const designWorkItems: DesignWorkItem[] = [
+  {
+    id: 1,
+    title: "TRUK Animation Video",
+    type: "video",
+    src: "/TRUK_Animation_video_1.mp4"
   }
 ];
 
@@ -296,37 +303,23 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
               >
                 <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
                   <div className="relative group">
-                    {item.video ? (
-                      <video
-                        src={item.video}
-                        className="w-full h-40 md:h-48 object-cover"
-                        controls
-                        muted
-                        playsInline
-                      />
-                    ) : (
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                      />
-                    )}
-                    {!item.video && (
-                      <>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <Button
-                            size="icon"
-                            className="h-10 w-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30"
-                            asChild
-                          >
-                            <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
-                              <ExternalLink className="h-5 w-5 text-white" />
-                            </a>
-                          </Button>
-                        </div>
-                      </>
-                    )}
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Button
+                        size="icon"
+                        className="h-10 w-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30"
+                        asChild
+                      >
+                        <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-5 w-5 text-white" />
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                   <CardContent className="p-4 md:p-6">
                     <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">{item.title}</h3>
@@ -458,6 +451,43 @@ const PortfolioSection = () => {
           {portfolioCategories.map((category) => (
             <TabsContent key={category.id} value={category.id}>
               <PortfolioCarousel items={category.items} />
+              
+              {/* Design Work Section - only for Design & Marketing tab */}
+              {category.id === "design-marketing" && designWorkItems.length > 0 && (
+                <div className="mt-16">
+                  <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 mb-8 text-center">
+                    Some of our Design work
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {designWorkItems.map((item) => (
+                      <motion.div
+                        key={item.id}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.2 }}
+                        className="rounded-xl overflow-hidden shadow-lg bg-white/80 backdrop-blur-sm"
+                      >
+                        {item.type === 'video' ? (
+                          <video
+                            src={item.src}
+                            className="w-full h-64 object-cover"
+                            controls
+                            playsInline
+                          />
+                        ) : (
+                          <img
+                            src={item.src}
+                            alt={item.title}
+                            className="w-full h-64 object-cover"
+                          />
+                        )}
+                        <div className="p-4">
+                          <p className="text-sm font-medium text-gray-700">{item.title}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </TabsContent>
           ))}
         </Tabs>
