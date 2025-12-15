@@ -95,7 +95,44 @@ const portfolioCategories: PortfolioCategory[] = [
   {
     id: "design-marketing",
     label: "Design & Marketing",
-    items: []
+    items: [
+      {
+        id: 1,
+        title: "Deliverance Church International Nyansiongo - Social Media Management",
+        description: "Comprehensive social media management across LinkedIn, Facebook, Instagram, X (Twitter), and TikTok. We create engaging content, manage community interactions, and build an active online presence to connect the church with its congregation and wider community.",
+        image: "/DCIN Screenshot.png",
+        liveUrl: "https://www.facebook.com/DCINyansiongo",
+        detailsUrl: "/projects/church-website",
+        tags: ["Social Media", "Content Creation", "Community Management"]
+      },
+      {
+        id: 2,
+        title: "TRUK - Social Media Management",
+        description: "Full-service social media management for TRUK logistics platform. We handle content strategy, brand storytelling, and engagement across all major platforms including LinkedIn, Facebook, Instagram, X, and TikTok to drive brand awareness and user acquisition.",
+        image: "/TRUK Screenshot.png",
+        liveUrl: "https://www.linkedin.com/company/truk-africa",
+        detailsUrl: "/projects/truk-logistics",
+        tags: ["Social Media", "Brand Strategy", "Digital Marketing"]
+      },
+      {
+        id: 3,
+        title: "AgriFlock 360 - Social Media Management",
+        description: "Strategic social media management for AgriFlock 360's AI-powered poultry platform. We create educational content, showcase product features, and engage with farmers and agricultural stakeholders across LinkedIn, Facebook, Instagram, X, and TikTok.",
+        image: "/agriflock-new.png",
+        liveUrl: "https://www.linkedin.com/company/agriflock360",
+        detailsUrl: "/projects/agriflock360",
+        tags: ["Social Media", "AgriTech Marketing", "Content Strategy"]
+      },
+      {
+        id: 4,
+        title: "M'Global Farm - Social Media Management",
+        description: "Complete social media presence management for M'Global Farm. We develop and execute content calendars, engage with the farming community, and promote sustainable agricultural practices across LinkedIn, Facebook, Instagram, X, and TikTok.",
+        image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&h=400&fit=crop",
+        liveUrl: "https://www.facebook.com/mglobalfarm",
+        detailsUrl: "#",
+        tags: ["Social Media", "Agriculture", "Brand Building"]
+      }
+    ]
   },
   {
     id: "business",
