@@ -5,6 +5,16 @@ import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { FaFacebook, FaLinkedin, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+interface SocialLinks {
+  facebook?: string;
+  linkedin?: string;
+  instagram?: string;
+  x?: string;
+  tiktok?: string;
+}
 
 interface PortfolioItem {
   id: number;
@@ -14,6 +24,7 @@ interface PortfolioItem {
   liveUrl: string;
   detailsUrl: string;
   tags: string[];
+  socialLinks?: SocialLinks;
 }
 
 interface PortfolioCategory {
@@ -119,9 +130,16 @@ const portfolioCategories: PortfolioCategory[] = [
         title: "AgriFlock 360 - Social Media Management",
         description: "Strategic social media management for AgriFlock 360's AI-powered poultry platform. We create educational content, showcase product features, and engage with farmers and agricultural stakeholders across LinkedIn, Facebook, Instagram, X, and TikTok.",
         image: "/agriflock-new.png",
-        liveUrl: "https://www.linkedin.com/company/agriflock360",
+        liveUrl: "https://www.linkedin.com/company/agriflock-360",
         detailsUrl: "/projects/agriflock360",
-        tags: ["Social Media", "AgriTech Marketing", "Content Strategy"]
+        tags: ["Social Media", "AgriTech Marketing", "Content Strategy"],
+        socialLinks: {
+          facebook: "https://www.facebook.com/profile.php?id=61584028213600",
+          linkedin: "https://www.linkedin.com/company/agriflock-360",
+          x: "https://x.com/agriflock360",
+          instagram: "https://www.instagram.com/agriflock_360",
+          tiktok: "https://www.tiktok.com/@agriflock_360"
+        }
       },
       {
         id: 4,
@@ -282,29 +300,71 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                         </span>
                       ))}
                     </div>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                        asChild
-                      >
-                        <Link to={item.detailsUrl}>
-                          Learn More
-                        </Link>
-                      </Button>
-                      <Button
-                        variant="default"
-                        size="sm"
-                        className="flex-1"
-                        asChild
-                      >
-                        <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="mr-1 h-4 w-4" />
-                          Live
-                        </a>
-                      </Button>
-                    </div>
+                    {item.socialLinks ? (
+                      <div className="flex flex-col gap-3">
+                        <div className="flex justify-center gap-3">
+                          {item.socialLinks.facebook && (
+                            <a href={item.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition-colors">
+                              <FaFacebook className="h-5 w-5" />
+                            </a>
+                          )}
+                          {item.socialLinks.linkedin && (
+                            <a href={item.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900 transition-colors">
+                              <FaLinkedin className="h-5 w-5" />
+                            </a>
+                          )}
+                          {item.socialLinks.instagram && (
+                            <a href={item.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 transition-colors">
+                              <FaInstagram className="h-5 w-5" />
+                            </a>
+                          )}
+                          {item.socialLinks.x && (
+                            <a href={item.socialLinks.x} target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-black transition-colors">
+                              <FaXTwitter className="h-5 w-5" />
+                            </a>
+                          )}
+                          {item.socialLinks.tiktok && (
+                            <a href={item.socialLinks.tiktok} target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-black transition-colors">
+                              <FaTiktok className="h-5 w-5" />
+                            </a>
+                          )}
+                        </div>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                          asChild
+                        >
+                          <Link to={item.detailsUrl}>
+                            Learn More
+                          </Link>
+                        </Button>
+                      </div>
+                    ) : (
+                      <div className="flex gap-2">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                          asChild
+                        >
+                          <Link to={item.detailsUrl}>
+                            Learn More
+                          </Link>
+                        </Button>
+                        <Button
+                          variant="default"
+                          size="sm"
+                          className="flex-1"
+                          asChild
+                        >
+                          <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="mr-1 h-4 w-4" />
+                            Live
+                          </a>
+                        </Button>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </motion.div>
