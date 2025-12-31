@@ -81,6 +81,39 @@ const AgriFlock360 = () => {
                 them to improve productivity, reduce losses, and make data-driven decisions that 
                 significantly impact their livelihoods.
               </p>
+
+              <h2 className="text-3xl font-bold mb-4 text-foreground">Hardware Development Gallery</h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Our custom PCB designs showcase the engineering precision behind AgriFlock360's smart brooder system.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="space-y-4">
+                <img
+                  src="/agriflock-pcb-top.jpeg"
+                  alt="AgriFlock360 PCB Top View"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+                <p className="text-sm text-muted-foreground text-center">PCB Layout - Top View</p>
+              </div>
+              <div className="space-y-4">
+                <img
+                  src="/agriflock-pcb-3d.jpeg"
+                  alt="AgriFlock360 PCB 3D Render"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+                <p className="text-sm text-muted-foreground text-center">PCB 3D Render</p>
+              </div>
+            </div>
+
+            <div className="mb-12">
+              <img
+                src="/agriflock-schematic.png"
+                alt="AgriFlock360 Circuit Schematic"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+              <p className="text-sm text-muted-foreground text-center mt-4">Circuit Schematic Design</p>
             </div>
 
             <div className="flex gap-4">
