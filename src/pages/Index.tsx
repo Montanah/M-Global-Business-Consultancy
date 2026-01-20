@@ -38,21 +38,21 @@ const Index = () => {
       bg: "bg-gradient-to-br from-pink-200 to-red-300"
     },
     {
-      title: "Social Media Management",
-      description: "Strategic content creation and community engagement across platforms.",
-      icon: <Share className="h-10 w-10 text-yellow-400" />,
+      title: "System Design & Deployment",
+      description: "End-to-end system architecture, design, and deployment solutions for scalable infrastructure.",
+      icon: <Globe className="h-10 w-10 text-yellow-400" />,
       bg: "bg-gradient-to-br from-yellow-200 to-orange-300"
     },
     {
-      title: "Digital Marketing",
-      description: "SEO, PPC, and content marketing strategies to grow your online presence.",
-      icon: <Search className="h-10 w-10 text-red-400" />,
+      title: "Digital Marketing & Social Media Management",
+      description: "SEO, content marketing, and strategic social media management to grow your online presence.",
+      icon: <Share className="h-10 w-10 text-red-400" />,
       bg: "bg-gradient-to-br from-red-200 to-purple-300"
     },
     {
-      title: "Business Plan Design & Registration",
-      description: "Comprehensive business planning and registration services for startups and SMEs.",
-      icon: <FileText className="h-10 w-10 text-gray-600" />,
+      title: "IT Consulting & Tech Support",
+      description: "Expert IT consulting, technical support, and technology solutions for your business needs.",
+      icon: <Search className="h-10 w-10 text-gray-600" />,
       bg: "bg-gradient-to-br from-gray-200 to-gray-400"
     }
   ];
