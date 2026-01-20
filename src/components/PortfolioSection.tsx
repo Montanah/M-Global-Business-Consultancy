@@ -170,8 +170,13 @@ const portfolioCategories: PortfolioCategory[] = [
     ]
   },
   {
-    id: "business",
-    label: "Business Plans & Registration",
+    id: "system-design",
+    label: "System Design & Deployment",
+    items: []
+  },
+  {
+    id: "it-consulting",
+    label: "IT Consulting & Tech Support",
     items: []
   }
 ];
