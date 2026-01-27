@@ -58,38 +58,44 @@ const Index = () => {
     {
       title: "Web Design & Development",
       description: "Custom websites that are responsive, fast, and optimized for user experience.",
-      icon: <Code className="h-10 w-10 text-indigo-400" />,
-      bg: "bg-gradient-to-br from-purple-200 to-indigo-300"
+      icon: <Code className="h-10 w-10" />,
+      gradient: "from-purple-500 to-indigo-500",
+      iconColor: "text-purple-400"
     },
     {
       title: "App Development",
       description: "Native and cross-platform mobile applications for iOS and Android.",
-      icon: <Smartphone className="h-10 w-10 text-green-400" />,
-      bg: "bg-gradient-to-br from-green-200 to-teal-300"
+      icon: <Smartphone className="h-10 w-10" />,
+      gradient: "from-green-500 to-teal-500",
+      iconColor: "text-green-400"
     },
     {
       title: "Graphic Design",
       description: "Creative designs for branding, marketing materials, and digital assets.",
-      icon: <PenTool className="h-10 w-10 text-pink-400" />,
-      bg: "bg-gradient-to-br from-pink-200 to-red-300"
+      icon: <PenTool className="h-10 w-10" />,
+      gradient: "from-pink-500 to-rose-500",
+      iconColor: "text-pink-400"
     },
     {
       title: "System Design & Deployment",
       description: "End-to-end system architecture, design, and deployment solutions for scalable infrastructure.",
-      icon: <Globe className="h-10 w-10 text-yellow-400" />,
-      bg: "bg-gradient-to-br from-yellow-200 to-orange-300"
+      icon: <Globe className="h-10 w-10" />,
+      gradient: "from-yellow-500 to-orange-500",
+      iconColor: "text-yellow-400"
     },
     {
       title: "Digital Marketing & Social Media Management",
       description: "SEO, content marketing, and strategic social media management to grow your online presence.",
-      icon: <Share className="h-10 w-10 text-red-400" />,
-      bg: "bg-gradient-to-br from-red-200 to-purple-300"
+      icon: <Share className="h-10 w-10" />,
+      gradient: "from-red-500 to-purple-500",
+      iconColor: "text-red-400"
     },
     {
       title: "IT Consulting & Tech Support",
       description: "Expert IT consulting, technical support, and technology solutions for your business needs.",
-      icon: <Search className="h-10 w-10 text-gray-600" />,
-      bg: "bg-gradient-to-br from-gray-200 to-gray-400"
+      icon: <Search className="h-10 w-10" />,
+      gradient: "from-cyan-500 to-blue-500",
+      iconColor: "text-cyan-400"
     }
   ];
 
@@ -335,27 +341,80 @@ const Index = () => {
         </motion.div>
         
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-100 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
       </div>
   
       {/* Services Section with Animations */}
-      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="py-20 bg-gray-100 text-gray-900" id="services">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-red-500 via-orange-300 to-slate-950">
-            Our Services
-          </h2>
-          <p className="text-md md:text-lg text-center mb-12 text-gray-700 max-w-3xl mx-auto">
-            We provide comprehensive solutions to help your business grow and succeed in the digital landscape
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="py-24 bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-950 text-white relative overflow-hidden" id="services">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div 
+            variants={glowPulse}
+            initial="initial"
+            animate="animate"
+            className="absolute top-20 right-20 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"
+          />
+          <motion.div 
+            variants={glowPulse}
+            initial="initial"
+            animate="animate"
+            style={{ animationDelay: "1.5s" }}
+            className="absolute bottom-20 left-20 w-96 h-96 bg-pink-600/15 rounded-full blur-3xl"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <motion.div
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6">
+              <Sparkles className="w-4 h-4 text-purple-400" />
+              <span className="text-sm text-purple-300">What We Offer</span>
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+              Our Services
+            </h2>
+            <p className="text-lg md:text-xl text-purple-200/70 max-w-3xl mx-auto">
+              We provide comprehensive solutions to help your business grow and succeed in the digital landscape
+            </p>
+          </motion.div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <motion.div key={index} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} whileHover={{ scale: 1.1 }}>
-                <ServiceCard 
-                  title={service.title}
-                  description={service.description}
-                  icon={service.icon}
-                  bg={service.bg}
-                />
+              <motion.div 
+                key={index} 
+                variants={fadeInUp} 
+                initial="hidden" 
+                whileInView="visible" 
+                viewport={{ once: true }} 
+                whileHover={{ scale: 1.05, y: -10 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="group"
+              >
+                <div className="relative h-full p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
+                  {/* Gradient overlay on hover */}
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                  
+                  {/* Icon container */}
+                  <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5 mb-5`}>
+                    <div className="w-full h-full rounded-xl bg-slate-950/80 flex items-center justify-center">
+                      <div className={service.iconColor}>{service.icon}</div>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-purple-300 transition-all duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-purple-200/60 leading-relaxed">
+                    {service.description}
+                  </p>
+                  
+                  {/* Bottom glow effect */}
+                  <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                </div>
               </motion.div>
             ))}
           </div>
