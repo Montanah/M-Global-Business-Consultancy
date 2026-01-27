@@ -6,13 +6,49 @@ import PortfolioSection from "@/components/PortfolioSection";
 import Logo from "@/components/Logo";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
-import { Globe, Code, Smartphone, PenTool, Share, Search, FileText, Menu } from "lucide-react";
+import { Globe, Code, Smartphone, PenTool, Share, Search, FileText, Menu, ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const floatingAnimation = {
+  initial: { y: 0 },
+  animate: {
+    y: [-10, 10, -10],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
+};
+
+const glowPulse = {
+  initial: { opacity: 0.5, scale: 1 },
+  animate: {
+    opacity: [0.5, 1, 0.5],
+    scale: [1, 1.1, 1],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  }
 };
 
 const Index = () => {
@@ -64,13 +100,13 @@ const Index = () => {
   };
   
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-900 via-purple-800 to-indigo-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white overflow-hidden">
       {/* Navigation */}
       <motion.nav 
         initial={{ opacity: 0, y: -50 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 0.8 }} 
-        className="border-b border-purple-700 bg-gray-900/80 backdrop-blur-lg fixed w-full z-20"
+        className="border-b border-purple-500/20 bg-slate-950/80 backdrop-blur-xl fixed w-full z-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
@@ -79,22 +115,22 @@ const Index = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-3">
               <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">Services</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">Services</Button>
               </a>
               <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">Portfolio</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">Portfolio</Button>
               </a>
               <a href="/about" className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">About Us</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">About Us</Button>
               </a>
               <a href="/team" className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">Our Team</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">Our Team</Button>
               </a>
               <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full">Contact</Button>
+                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">Contact</Button>
               </a>
               <a href="#contact" onClick={(e) => smoothScroll(e, '#contact')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button size="sm" className="bg-purple-500 hover:bg-purple-600 text-white text-sm px-6 py-2 rounded-full">Get a Quote</Button>
+                <Button size="sm" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white text-sm px-6 py-2 rounded-full shadow-lg shadow-purple-500/25 transition-all hover:shadow-purple-500/40 hover:scale-105">Get a Quote</Button>
               </a>
             </div>
 
@@ -107,45 +143,45 @@ const Index = () => {
                     <span className="sr-only">Open menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white border-gray-200">
+                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-slate-950 border-purple-500/20">
                   <nav className="flex flex-col space-y-4 mt-8">
                     <a 
                       href="#services" 
                       onClick={(e) => smoothScroll(e, '#services')}
-                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
+                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
                     >
                       Services
                     </a>
                     <a 
                       href="#portfolio" 
                       onClick={(e) => smoothScroll(e, '#portfolio')}
-                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
+                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
                     >
                       Portfolio
                     </a>
                     <a 
                       href="/about"
-                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
+                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
                     >
                       About Us
                     </a>
                     <a 
                       href="/team"
-                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
+                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
                     >
                       Our Team
                     </a>
                     <a 
                       href="#footer" 
                       onClick={(e) => smoothScroll(e, '#footer')}
-                      className="text-lg font-medium text-gray-700 hover:text-purple-600 transition-colors py-3 px-4 rounded-md hover:bg-gray-50"
+                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
                     >
                       Contact
                     </a>
                     <a 
                       href="#contact" 
                       onClick={(e) => smoothScroll(e, '#contact')}
-                      className="text-lg font-medium bg-purple-500 hover:bg-purple-600 text-white py-3 px-4 rounded-md transition-colors"
+                      className="text-lg font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-4 rounded-md transition-colors"
                     >
                       Get a Quote
                     </a>
@@ -158,19 +194,149 @@ const Index = () => {
       </motion.nav>
   
       {/* Hero Section */}
-      <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="pt-24 pb-5 px-6 text-center bg-gradient-to-b from-indigo-800 to-purple-700 relative z-10"> {/* Added relative z-index */}
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-300 to-pink-400 mb-6 animate-fade-in">
-            M'Global Business Consultancy
-          </h1>
-          <p className="text-xl md:text-3xl font-semibold bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent mb-8 max-w-2xl mx-auto">
-            Guaranteeing Excellence
-          </p>
-          <p className="text-md md:text-xl text-purple-100 mb-10 max-w-3xl mx-auto">
-            Transforming <span className="bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">ideas</span> into successful <span className="bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">digital solutions</span> for businesses worldwide
-          </p>
+      <div className="relative pt-24 pb-20 px-6 min-h-[90vh] flex items-center justify-center">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Glowing orbs */}
+          <motion.div 
+            variants={glowPulse}
+            initial="initial"
+            animate="animate"
+            className="absolute top-20 left-10 w-72 h-72 bg-purple-600/30 rounded-full blur-3xl"
+          />
+          <motion.div 
+            variants={glowPulse}
+            initial="initial"
+            animate="animate"
+            style={{ animationDelay: "1s" }}
+            className="absolute bottom-20 right-10 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl"
+          />
+          <motion.div 
+            variants={glowPulse}
+            initial="initial"
+            animate="animate"
+            style={{ animationDelay: "2s" }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-3xl"
+          />
+          
+          {/* Floating decorative elements */}
+          <motion.div
+            variants={floatingAnimation}
+            initial="initial"
+            animate="animate"
+            className="absolute top-32 right-20 hidden lg:block"
+          >
+            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-500/30 flex items-center justify-center">
+              <Code className="w-8 h-8 text-purple-400" />
+            </div>
+          </motion.div>
+          
+          <motion.div
+            variants={floatingAnimation}
+            initial="initial"
+            animate="animate"
+            style={{ animationDelay: "0.5s" }}
+            className="absolute top-48 left-16 hidden lg:block"
+          >
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-teal-500/20 backdrop-blur-sm border border-green-500/30 flex items-center justify-center">
+              <Smartphone className="w-7 h-7 text-green-400" />
+            </div>
+          </motion.div>
+          
+          <motion.div
+            variants={floatingAnimation}
+            initial="initial"
+            animate="animate"
+            style={{ animationDelay: "1s" }}
+            className="absolute bottom-32 left-24 hidden lg:block"
+          >
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 backdrop-blur-sm border border-yellow-500/30 flex items-center justify-center">
+              <Globe className="w-6 h-6 text-yellow-400" />
+            </div>
+          </motion.div>
+          
+          <motion.div
+            variants={floatingAnimation}
+            initial="initial"
+            animate="animate"
+            style={{ animationDelay: "1.5s" }}
+            className="absolute bottom-48 right-32 hidden lg:block"
+          >
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500/20 to-red-500/20 backdrop-blur-sm border border-pink-500/30 flex items-center justify-center">
+              <PenTool className="w-7 h-7 text-pink-400" />
+            </div>
+          </motion.div>
+          
+          {/* Grid overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
         </div>
-      </motion.div>
+        
+        {/* Main Content */}
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="relative z-10 max-w-5xl mx-auto text-center"
+        >
+          {/* Badge */}
+          <motion.div
+            variants={fadeInUp}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-8"
+          >
+            <Sparkles className="w-4 h-4 text-purple-400" />
+            <span className="text-sm text-purple-300">Transforming Ideas into Digital Excellence</span>
+          </motion.div>
+          
+          <motion.h1 
+            variants={fadeInUp}
+            className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight"
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+              M'Global
+            </span>
+            <br />
+            <span className="text-white">Business</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              Consultancy
+            </span>
+          </motion.h1>
+          
+          <motion.p 
+            variants={fadeInUp}
+            className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-pink-400 via-purple-400 to-yellow-300 bg-clip-text text-transparent mb-6"
+          >
+            Guaranteeing Excellence
+          </motion.p>
+          
+          <motion.p 
+            variants={fadeInUp}
+            className="text-lg md:text-xl text-purple-200/80 mb-10 max-w-2xl mx-auto leading-relaxed"
+          >
+            Transforming <span className="text-pink-400 font-medium">ideas</span> into successful{" "}
+            <span className="text-purple-400 font-medium">digital solutions</span> for businesses worldwide
+          </motion.p>
+          
+          <motion.div 
+            variants={fadeInUp}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <a href="#services" onClick={(e) => smoothScroll(e, '#services')}>
+              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white px-8 py-6 rounded-full text-lg shadow-xl shadow-purple-500/30 transition-all hover:shadow-purple-500/50 hover:scale-105 group">
+                Explore Our Services
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
+            <a href="#contact" onClick={(e) => smoothScroll(e, '#contact')}>
+              <Button variant="outline" size="lg" className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10 hover:text-white px-8 py-6 rounded-full text-lg backdrop-blur-sm transition-all hover:scale-105">
+                Get a Free Quote
+              </Button>
+            </a>
+          </motion.div>
+        </motion.div>
+        
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-100 to-transparent" />
+      </div>
   
       {/* Services Section with Animations */}
       <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="py-20 bg-gray-100 text-gray-900" id="services">
