@@ -243,7 +243,7 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
   if (items.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="text-gray-500 text-lg">Coming soon! We're preparing amazing projects for this category.</p>
+        <p className="text-white/60 text-lg">Coming soon! We're preparing amazing projects for this category.</p>
       </div>
     );
   }
@@ -257,7 +257,7 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
           onClick={goToPrevious}
           disabled={currentIndex === 0}
           aria-label="Previous projects"
-          className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50 flex-shrink-0"
+          className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 disabled:opacity-30 flex-shrink-0 bg-white/5 backdrop-blur-sm"
         >
           <ChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
         </Button>
@@ -268,7 +268,7 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                currentIndex === index ? 'bg-primary' : 'bg-gray-300'
+                currentIndex === index ? 'bg-gradient-to-r from-blue-400 to-purple-400' : 'bg-white/30'
               }`}
             />
           ))}
@@ -280,7 +280,7 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
           onClick={goToNext}
           disabled={currentIndex === maxIndex}
           aria-label="Next projects"
-          className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground disabled:opacity-50 flex-shrink-0"
+          className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 disabled:opacity-30 flex-shrink-0 bg-white/5 backdrop-blur-sm"
         >
           <ChevronRight className="h-4 w-4 md:h-6 md:w-6" />
         </Button>
@@ -306,18 +306,18 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm">
+                <Card className="overflow-hidden border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 bg-white/5 backdrop-blur-xl">
                   <div className="relative group">
                     <img
                       src={item.image}
                       alt={item.title}
                       className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <Button
                         size="icon"
-                        className="h-10 w-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30"
+                        className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20"
                         asChild
                       >
                         <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -327,13 +327,13 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                     </div>
                   </div>
                   <CardContent className="p-4 md:p-6">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">{item.title}</h3>
-                    <p className="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">{item.description}</p>
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">{item.title}</h3>
+                    <p className="text-white/70 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">{item.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {item.tags.map((tag, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 rounded-full border border-blue-200"
+                          className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 rounded-full border border-blue-400/30"
                         >
                           {tag}
                         </span>
@@ -343,27 +343,27 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                       <div className="flex flex-col gap-3">
                         <div className="flex justify-center gap-3">
                           {item.socialLinks.facebook && (
-                            <a href={item.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 transition-colors">
+                            <a href={item.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
                               <FaFacebook className="h-5 w-5" />
                             </a>
                           )}
                           {item.socialLinks.linkedin && (
-                            <a href={item.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900 transition-colors">
+                            <a href={item.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
                               <FaLinkedin className="h-5 w-5" />
                             </a>
                           )}
                           {item.socialLinks.instagram && (
-                            <a href={item.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800 transition-colors">
+                            <a href={item.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:text-pink-300 transition-colors">
                               <FaInstagram className="h-5 w-5" />
                             </a>
                           )}
                           {item.socialLinks.x && (
-                            <a href={item.socialLinks.x} target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-black transition-colors">
+                            <a href={item.socialLinks.x} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
                               <FaXTwitter className="h-5 w-5" />
                             </a>
                           )}
                           {item.socialLinks.tiktok && (
-                            <a href={item.socialLinks.tiktok} target="_blank" rel="noopener noreferrer" className="text-gray-800 hover:text-black transition-colors">
+                            <a href={item.socialLinks.tiktok} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
                               <FaTiktok className="h-5 w-5" />
                             </a>
                           )}
@@ -371,7 +371,7 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                          className="w-full border-white/20 text-white hover:bg-white/10 hover:border-white/40 bg-white/5"
                           asChild
                         >
                           <Link to={item.detailsUrl}>
@@ -384,7 +384,7 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="flex-1 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                          className="flex-1 border-white/20 text-white hover:bg-white/10 hover:border-white/40 bg-white/5"
                           asChild
                         >
                           <Link to={item.detailsUrl}>
@@ -392,9 +392,8 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                           </Link>
                         </Button>
                         <Button
-                          variant="default"
                           size="sm"
-                          className="flex-1"
+                          className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0"
                           asChild
                         >
                           <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -421,32 +420,66 @@ const PortfolioSection = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
 
+  const glowPulse = {
+    animate: {
+      scale: [1, 1.2, 1],
+      opacity: [0.3, 0.6, 0.3],
+    },
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }
+  };
+
   return (
     <motion.div 
       variants={fadeInUp} 
       initial="hidden" 
       whileInView="visible" 
       viewport={{ once: true }}
-      className="py-20 bg-gradient-to-br from-slate-50 to-blue-50"
+      className="py-20 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 relative overflow-hidden"
       id="portfolio"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={glowPulse.animate}
+          transition={glowPulse.transition}
+          className="absolute top-20 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={glowPulse.animate}
+          transition={{ ...glowPulse.transition, delay: 2 }}
+          className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 mb-4">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-2 rounded-full bg-white/5 border border-white/10 text-blue-300 text-sm font-medium mb-6 backdrop-blur-sm"
+          >
+            Our Work
+          </motion.span>
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 mb-4">
             Our Portfolio
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-white/70 max-w-3xl mx-auto">
             Discover the innovative solutions we've created for our clients across various industries
           </p>
         </div>
 
         <Tabs defaultValue="web-dev" className="w-full">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8 h-auto gap-2 bg-transparent">
+          <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 mb-8 h-auto gap-2 bg-white/5 backdrop-blur-sm border border-white/10 p-2 rounded-xl">
             {portfolioCategories.map((category) => (
               <TabsTrigger
                 key={category.id}
                 value={category.id}
-                className="py-3 px-4 text-sm md:text-base font-medium data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-purple-600 data-[state=active]:text-white rounded-lg border border-gray-200 data-[state=active]:border-transparent transition-all"
+                className="py-3 px-4 text-sm md:text-base font-medium text-white/70 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white rounded-lg data-[state=active]:shadow-lg data-[state=active]:shadow-purple-500/20 transition-all hover:text-white"
               >
                 {category.label}
               </TabsTrigger>
@@ -460,16 +493,16 @@ const PortfolioSection = () => {
               {/* Design Work Section - only for Design & Marketing tab */}
               {category.id === "design-marketing" && designWorkItems.length > 0 && (
                 <div className="mt-16">
-                  <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 mb-8 text-center">
+                  <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 mb-8 text-center">
                     Some of our Design work
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {designWorkItems.map((item) => (
                       <motion.div
                         key={item.id}
-                        whileHover={{ scale: 1.02 }}
+                        whileHover={{ scale: 1.02, y: -5 }}
                         transition={{ duration: 0.2 }}
-                        className="rounded-xl overflow-hidden shadow-lg bg-white/80 backdrop-blur-sm"
+                        className="rounded-xl overflow-hidden shadow-lg bg-white/5 backdrop-blur-xl border border-white/10 hover:shadow-purple-500/10 hover:shadow-2xl"
                       >
                         {item.type === 'video' ? (
                           <video
@@ -486,7 +519,7 @@ const PortfolioSection = () => {
                           />
                         )}
                         <div className="p-4">
-                          <p className="text-sm font-medium text-gray-700">{item.title}</p>
+                          <p className="text-sm font-medium text-white/80">{item.title}</p>
                         </div>
                       </motion.div>
                     ))}
