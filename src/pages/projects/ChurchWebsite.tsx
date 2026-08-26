@@ -41,7 +41,7 @@ const ChurchWebsite = () => {
             </div>
 
             <img
-              src="/DCIN Screenshot.png"
+              src="/DCIN Hero page.png"
               alt="Deliverance Church International Website"
               className="w-full h-auto rounded-lg shadow-2xl mb-12"
             />

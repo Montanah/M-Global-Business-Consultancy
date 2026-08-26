@@ -118,7 +118,7 @@ const AgriFlock360 = () => {
 
             <div className="flex gap-4">
               <Button asChild size="lg">
-                <a href="https://agriflock360.netlify.app" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.agriflock360.com/" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-5 w-5" />
                   View Live Project
                 </a>

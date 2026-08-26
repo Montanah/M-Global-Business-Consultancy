@@ -21,7 +21,7 @@ interface PortfolioItem {
   title: string;
   description: string;
   image: string;
-  liveUrl: string;
+  liveUrl?: string;
   detailsUrl: string;
   tags: string[];
   socialLinks?: SocialLinks;
@@ -39,27 +39,44 @@ const portfolioCategories: PortfolioCategory[] = [
     label: "Web & App Development",
     items: [
       {
+        id: 8,
+        title: "SmartDrop Smart Locker Platform",
+        description: "SmartDrop helps merchants reduce failed deliveries by letting customers collect parcels from secure neighbourhood lockers using OTP access, SMS collection flows, and 24/7 pickup availability.",
+        image: "/Smartdrop hero page.png",
+        liveUrl: "https://smartdrop.africa/",
+        detailsUrl: "/projects/smartdrop",
+        tags: ["Smart Lockers", "Logistics", "IoT", "Web Development"]
+      },
+      {
+        id: 9,
+        title: "AgriFlock360 Admin Panel Web Application",
+        description: "A complete administration dashboard for managing the AgriFlock360 ecosystem, including farms, deployments, firmware, support, hardware inventory, farmer products, insights, revenue, alerts, and platform settings.",
+        image: "/Agriflock 360 Admin panel.png",
+        detailsUrl: "/projects/agriflock360-admin",
+        tags: ["Admin Panel", "AgriTech", "Dashboard", "Operations"]
+      },
+      {
         id: 1,
         title: "AgriFlock360 Platform Website & Mobile Application",
         description: "Comprehensive AI-powered poultry management ecosystem featuring custom IoT hardware and software. Our team handled the complete hardware development cycle: PCB design and schematic creation, Gerber file generation, and international fabrication coordination with manufacturers in China. Post-fabrication, we conducted rigorous testing and assembly verification of the smart brooder chips. The platform includes a mobile application with advanced offline functionality for seamless operation in low-connectivity areas, real-time environmental monitoring, automated climate control, and solar-powered IoT sensors. The system integrates AI-driven analytics to optimize poultry health and productivity for smallholder farmers across Africa.",
         image: "/agriflock-new.png",
-        liveUrl: "https://agriflock360.netlify.app",
+        liveUrl: "https://www.agriflock360.com/",
         detailsUrl: "/projects/agriflock360",
         tags: ["AgriTech", "Mobile App", "IoT", "PCB Design", "AI Analytics", "Hardware Development"]
       },
       {
         id: 2,
-        title: "Logistics Platform Website & Mobile Application",
-        description: "A fully developed website featuring a dedicated services section and seamless redirects to mobile app downloads, complemented by a modern, user-friendly mobile application designed for both Android and iOS platforms",
-        image: "/TRUK Screenshot.png",
-        liveUrl: "https://trukafrica.com",
+        title: "TRUKFLOW Logistics Website & Mobile Application",
+        description: "A fully developed logistics website and mobile app ecosystem for TRUKFLOW, East Africa's smart logistics system, featuring driver marketplace onboarding, goods movement workflows, and secure smart locker delivery options.",
+        image: "/Trukflow Hero page.png",
+        liveUrl: "https://www.trukflow.com/",
         detailsUrl: "/projects/truk-logistics",
-        tags: ["Web Development", "Mobile App", "Enterprise"]
+        tags: ["Logistics", "Web Development", "Mobile App", "Smart Lockers"]
       },
       {
         id: 3,
-        title: "TRUK Admin Panel Web Application",
-        description: "A fully developed responsive and intuitive admin dashboard delivering real-time insights into the TRUK mobile app's key metrics and user behavior.",
+        title: "TRUKFLOW Admin Panel Web Application",
+        description: "A fully developed responsive and intuitive admin dashboard delivering real-time insights into the TRUKFLOW mobile app's key metrics and user behavior.",
         image: "/Admin Panel.jpg",
         liveUrl: "https://truk-admin-panel.netlify.app/",
         detailsUrl: "/projects/truk-admin",
@@ -69,7 +86,7 @@ const portfolioCategories: PortfolioCategory[] = [
         id: 4,
         title: "Comprehensive Church Website",
         description: "A modern, dynamic website showcasing church programs, enhanced with integrated audio recordings and a seamlessly embedded YouTube channel.",
-        image: "/DCIN Screenshot.png",
+        image: "/DCIN Hero page.png",
         liveUrl: "https://www.deliverancechurchinternationalnyansiongo.org",
         detailsUrl: "/projects/church-website",
         tags: ["Church Management", "Audio Streaming", "Ministry Tools"]
@@ -111,7 +128,7 @@ const portfolioCategories: PortfolioCategory[] = [
         id: 1,
         title: "Deliverance Church International Nyansiongo - Social Media Management",
         description: "Comprehensive social media management across Facebook, Instagram, and X (Twitter). We create engaging content, manage community interactions, and build an active online presence to connect the church with its congregation and wider community.",
-        image: "/DCIN Screenshot.png",
+        image: "/DCIN Hero page.png",
         liveUrl: "https://www.facebook.com/DCINyansiongo",
         detailsUrl: "/projects/church-website",
         tags: ["Social Media", "Content Creation", "Community Management"],
@@ -123,10 +140,10 @@ const portfolioCategories: PortfolioCategory[] = [
       },
       {
         id: 2,
-        title: "TRUK - Social Media Management",
-        description: "Full-service social media management for TRUK logistics platform. We handle content strategy, brand storytelling, and engagement across all major platforms including LinkedIn, Facebook, Instagram, X, and TikTok to drive brand awareness and user acquisition.",
-        image: "/TRUK Screenshot.png",
-        liveUrl: "https://www.linkedin.com/company/truk-africa",
+        title: "TRUKFLOW - Social Media Management",
+        description: "Full-service social media management for the TRUKFLOW logistics platform. We handle content strategy, brand storytelling, and engagement across major platforms to drive brand awareness and user acquisition.",
+        image: "/Trukflow Hero page.png",
+        liveUrl: "https://www.trukflow.com/",
         detailsUrl: "/projects/truk-logistics",
         tags: ["Social Media", "Brand Strategy", "Digital Marketing"],
         socialLinks: {
@@ -192,7 +209,7 @@ interface DesignWorkItem {
 const designWorkItems: DesignWorkItem[] = [
   {
     id: 1,
-    title: "TRUK Animation Video",
+    title: "TRUKFLOW Animation Video",
     type: "video",
     src: "/TRUK_Animation_video_1.mp4"
   }
@@ -314,17 +331,19 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                       className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <Button
-                        size="icon"
-                        className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20"
-                        asChild
-                      >
-                        <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-5 w-5 text-white" />
-                        </a>
-                      </Button>
-                    </div>
+                    {item.liveUrl && (
+                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Button
+                          size="icon"
+                          className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20"
+                          asChild
+                        >
+                          <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-5 w-5 text-white" />
+                          </a>
+                        </Button>
+                      </div>
+                    )}
                   </div>
                   <CardContent className="p-4 md:p-6">
                     <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">{item.title}</h3>
@@ -379,7 +398,7 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                           </Link>
                         </Button>
                       </div>
-                    ) : (
+                    ) : item.liveUrl ? (
                       <div className="flex gap-2">
                         <Button
                           variant="outline"
@@ -402,6 +421,17 @@ const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
                           </a>
                         </Button>
                       </div>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="w-full border-white/20 text-white hover:bg-white/10 hover:border-white/40 bg-white/5"
+                        asChild
+                      >
+                        <Link to={item.detailsUrl}>
+                          Learn More
+                        </Link>
+                      </Button>
                     )}
                   </CardContent>
                 </Card>

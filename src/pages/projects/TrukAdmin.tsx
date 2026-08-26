@@ -26,7 +26,7 @@ const TrukAdmin = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              TRUK Admin Panel Web Application
+              TRUKFLOW Admin Panel Web Application
             </h1>
             
             <div className="flex flex-wrap gap-2 mb-8">
@@ -42,15 +42,15 @@ const TrukAdmin = () => {
 
             <img
               src="/Admin Panel.jpg"
-              alt="TRUK Admin Panel"
+              alt="TRUKFLOW Admin Panel"
               className="w-full h-auto rounded-lg shadow-2xl mb-12"
             />
 
             <div className="prose prose-lg max-w-none mb-12">
               <h2 className="text-3xl font-bold mb-4 text-foreground">Project Overview</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The TRUK Admin Panel is a sophisticated web application that provides comprehensive 
-                oversight of the TRUK logistics platform. It delivers real-time insights into key 
+                The TRUKFLOW Admin Panel is a sophisticated web application that provides comprehensive 
+                oversight of the TRUKFLOW logistics platform. It delivers real-time insights into key 
                 metrics and user behavior, enabling data-driven decision making.
               </p>
 

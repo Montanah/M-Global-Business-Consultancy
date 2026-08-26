@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 
-const TrukLogistics = () => {
+const AgriFlock360Admin = () => {
   return (
     <div className="min-h-screen bg-background">
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -26,11 +26,11 @@ const TrukLogistics = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              TRUKFLOW Logistics Website & Mobile Application
+              AgriFlock360 Admin Panel Web Application
             </h1>
             
             <div className="flex flex-wrap gap-2 mb-8">
-              {["Logistics", "Web Development", "Mobile App", "Smart Lockers"].map((tag) => (
+              {["Admin Panel", "AgriTech", "Dashboard", "Operations"].map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20"
@@ -41,48 +41,44 @@ const TrukLogistics = () => {
             </div>
 
             <img
-              src="/Trukflow Hero page.png"
-              alt="TRUKFLOW logistics website"
+              src="/Agriflock 360 Admin panel.png"
+              alt="AgriFlock360 admin panel dashboard"
               className="w-full h-auto rounded-lg shadow-2xl mb-12"
             />
 
             <div className="prose prose-lg max-w-none mb-12">
               <h2 className="text-3xl font-bold mb-4 text-foreground">Project Overview</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                TRUKFLOW is a comprehensive logistics platform designed to streamline goods movement
-                and delivery operations across East Africa. The platform combines a modern website,
-                driver marketplace onboarding, mobile workflows, and smart locker delivery options.
+                The AgriFlock360 Admin Panel is the control center behind the AgriFlock360 website,
+                mobile application, IoT hardware, and customer operations. It gives administrators
+                one place to monitor the platform, manage operational data, respond to issues, and
+                keep the public-facing ecosystem accurate.
               </p>
 
               <h2 className="text-3xl font-bold mb-4 text-foreground">Key Features</h2>
               <ul className="list-disc pl-6 mb-6 text-muted-foreground">
-                <li>Fully responsive website with dedicated services section</li>
-                <li>Driver marketplace flows for verified transporters and brokers</li>
-                <li>Goods movement workflows for merchants and customers</li>
-                <li>SmartDrop smart locker integration for secure parcel collection</li>
-                <li>Modern, user-friendly interface designed for efficiency</li>
-                <li>Real-time tracking and notifications</li>
-                <li>Enterprise-grade logistics management</li>
+                <li>Dashboard overview for active devices, users, farms, revenue, and system alerts</li>
+                <li>Farm, deployment, firmware, and operations queue management</li>
+                <li>Support and service tools for customer requests and platform issues</li>
+                <li>Farmer, farmer activity, extension officer, and extension service administration</li>
+                <li>Hardware inventory controls for batteries, SIM cards, devices, and related assets</li>
+                <li>Farmer product, insight, pricing, and system setting management</li>
               </ul>
 
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Technical Implementation</h2>
+              <h2 className="text-3xl font-bold mb-4 text-foreground">Operational Role</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The platform was built with scalability and user experience in mind, featuring:
+                The admin panel controls the data and operational items surfaced across the
+                AgriFlock360 platform details, including hardware development records, connected
+                device activity, farm information, farmer services, alerts, support workflows, and
+                performance snapshots.
               </p>
-              <ul className="list-disc pl-6 mb-6 text-muted-foreground">
-                <li>Responsive web design that works seamlessly across all devices</li>
-                <li>Clear product navigation for DriverMarketplace and SmartDrop services</li>
-                <li>Intuitive onboarding and goods movement flows</li>
-                <li>Integration with backend logistics systems</li>
-              </ul>
             </div>
 
             <div className="flex gap-4">
-              <Button asChild size="lg">
-                <a href="https://www.trukflow.com/" target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-5 w-5" />
-                  View Live Project
-                </a>
+              <Button asChild size="lg" variant="outline">
+                <Link to="/projects/agriflock360">
+                  View AgriFlock360 Website Project
+                </Link>
               </Button>
             </div>
           </motion.div>
@@ -94,4 +90,4 @@ const TrukLogistics = () => {
   );
 };
 
-export default TrukLogistics;
+export default AgriFlock360Admin;

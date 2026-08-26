@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Team from "./pages/Team";
 import AgriFlock360 from "./pages/projects/AgriFlock360";
+import AgriFlock360Admin from "./pages/projects/AgriFlock360Admin";
+import SmartDrop from "./pages/projects/SmartDrop";
 import TrukLogistics from "./pages/projects/TrukLogistics";
 import TrukAdmin from "./pages/projects/TrukAdmin";
 import ChurchWebsite from "./pages/projects/ChurchWebsite";
@@ -29,6 +31,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/projects/smartdrop" element={<SmartDrop />} />
+          <Route path="/projects/agriflock360-admin" element={<AgriFlock360Admin />} />
           <Route path="/projects/agriflock360" element={<AgriFlock360 />} />
           <Route path="/projects/truk-logistics" element={<TrukLogistics />} />
           <Route path="/projects/truk-admin" element={<TrukAdmin />} />
