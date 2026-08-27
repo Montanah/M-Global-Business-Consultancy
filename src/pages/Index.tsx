@@ -99,6 +99,33 @@ const Index = () => {
     }
   ];
 
+  const clientSummaryStats = [
+    {
+      value: "20+",
+      label: "Website Clients",
+      description: "Websites planned, designed, and delivered",
+      icon: <Code className="h-5 w-5" />
+    },
+    {
+      value: "5+",
+      label: "Mobile App Clients",
+      description: "iOS and Android app projects handled",
+      icon: <Smartphone className="h-5 w-5" />
+    },
+    {
+      value: "50+",
+      label: "Graphic Design Clients",
+      description: "Brand, campaign, and digital design work",
+      icon: <PenTool className="h-5 w-5" />
+    },
+    {
+      value: "20+",
+      label: "Digital Marketing Clients",
+      description: "Digital marketing and social media management",
+      icon: <Share className="h-5 w-5" />
+    }
+  ];
+
   const smoothScroll = (e, targetId) => {
     e.preventDefault();
     document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
@@ -200,7 +227,7 @@ const Index = () => {
       </motion.nav>
   
       {/* Hero Section */}
-      <div className="relative pt-24 pb-20 px-6 min-h-[90vh] flex items-center justify-center">
+      <div className="relative pt-24 pb-10 px-6 min-h-[90vh] flex flex-col">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Glowing orbs */}
@@ -282,7 +309,7 @@ const Index = () => {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="relative z-10 max-w-5xl mx-auto text-center"
+          className="relative z-10 max-w-5xl mx-auto text-center flex-1 flex flex-col justify-center"
         >
           {/* Badge */}
           <motion.div
@@ -295,7 +322,7 @@ const Index = () => {
           
           <motion.h1 
             variants={fadeInUp}
-            className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-5 sm:mb-6 leading-tight"
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
               M'Global
@@ -309,14 +336,14 @@ const Index = () => {
           
           <motion.p 
             variants={fadeInUp}
-            className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-pink-400 via-purple-400 to-yellow-300 bg-clip-text text-transparent mb-6"
+            className="text-lg sm:text-xl md:text-2xl font-semibold bg-gradient-to-r from-pink-400 via-purple-400 to-yellow-300 bg-clip-text text-transparent mb-4 sm:mb-6"
           >
             Guaranteeing Excellence
           </motion.p>
           
           <motion.p 
             variants={fadeInUp}
-            className="text-lg md:text-xl text-purple-200/80 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-purple-200/80 mb-6 sm:mb-10 max-w-2xl mx-auto leading-relaxed"
           >
             Transforming <span className="text-pink-400 font-medium">ideas</span> into successful{" "}
             <span className="text-purple-400 font-medium">digital solutions</span> for businesses worldwide
@@ -327,17 +354,42 @@ const Index = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a href="#services" onClick={(e) => smoothScroll(e, '#services')}>
-              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white px-8 py-6 rounded-full text-lg shadow-xl shadow-purple-500/30 transition-all hover:shadow-purple-500/50 hover:scale-105 group">
+              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white px-6 py-5 text-base rounded-full shadow-xl shadow-purple-500/30 transition-all hover:shadow-purple-500/50 hover:scale-105 group sm:px-8 sm:py-6 sm:text-lg">
                 Explore Our Services
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </a>
             <a href="#contact" onClick={(e) => smoothScroll(e, '#contact')}>
-              <Button variant="outline" size="lg" className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10 hover:text-white px-8 py-6 rounded-full text-lg backdrop-blur-sm transition-all hover:scale-105">
+              <Button variant="outline" size="lg" className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10 hover:text-white px-6 py-5 text-base rounded-full backdrop-blur-sm transition-all hover:scale-105 sm:px-8 sm:py-6 sm:text-lg">
                 Get a Free Quote
               </Button>
             </a>
           </motion.div>
+        </motion.div>
+
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          className="relative z-10 w-full max-w-6xl mx-auto mt-6 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3"
+        >
+          {clientSummaryStats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-lg border border-white/10 bg-white/10 backdrop-blur-xl px-3 py-3 text-left shadow-lg shadow-purple-950/20 sm:px-4 sm:py-4"
+            >
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-3">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-purple-500/15 text-purple-200 sm:mt-1 sm:h-9 sm:w-9">
+                  {stat.icon}
+                </div>
+                <div>
+                  <div className="text-xl font-bold text-white leading-none sm:text-2xl">{stat.value}</div>
+                  <div className="mt-1 text-xs font-semibold leading-snug text-purple-100 sm:text-sm">{stat.label}</div>
+                  <p className="mt-1 hidden text-xs leading-relaxed text-purple-100/65 sm:block">{stat.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </motion.div>
         
         {/* Bottom gradient fade */}
@@ -426,7 +478,7 @@ const Index = () => {
 
       {/* Testimonial Section */}
       <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} id="testimonials"
-      className="py-20 bg-gradient-to-r from-gray-900 to-indigo-900 text-white"
+      className="py-20 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white"
       >
         <TestimonialSection />
       </motion.div>
