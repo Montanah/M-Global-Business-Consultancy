@@ -1,28 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>M'Global Business Consultancy</title>
-    <meta name="description" content="Professional business consultancy services by M'Global" />
+    <title>M’Global — Strategy, Design &amp; Technology</title>
+    <meta
+      name="description"
+      content="Your ambition. Our expertise. M’Global brings strategy, design, web and app development, and technology together to move your business forward. Based in Kenya, built for the world."
+    />
     <meta name="author" content="M'Global Business Consultancy" />
     <link rel="icon" type="image/png" href="/Logo.png?v=2" />
-    <meta property="og:image" content="/Logo.png" />
+    <meta name="theme-color" content="#080e20" />
+    <meta property="og:title" content="M’Global — We build what’s next." />
+    <meta
+      property="og:description"
+      content="Strategy, design, and technology for your next chapter. Based in Kenya. Built for the world."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-mglobal.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="M’Global: We build what’s next. Strategy, design, and technology."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="preload"
+      href="/fonts/space-grotesk-medium.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LKDYKRSP8T"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LKDYKRSP8T");
+    </script>
   </head>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKDYKRSP8T"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LKDYKRSP8T');
-  </script>
 
   <body>
     <div id="root"></div>
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

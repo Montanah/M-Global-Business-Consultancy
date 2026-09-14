@@ -1,516 +1,354 @@
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import ServiceCard from "@/components/ServiceCard";
-import TestimonialSection from "@/components/TestimonialSection";
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  Code2,
+  Cpu,
+  Globe2,
+  Layers3,
+  PenTool,
+  Smartphone,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 import PortfolioSection from "@/components/PortfolioSection";
-import Logo from "@/components/Logo";
-import Footer from "@/components/Footer";
+import TestimonialSection from "@/components/TestimonialSection";
 import ContactForm from "@/components/ContactForm";
-import { Globe, Code, Smartphone, PenTool, Share, Search, FileText, Menu, ArrowRight, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import OrbitalVisual from "@/components/OrbitalVisual";
+import Reveal from "@/components/Reveal";
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-};
+const services = [
+  {
+    title: "Web design & development",
+    description:
+      "Distinctive, responsive websites that bring your brand to life and turn visitors into customers.",
+    icon: Code2,
+    tags: "Websites · Web applications · E-commerce",
+  },
+  {
+    title: "App development",
+    description:
+      "Thoughtful mobile experiences that keep your business in your customers’ hands, wherever they are.",
+    icon: Smartphone,
+    tags: "iOS · Android · Cross-platform",
+  },
+  {
+    title: "Graphic design",
+    description:
+      "A visual identity with a point of view. From your first impression to every brand interaction.",
+    icon: PenTool,
+    tags: "Brand identity · Digital design · Print",
+  },
+  {
+    title: "System design & deployment",
+    description:
+      "The architecture behind your ambition. Connected, scalable systems built for the way you work.",
+    icon: Cpu,
+    tags: "Architecture · Cloud deployment · IoT",
+  },
+  {
+    title: "Digital marketing & social media",
+    description:
+      "Make your voice matter. Strategy, content, and campaigns that connect you with the right people.",
+    icon: Globe2,
+    tags: "SEO · Content strategy · Social media",
+  },
+  {
+    title: "IT consulting & tech support",
+    description:
+      "Clarity in a complex digital world. Practical guidance and dependable support to keep you moving.",
+    icon: Layers3,
+    tags: "IT strategy · Technical support · Consulting",
+  },
+];
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3
-    }
-  }
-};
+const steps = [
+  {
+    number: "01",
+    title: "Discover",
+    description:
+      "We listen first. Together, we define your goals, understand your audience, and find the right opportunity.",
+  },
+  {
+    number: "02",
+    title: "Design",
+    description:
+      "Strategy becomes tangible. We shape the experience, explore the direction, and refine the details with you.",
+  },
+  {
+    number: "03",
+    title: "Develop",
+    description:
+      "We bring the vision to life with thoughtful engineering, regular check-ins, and testing throughout.",
+  },
+  {
+    number: "04",
+    title: "Deliver & evolve",
+    description:
+      "Launch is a new beginning. We help you get up and running, then support what comes next.",
+  },
+];
 
-const floatingAnimation = {
-  initial: { y: 0 },
-  animate: {
-    y: [-10, 10, -10],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
-};
-
-const glowPulse = {
-  initial: { opacity: 0.5, scale: 1 },
-  animate: {
-    opacity: [0.5, 1, 0.5],
-    scale: [1, 1.1, 1],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
-};
-
-const Index = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const services = [
-    {
-      title: "Web Design & Development",
-      description: "Custom websites that are responsive, fast, and optimized for user experience.",
-      icon: <Code className="h-10 w-10" />,
-      gradient: "from-purple-500 to-indigo-500",
-      iconColor: "text-purple-400"
-    },
-    {
-      title: "App Development",
-      description: "Native and cross-platform mobile applications for iOS and Android.",
-      icon: <Smartphone className="h-10 w-10" />,
-      gradient: "from-green-500 to-teal-500",
-      iconColor: "text-green-400"
-    },
-    {
-      title: "Graphic Design",
-      description: "Creative designs for branding, marketing materials, and digital assets.",
-      icon: <PenTool className="h-10 w-10" />,
-      gradient: "from-pink-500 to-rose-500",
-      iconColor: "text-pink-400"
-    },
-    {
-      title: "System Design & Deployment",
-      description: "End-to-end system architecture, design, and deployment solutions for scalable infrastructure.",
-      icon: <Globe className="h-10 w-10" />,
-      gradient: "from-yellow-500 to-orange-500",
-      iconColor: "text-yellow-400"
-    },
-    {
-      title: "Digital Marketing & Social Media Management",
-      description: "SEO, content marketing, and strategic social media management to grow your online presence.",
-      icon: <Share className="h-10 w-10" />,
-      gradient: "from-red-500 to-purple-500",
-      iconColor: "text-red-400"
-    },
-    {
-      title: "IT Consulting & Tech Support",
-      description: "Expert IT consulting, technical support, and technology solutions for your business needs.",
-      icon: <Search className="h-10 w-10" />,
-      gradient: "from-cyan-500 to-blue-500",
-      iconColor: "text-cyan-400"
-    }
-  ];
-
-  const clientSummaryStats = [
-    {
-      value: "20+",
-      label: "Website Clients",
-      description: "Websites planned, designed, and delivered",
-      icon: <Code className="h-5 w-5" />
-    },
-    {
-      value: "5+",
-      label: "Mobile App Clients",
-      description: "iOS and Android app projects handled",
-      icon: <Smartphone className="h-5 w-5" />
-    },
-    {
-      value: "50+",
-      label: "Graphic Design Clients",
-      description: "Brand, campaign, and digital design work",
-      icon: <PenTool className="h-5 w-5" />
-    },
-    {
-      value: "20+",
-      label: "Digital Marketing Clients",
-      description: "Digital marketing and social media management",
-      icon: <Share className="h-5 w-5" />
-    }
-  ];
-
-  const smoothScroll = (e, targetId) => {
-    e.preventDefault();
-    document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
-    setIsOpen(false);
-  };
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 text-white overflow-hidden">
-      {/* Navigation */}
-      <motion.nav 
-        initial={{ opacity: 0, y: -50 }} 
-        animate={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.8 }} 
-        className="border-b border-purple-500/20 bg-slate-950/80 backdrop-blur-xl fixed w-full z-20"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <Logo />
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-3">
-              <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">Services</Button>
-              </a>
-              <a href="#portfolio" onClick={(e) => smoothScroll(e, '#portfolio')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">Portfolio</Button>
-              </a>
-              <a href="/about" className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">About Us</Button>
-              </a>
-              <a href="/team" className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">Our Team</Button>
-              </a>
-              <a href="#footer" onClick={(e) => smoothScroll(e, '#footer')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button variant="ghost" size="sm" className="text-sm px-4 py-2 rounded-full hover:bg-purple-500/10">Contact</Button>
-              </a>
-              <a href="#contact" onClick={(e) => smoothScroll(e, '#contact')} className="text-white hover:text-purple-300 transition duration-300">
-                <Button size="sm" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white text-sm px-6 py-2 rounded-full shadow-lg shadow-purple-500/25 transition-all hover:shadow-purple-500/40 hover:scale-105">Get a Quote</Button>
-              </a>
-            </div>
-
-            {/* Mobile Navigation */}
-            <div className="md:hidden">
-              <Sheet open={isOpen} onOpenChange={setIsOpen}>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-8 w-8 text-white">
-                    <Menu className="h-5 w-5" />
-                    <span className="sr-only">Open menu</span>
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-slate-950 border-purple-500/20">
-                  <nav className="flex flex-col space-y-4 mt-8">
-                    <a 
-                      href="#services" 
-                      onClick={(e) => smoothScroll(e, '#services')}
-                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
-                    >
-                      Services
-                    </a>
-                    <a 
-                      href="#portfolio" 
-                      onClick={(e) => smoothScroll(e, '#portfolio')}
-                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
-                    >
-                      Portfolio
-                    </a>
-                    <a 
-                      href="/about"
-                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
-                    >
-                      About Us
-                    </a>
-                    <a 
-                      href="/team"
-                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
-                    >
-                      Our Team
-                    </a>
-                    <a 
-                      href="#footer" 
-                      onClick={(e) => smoothScroll(e, '#footer')}
-                      className="text-lg font-medium text-white hover:text-purple-400 transition-colors py-3 px-4 rounded-md hover:bg-purple-500/10"
-                    >
-                      Contact
-                    </a>
-                    <a 
-                      href="#contact" 
-                      onClick={(e) => smoothScroll(e, '#contact')}
-                      className="text-lg font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-4 rounded-md transition-colors"
-                    >
-                      Get a Quote
-                    </a>
-                  </nav>
-                </SheetContent>
-              </Sheet>
-            </div>
+const Index = () => (
+  <main id="main-content">
+    <section className="hero" aria-labelledby="hero-heading">
+      <div className="site-container hero-grid">
+        <div className="hero-copy">
+          <div className="eyebrow hero-eyebrow">
+            <span className="status-dot" /> IDEAS. TECHNOLOGY. POSSIBILITY.
+          </div>
+          <h1 id="hero-heading">
+            We build
+            <br />
+            what’s{" "}
+            <span className="next-word">
+              next
+              <svg viewBox="0 0 250 18" fill="none" aria-hidden="true">
+                <path
+                  d="M3 14C66 2 168 0 245 7"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                />
+              </svg>
+            </span>
+            <span className="brand-accent-text">.</span>
+          </h1>
+          <p className="hero-description">
+            Strategy, distinctive websites, powerful apps, and connected
+            systems. We bring your next big idea to life, from the first
+            conversation to launch.
+          </p>
+          <div className="hero-actions">
+            <Link to="/#contact" className="button button-brand">
+              Build with us <ArrowUpRight size={19} />
+            </Link>
+            <Link to="/#portfolio" className="text-link">
+              Explore our work <ArrowRight size={17} />
+            </Link>
+          </div>
+          <div className="hero-footnote">
+            <span className="tiny-cross">+</span> BASED IN KENYA. BUILT FOR THE
+            WORLD.
           </div>
         </div>
-      </motion.nav>
-  
-      {/* Hero Section */}
-      <div className="relative pt-24 pb-10 px-6 min-h-[90vh] flex flex-col">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Glowing orbs */}
-          <motion.div 
-            variants={glowPulse}
-            initial="initial"
-            animate="animate"
-            className="absolute top-20 left-10 w-72 h-72 bg-purple-600/30 rounded-full blur-3xl"
-          />
-          <motion.div 
-            variants={glowPulse}
-            initial="initial"
-            animate="animate"
-            style={{ animationDelay: "1s" }}
-            className="absolute bottom-20 right-10 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl"
-          />
-          <motion.div 
-            variants={glowPulse}
-            initial="initial"
-            animate="animate"
-            style={{ animationDelay: "2s" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-3xl"
-          />
-          
-          {/* Floating decorative elements */}
-          <motion.div
-            variants={floatingAnimation}
-            initial="initial"
-            animate="animate"
-            className="absolute top-32 right-20 hidden lg:block"
-          >
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm border border-purple-500/30 flex items-center justify-center">
-              <Code className="w-8 h-8 text-purple-400" />
-            </div>
-          </motion.div>
-          
-          <motion.div
-            variants={floatingAnimation}
-            initial="initial"
-            animate="animate"
-            style={{ animationDelay: "0.5s" }}
-            className="absolute top-48 left-16 hidden lg:block"
-          >
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-teal-500/20 backdrop-blur-sm border border-green-500/30 flex items-center justify-center">
-              <Smartphone className="w-7 h-7 text-green-400" />
-            </div>
-          </motion.div>
-          
-          <motion.div
-            variants={floatingAnimation}
-            initial="initial"
-            animate="animate"
-            style={{ animationDelay: "1s" }}
-            className="absolute bottom-32 left-24 hidden lg:block"
-          >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 backdrop-blur-sm border border-yellow-500/30 flex items-center justify-center">
-              <Globe className="w-6 h-6 text-yellow-400" />
-            </div>
-          </motion.div>
-          
-          <motion.div
-            variants={floatingAnimation}
-            initial="initial"
-            animate="animate"
-            style={{ animationDelay: "1.5s" }}
-            className="absolute bottom-48 right-32 hidden lg:block"
-          >
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500/20 to-red-500/20 backdrop-blur-sm border border-pink-500/30 flex items-center justify-center">
-              <PenTool className="w-7 h-7 text-pink-400" />
-            </div>
-          </motion.div>
-          
-          {/* Grid overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
-        </div>
-        
-        {/* Main Content */}
-        <motion.div 
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          className="relative z-10 max-w-5xl mx-auto text-center flex-1 flex flex-col justify-center"
-        >
-          {/* Badge */}
-          <motion.div
-            variants={fadeInUp}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-8"
-          >
-            <Sparkles className="w-4 h-4 text-purple-400" />
-            <span className="text-sm text-purple-300">Transforming Ideas into Digital Excellence</span>
-          </motion.div>
-          
-          <motion.h1 
-            variants={fadeInUp}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-5 sm:mb-6 leading-tight"
-          >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
-              M'Global
-            </span>
-            <br />
-            <span className="text-white">Business</span>{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-              Consultancy
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            variants={fadeInUp}
-            className="text-lg sm:text-xl md:text-2xl font-semibold bg-gradient-to-r from-pink-400 via-purple-400 to-yellow-300 bg-clip-text text-transparent mb-4 sm:mb-6"
-          >
-            Guaranteeing Excellence
-          </motion.p>
-          
-          <motion.p 
-            variants={fadeInUp}
-            className="text-base sm:text-lg md:text-xl text-purple-200/80 mb-6 sm:mb-10 max-w-2xl mx-auto leading-relaxed"
-          >
-            Transforming <span className="text-pink-400 font-medium">ideas</span> into successful{" "}
-            <span className="text-purple-400 font-medium">digital solutions</span> for businesses worldwide
-          </motion.p>
-          
-          <motion.div 
-            variants={fadeInUp}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <a href="#services" onClick={(e) => smoothScroll(e, '#services')}>
-              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white px-6 py-5 text-base rounded-full shadow-xl shadow-purple-500/30 transition-all hover:shadow-purple-500/50 hover:scale-105 group sm:px-8 sm:py-6 sm:text-lg">
-                Explore Our Services
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </a>
-            <a href="#contact" onClick={(e) => smoothScroll(e, '#contact')}>
-              <Button variant="outline" size="lg" className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10 hover:text-white px-6 py-5 text-base rounded-full backdrop-blur-sm transition-all hover:scale-105 sm:px-8 sm:py-6 sm:text-lg">
-                Get a Free Quote
-              </Button>
-            </a>
-          </motion.div>
-        </motion.div>
-
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-          className="relative z-10 w-full max-w-6xl mx-auto mt-6 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3"
-        >
-          {clientSummaryStats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-lg border border-white/10 bg-white/10 backdrop-blur-xl px-3 py-3 text-left shadow-lg shadow-purple-950/20 sm:px-4 sm:py-4"
-            >
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-3">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-purple-500/15 text-purple-200 sm:mt-1 sm:h-9 sm:w-9">
-                  {stat.icon}
-                </div>
-                <div>
-                  <div className="text-xl font-bold text-white leading-none sm:text-2xl">{stat.value}</div>
-                  <div className="mt-1 text-xs font-semibold leading-snug text-purple-100 sm:text-sm">{stat.label}</div>
-                  <p className="mt-1 hidden text-xs leading-relaxed text-purple-100/65 sm:block">{stat.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </motion.div>
-        
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
+        <OrbitalVisual />
       </div>
-  
-      {/* Services Section with Animations */}
-      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="py-24 bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-950 text-white relative overflow-hidden" id="services">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div 
-            variants={glowPulse}
-            initial="initial"
-            animate="animate"
-            className="absolute top-20 right-20 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"
-          />
-          <motion.div 
-            variants={glowPulse}
-            initial="initial"
-            animate="animate"
-            style={{ animationDelay: "1.5s" }}
-            className="absolute bottom-20 left-20 w-96 h-96 bg-pink-600/15 rounded-full blur-3xl"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(139,92,246,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6">
-              <Sparkles className="w-4 h-4 text-purple-400" />
-              <span className="text-sm text-purple-300">What We Offer</span>
+      <div className="site-container hero-bottom">
+        <span>YOUR PARTNER IN DIGITAL TRANSFORMATION</span>
+        <Link to="/#services">
+          SCROLL TO EXPLORE <ArrowDown size={14} />
+        </Link>
+      </div>
+    </section>
+
+    <section className="trust-strip" aria-label="Selected clients and projects">
+      <div className="site-container trust-inner">
+        <p>
+          Good company.
+          <br />
+          <span>Great possibilities.</span>
+        </p>
+        <div className="client-wordmarks">
+          <Link to="/projects/smartdrop" className="client-smartdrop">
+            <span aria-hidden="true">▦</span> SmartDrop
+            <span className="client-period">.</span>
+          </Link>
+          <Link to="/projects/agriflock360" className="client-agriflock">
+            AgriFlock<span>360</span>
+          </Link>
+          <Link to="/projects/truk-logistics" className="client-truk">
+            TRUK<span>FLOW</span>
+            <ArrowUpRight size={20} />
+          </Link>
+          <Link to="/projects/church-website" className="client-dcin">
+            <span aria-hidden="true">✦</span>
+            <span>
+              DELIVERANCE CHURCH<small>INTERNATIONAL NYANSIONGO</small>
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
-              Our Services
-            </h2>
-            <p className="text-lg md:text-xl text-purple-200/70 max-w-3xl mx-auto">
-              We provide comprehensive solutions to help your business grow and succeed in the digital landscape
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="services"
+      className="section-pad section-light services-section"
+      aria-labelledby="services-heading"
+    >
+      <div className="site-container">
+        <Reveal className="section-heading">
+          <div>
+            <p className="eyebrow">
+              <span className="section-index">01 /</span> WHAT WE DO
             </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div 
-                key={index} 
-                variants={fadeInUp} 
-                initial="hidden" 
-                whileInView="visible" 
-                viewport={{ once: true }} 
-                whileHover={{ scale: 1.05, y: -10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="group"
+            <h2 id="services-heading">
+              Big-picture thinking.
+              <br />
+              <span className="muted">Every-detail execution.</span>
+            </h2>
+          </div>
+          <p className="section-intro">
+            From the first spark to the final launch, we connect the dots
+            between where you are and where you want to be.
+          </p>
+        </Reveal>
+        <div className="services-grid">
+          {services.map(({ title, description, icon: Icon, tags }, index) => (
+            <Reveal key={title} delay={(index % 3) * 0.06}>
+              <Link
+                to={`/?service=${encodeURIComponent(title)}#contact`}
+                className="service-item"
               >
-                <div className="relative h-full p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
-                  {/* Gradient overlay on hover */}
-                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                  
-                  {/* Icon container */}
-                  <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} p-0.5 mb-5`}>
-                    <div className="w-full h-full rounded-xl bg-slate-950/80 flex items-center justify-center">
-                      <div className={service.iconColor}>{service.icon}</div>
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-purple-300 transition-all duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-purple-200/60 leading-relaxed">
-                    {service.description}
-                  </p>
-                  
-                  {/* Bottom glow effect */}
-                  <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="service-top">
+                  <Icon size={25} strokeWidth={1.3} />
+                  <span aria-hidden="true">0{index + 1}</span>
+                  <ArrowUpRight
+                    className="service-arrow"
+                    size={20}
+                    aria-hidden="true"
+                  />
                 </div>
-              </motion.div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <span className="service-tags">{tags}</span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal className="studio-note">
+          <div className="studio-portraits" role="group" aria-label="Our team">
+            <img
+              src="/Official Photo.jpg"
+              alt="Mititi Isaac"
+              width="64"
+              height="64"
+              loading="lazy"
+            />
+            <img
+              src="/Mumbua Photo.jpeg"
+              alt="Mumbua Mutuku"
+              width="64"
+              height="64"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <h3>Good work starts with a real conversation.</h3>
+            <p>
+              A direct line to the designers and engineers bringing your idea to
+              life.
+            </p>
+          </div>
+          <Link to="/team" className="text-link">
+            Meet your team <ArrowUpRight size={17} />
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+
+    <PortfolioSection />
+
+    <section
+      className="section-pad section-light approach-section"
+      id="approach"
+      aria-labelledby="approach-heading"
+    >
+      <div className="site-container">
+        <Reveal className="section-heading">
+          <div>
+            <p className="eyebrow">
+              <span className="section-index">03 /</span> HOW WE WORK
+            </p>
+            <h2 id="approach-heading">
+              Great things happen
+              <br />
+              <span className="muted">when we build together.</span>
+            </h2>
+          </div>
+          <p className="section-intro">
+            No black boxes. No unnecessary complexity. Just a clear,
+            collaborative process, with you at the centre.
+          </p>
+        </Reveal>
+        <div className="process-grid">
+          {steps.map((step) => (
+            <Reveal key={step.number}>
+              <article className="process-step">
+                <div className="process-number">
+                  <span>{step.number}</span>
+                  <ArrowUpRight size={18} />
+                </div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal className="impact-panel">
+          <div className="impact-title">
+            <span className="status-dot" />
+            <p>
+              Different industries.
+              <br />
+              <strong>One commitment to excellence.</strong>
+            </p>
+          </div>
+          <div className="impact-stats">
+            {[
+              { value: "20+", label: "Website clients" },
+              { value: "5+", label: "Mobile app clients" },
+              { value: "50+", label: "Graphic design clients" },
+              { value: "20+", label: "Digital marketing clients" },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <strong>{stat.value}</strong>
+                <span>{stat.label}</span>
+              </div>
             ))}
           </div>
-        </div>
-      </motion.div>
+        </Reveal>
+      </div>
+    </section>
 
-      {/* Portfolio Section */}
-      <PortfolioSection />
+    <TestimonialSection />
 
-      {/* Testimonial Section */}
-      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} id="testimonials"
-      className="py-20 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white"
-      >
-        <TestimonialSection />
-      </motion.div>
-
-      {/* Contact Form Section */}
-      <motion.div 
-        variants={fadeInUp} 
-        initial="hidden" 
-        whileInView="visible" 
-        viewport={{ once: true }} 
-        id="contact"
-        className="py-20 bg-gradient-to-r from-indigo-900 via-purple-800 to-indigo-900 text-white"
-      >
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">
-            Get In Touch
-          </h2>
-          <p className="text-md md:text-lg text-center mb-12 text-purple-100 max-w-3xl mx-auto">
-            Have a project in mind? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+    <section
+      id="contact"
+      className="contact-section section-pad section-light"
+      aria-labelledby="contact-heading"
+    >
+      <div className="site-container contact-grid">
+        <Reveal className="contact-copy">
+          <p className="eyebrow">
+            <span className="section-index">05 /</span> YOUR NEXT CHAPTER
           </p>
+          <h2 id="contact-heading">
+            Something
+            <br />
+            great starts
+            <br />
+            with <span className="brand-accent-text">hello.</span>
+          </h2>
+          <p>
+            Have an idea, a challenge, or a big ambition?
+            <br />
+            We’d love to hear what you’re thinking.
+          </p>
+          <a
+            className="contact-email text-link"
+            href="mailto:hello@mglobalbusinessconsultancy.com"
+          >
+            hello@mglobalbusinessconsultancy.com <ArrowUpRight size={18} />
+          </a>
+          <a className="contact-phone" href="tel:+254799863070">
+            +254 799 863 070
+          </a>
+        </Reveal>
+        <Reveal>
           <ContactForm />
-        </div>
-      </motion.div>
-  
-      {/* Footer */}
-      <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} id="footer">
-        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-10 bg-blue-950 text-white text-center md:text-left">
-          <Footer />
-        </div>
-      </motion.div>
-    </div>
-  );
-};
+        </Reveal>
+      </div>
+    </section>
+  </main>
+);
 
 export default Index;

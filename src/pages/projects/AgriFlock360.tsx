@@ -2,23 +2,16 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
-import Footer from "@/components/Footer";
 
 const AgriFlock360 = () => {
   return (
     <div className="min-h-screen bg-background">
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <Link to="/#portfolio">
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Portfolio
-            </Button>
+      <main id="main-content" className="project-page">
+        <div className="site-container">
+          <Link to="/#portfolio" className="text-link project-back">
+            <ArrowLeft size={16} /> Back to our work
           </Link>
         </div>
-      </nav>
-
-      <main className="pt-24 pb-20">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -28,9 +21,16 @@ const AgriFlock360 = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               AgriFlock360 Platform Website & Mobile Application
             </h1>
-            
+
             <div className="flex flex-wrap gap-2 mb-8">
-              {["AgriTech", "Mobile App", "IoT", "PCB Design", "AI Analytics", "Hardware Development"].map((tag) => (
+              {[
+                "AgriTech",
+                "Mobile App",
+                "IoT",
+                "PCB Design",
+                "AI Analytics",
+                "Hardware Development",
+              ].map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20"
@@ -41,50 +41,79 @@ const AgriFlock360 = () => {
             </div>
 
             <img
-              src="/agriflock-new.png"
+              src="/previews/agriflock-platform.png"
               alt="AgriFlock360 Platform"
               className="w-full h-auto rounded-lg shadow-2xl mb-12"
             />
 
             <div className="prose prose-lg max-w-none mb-12">
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Project Overview</h2>
+              <h2 className="text-3xl font-bold mb-4 text-foreground">
+                Project Overview
+              </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                AgriFlock360 is a comprehensive AI-powered poultry management ecosystem that revolutionizes 
-                smallholder farming across Africa. This innovative platform combines custom IoT hardware 
-                with sophisticated software solutions to create a seamless farming experience.
+                AgriFlock360 is a comprehensive AI-powered poultry management
+                ecosystem that revolutionizes smallholder farming across Africa.
+                This innovative platform combines custom IoT hardware with
+                sophisticated software solutions to create a seamless farming
+                experience.
               </p>
 
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Hardware Development</h2>
+              <h2 className="text-3xl font-bold mb-4 text-foreground">
+                Hardware Development
+              </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Our team managed the complete hardware development cycle, including:
+                Our team managed the complete hardware development cycle,
+                including:
               </p>
               <ul className="list-disc pl-6 mb-6 text-muted-foreground">
                 <li>PCB design and schematic creation</li>
                 <li>Gerber file generation for manufacturing</li>
-                <li>International fabrication coordination with manufacturers in China</li>
-                <li>Rigorous testing and assembly verification of smart brooder chips</li>
+                <li>
+                  International fabrication coordination with manufacturers in
+                  China
+                </li>
+                <li>
+                  Rigorous testing and assembly verification of smart brooder
+                  chips
+                </li>
                 <li>Solar-powered IoT sensor integration</li>
               </ul>
 
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Key Features</h2>
+              <h2 className="text-3xl font-bold mb-4 text-foreground">
+                Key Features
+              </h2>
               <ul className="list-disc pl-6 mb-6 text-muted-foreground">
-                <li>Mobile application with advanced offline functionality for low-connectivity areas</li>
+                <li>
+                  Mobile application with advanced offline functionality for
+                  low-connectivity areas
+                </li>
                 <li>Real-time environmental monitoring and alerts</li>
                 <li>Automated climate control systems</li>
-                <li>AI-driven analytics for optimizing poultry health and productivity</li>
-                <li>Data-driven insights for better farm management decisions</li>
+                <li>
+                  AI-driven analytics for optimizing poultry health and
+                  productivity
+                </li>
+                <li>
+                  Data-driven insights for better farm management decisions
+                </li>
               </ul>
 
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Impact</h2>
+              <h2 className="text-3xl font-bold mb-4 text-foreground">
+                Impact
+              </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The platform empowers smallholder farmers with enterprise-grade technology, enabling 
-                them to improve productivity, reduce losses, and make data-driven decisions that 
-                significantly impact their livelihoods.
+                The platform empowers smallholder farmers with enterprise-grade
+                technology, enabling them to improve productivity, reduce
+                losses, and make data-driven decisions that significantly impact
+                their livelihoods.
               </p>
 
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Hardware Development Gallery</h2>
+              <h2 className="text-3xl font-bold mb-4 text-foreground">
+                Hardware Development Gallery
+              </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Our custom PCB designs showcase the engineering precision behind AgriFlock360's smart brooder system.
+                Our custom PCB designs showcase the engineering precision behind
+                AgriFlock360's smart brooder system.
               </p>
             </div>
 
@@ -95,7 +124,9 @@ const AgriFlock360 = () => {
                   alt="AgriFlock360 PCB Top View"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />
-                <p className="text-sm text-muted-foreground text-center">PCB Layout - Top View</p>
+                <p className="text-sm text-muted-foreground text-center">
+                  PCB Layout - Top View
+                </p>
               </div>
               <div className="space-y-4">
                 <img
@@ -103,7 +134,9 @@ const AgriFlock360 = () => {
                   alt="AgriFlock360 PCB 3D Render"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />
-                <p className="text-sm text-muted-foreground text-center">PCB 3D Render</p>
+                <p className="text-sm text-muted-foreground text-center">
+                  PCB 3D Render
+                </p>
               </div>
             </div>
 
@@ -113,12 +146,18 @@ const AgriFlock360 = () => {
                 alt="AgriFlock360 Circuit Schematic"
                 className="w-full h-auto rounded-lg shadow-lg"
               />
-              <p className="text-sm text-muted-foreground text-center mt-4">Circuit Schematic Design</p>
+              <p className="text-sm text-muted-foreground text-center mt-4">
+                Circuit Schematic Design
+              </p>
             </div>
 
             <div className="flex gap-4">
               <Button asChild size="lg">
-                <a href="https://www.agriflock360.com/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.agriflock360.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <ExternalLink className="mr-2 h-5 w-5" />
                   View Live Project
                 </a>
@@ -127,8 +166,6 @@ const AgriFlock360 = () => {
           </motion.div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };
