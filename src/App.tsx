@@ -1,50 +1,67 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { lazy, Suspense } from "react";
+import { MotionConfig } from "framer-motion";
+import SiteHeader from "./components/SiteHeader";
+import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
-import About from "./pages/About";
-import Team from "./pages/Team";
-import AgriFlock360 from "./pages/projects/AgriFlock360";
-import AgriFlock360Admin from "./pages/projects/AgriFlock360Admin";
-import SmartDrop from "./pages/projects/SmartDrop";
-import TrukLogistics from "./pages/projects/TrukLogistics";
-import TrukAdmin from "./pages/projects/TrukAdmin";
-import ChurchWebsite from "./pages/projects/ChurchWebsite";
-import HealthTech from "./pages/projects/HealthTech";
-import FinTech from "./pages/projects/FinTech";
-import EducationalPlatform from "./pages/projects/EducationalPlatform";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
+const About = lazy(() => import("./pages/About"));
+const Team = lazy(() => import("./pages/Team"));
+const AgriFlock360 = lazy(() => import("./pages/projects/AgriFlock360"));
+const AgriFlock360Admin = lazy(
+  () => import("./pages/projects/AgriFlock360Admin"),
+);
+const SmartDrop = lazy(() => import("./pages/projects/SmartDrop"));
+const TrukLogistics = lazy(() => import("./pages/projects/TrukLogistics"));
+const TrukAdmin = lazy(() => import("./pages/projects/TrukAdmin"));
+const ChurchWebsite = lazy(() => import("./pages/projects/ChurchWebsite"));
+const HealthTech = lazy(() => import("./pages/projects/HealthTech"));
+const FinTech = lazy(() => import("./pages/projects/FinTech"));
+const EducationalPlatform = lazy(
+  () => import("./pages/projects/EducationalPlatform"),
+);
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
+  <BrowserRouter>
+    <MotionConfig reducedMotion="user">
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <SiteHeader />
+      <ScrollToTop />
+      <Suspense
+        fallback={
+          <main id="main-content" className="page-loading" role="status">
+            Loading your next chapter…
+          </main>
+        }
+      >
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
           <Route path="/projects/smartdrop" element={<SmartDrop />} />
-          <Route path="/projects/agriflock360-admin" element={<AgriFlock360Admin />} />
+          <Route
+            path="/projects/agriflock360-admin"
+            element={<AgriFlock360Admin />}
+          />
           <Route path="/projects/agriflock360" element={<AgriFlock360 />} />
           <Route path="/projects/truk-logistics" element={<TrukLogistics />} />
           <Route path="/projects/truk-admin" element={<TrukAdmin />} />
           <Route path="/projects/church-website" element={<ChurchWebsite />} />
           <Route path="/projects/healthtech" element={<HealthTech />} />
           <Route path="/projects/fintech" element={<FinTech />} />
-          <Route path="/projects/educational-platform" element={<EducationalPlatform />} />
+          <Route
+            path="/projects/educational-platform"
+            element={<EducationalPlatform />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+      </Suspense>
+      <Footer />
+    </MotionConfig>
+  </BrowserRouter>
 );
 
 export default App;

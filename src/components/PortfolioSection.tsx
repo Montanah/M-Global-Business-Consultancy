@@ -1,566 +1,266 @@
-import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { ArrowDown, ArrowUpRight, Layers3 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FaFacebook, FaLinkedin, FaInstagram, FaTiktok } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { portfolioCategories, type PortfolioItem } from "@/data/portfolio";
+import Reveal from "./Reveal";
 
-interface SocialLinks {
-  facebook?: string;
-  linkedin?: string;
-  instagram?: string;
-  x?: string;
-  tiktok?: string;
-}
-
-interface PortfolioItem {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  liveUrl?: string;
-  detailsUrl: string;
-  tags: string[];
-  socialLinks?: SocialLinks;
-}
-
-interface PortfolioCategory {
-  id: string;
-  label: string;
-  items: PortfolioItem[];
-}
-
-const portfolioCategories: PortfolioCategory[] = [
-  {
-    id: "web-dev",
-    label: "Web & App Development",
-    items: [
-      {
-        id: 8,
-        title: "SmartDrop Smart Locker Platform",
-        description: "SmartDrop helps merchants reduce failed deliveries by letting customers collect parcels from secure neighbourhood lockers using OTP access, SMS collection flows, and 24/7 pickup availability.",
-        image: "/Smartdrop hero page.png",
-        liveUrl: "https://smartdrop.africa/",
-        detailsUrl: "/projects/smartdrop",
-        tags: ["Smart Lockers", "Logistics", "IoT", "Web Development"]
-      },
-      {
-        id: 9,
-        title: "AgriFlock360 Admin Panel Web Application",
-        description: "A complete administration dashboard for managing the AgriFlock360 ecosystem, including farms, deployments, firmware, support, hardware inventory, farmer products, insights, revenue, alerts, and platform settings.",
-        image: "/Agriflock 360 Admin panel.png",
-        detailsUrl: "/projects/agriflock360-admin",
-        tags: ["Admin Panel", "AgriTech", "Dashboard", "Operations"]
-      },
-      {
-        id: 1,
-        title: "AgriFlock360 Platform Website & Mobile Application",
-        description: "Comprehensive AI-powered poultry management ecosystem featuring custom IoT hardware and software. Our team handled the complete hardware development cycle: PCB design and schematic creation, Gerber file generation, and international fabrication coordination with manufacturers in China. Post-fabrication, we conducted rigorous testing and assembly verification of the smart brooder chips. The platform includes a mobile application with advanced offline functionality for seamless operation in low-connectivity areas, real-time environmental monitoring, automated climate control, and solar-powered IoT sensors. The system integrates AI-driven analytics to optimize poultry health and productivity for smallholder farmers across Africa.",
-        image: "/agriflock-new.png",
-        liveUrl: "https://www.agriflock360.com/",
-        detailsUrl: "/projects/agriflock360",
-        tags: ["AgriTech", "Mobile App", "IoT", "PCB Design", "AI Analytics", "Hardware Development"]
-      },
-      {
-        id: 2,
-        title: "TRUKFLOW Logistics Website & Mobile Application",
-        description: "A fully developed logistics website and mobile app ecosystem for TRUKFLOW, East Africa's smart logistics system, featuring driver marketplace onboarding, goods movement workflows, and secure smart locker delivery options.",
-        image: "/Trukflow Hero page.png",
-        liveUrl: "https://www.trukflow.com/",
-        detailsUrl: "/projects/truk-logistics",
-        tags: ["Logistics", "Web Development", "Mobile App", "Smart Lockers"]
-      },
-      {
-        id: 3,
-        title: "TRUKFLOW Admin Panel Web Application",
-        description: "A fully developed responsive and intuitive admin dashboard delivering real-time insights into the TRUKFLOW mobile app's key metrics and user behavior.",
-        image: "/Admin Panel.jpg",
-        liveUrl: "https://truk-admin-panel.netlify.app/",
-        detailsUrl: "/projects/truk-admin",
-        tags: ["Web Development", "Web App", "Enterprise"]
-      },
-      {
-        id: 4,
-        title: "Comprehensive Church Website",
-        description: "A modern, dynamic website showcasing church programs, enhanced with integrated audio recordings and a seamlessly embedded YouTube channel.",
-        image: "/DCIN Hero page.png",
-        liveUrl: "https://www.deliverancechurchinternationalnyansiongo.org",
-        detailsUrl: "/projects/church-website",
-        tags: ["Church Management", "Audio Streaming", "Ministry Tools"]
-      },
-      {
-        id: 5,
-        title: "HealthTech Mobile App",
-        description: "Revolutionary healthcare app connecting patients with doctors, featuring telemedicine and health tracking.",
-        image: "/portfolio-health-africa.jpg",
-        liveUrl: "https://healthtech-demo.com",
-        detailsUrl: "/projects/healthtech",
-        tags: ["Healthcare", "Mobile App", "Telemedicine"]
-      },
-      {
-        id: 6,
-        title: "FinTech Dashboard",
-        description: "Comprehensive financial dashboard with real-time analytics, portfolio tracking, and investment insights.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-        liveUrl: "https://fintech-demo.com",
-        detailsUrl: "/projects/fintech",
-        tags: ["FinTech", "Dashboard", "Analytics"]
-      },
-      {
-        id: 7,
-        title: "Educational Platform",
-        description: "Interactive learning management system with video streaming, progress tracking, and collaborative tools.",
-        image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
-        liveUrl: "https://eduplatform-demo.com",
-        detailsUrl: "/projects/educational-platform",
-        tags: ["Education", "LMS", "Video Streaming"]
-      }
-    ]
-  },
-  {
-    id: "design-marketing",
-    label: "Design & Marketing",
-    items: [
-      {
-        id: 1,
-        title: "Deliverance Church International Nyansiongo - Social Media Management",
-        description: "Comprehensive social media management across Facebook, Instagram, and X (Twitter). We create engaging content, manage community interactions, and build an active online presence to connect the church with its congregation and wider community.",
-        image: "/DCIN Hero page.png",
-        liveUrl: "https://www.facebook.com/DCINyansiongo",
-        detailsUrl: "/projects/church-website",
-        tags: ["Social Media", "Content Creation", "Community Management"],
-        socialLinks: {
-          facebook: "https://www.facebook.com/DCINyansiongo",
-          instagram: "https://www.instagram.com/dcinyansiongo",
-          x: "https://x.com/dcinyansiongo"
-        }
-      },
-      {
-        id: 2,
-        title: "TRUKFLOW - Social Media Management",
-        description: "Full-service social media management for the TRUKFLOW logistics platform. We handle content strategy, brand storytelling, and engagement across major platforms to drive brand awareness and user acquisition.",
-        image: "/Trukflow Hero page.png",
-        liveUrl: "https://www.trukflow.com/",
-        detailsUrl: "/projects/truk-logistics",
-        tags: ["Social Media", "Brand Strategy", "Digital Marketing"],
-        socialLinks: {
-          facebook: "https://www.facebook.com/profile.php?id=61577130358564",
-          linkedin: "https://www.linkedin.com/company/truk-ltd",
-          instagram: "https://www.instagram.com/truk_ltd",
-          x: "https://x.com/trukltd",
-          tiktok: "https://www.tiktok.com/@truk_ltd"
-        }
-      },
-      {
-        id: 3,
-        title: "AgriFlock 360 - Social Media Management",
-        description: "Strategic social media management for AgriFlock 360's AI-powered poultry platform. We create educational content, showcase product features, and engage with farmers and agricultural stakeholders across LinkedIn, Facebook, Instagram, X, and TikTok.",
-        image: "/agriflock-new.png",
-        liveUrl: "https://www.linkedin.com/company/agriflock-360",
-        detailsUrl: "/projects/agriflock360",
-        tags: ["Social Media", "AgriTech Marketing", "Content Strategy"],
-        socialLinks: {
-          facebook: "https://www.facebook.com/profile.php?id=61584028213600",
-          linkedin: "https://www.linkedin.com/company/agriflock-360",
-          x: "https://x.com/agriflock360",
-          instagram: "https://www.instagram.com/agriflock_360",
-          tiktok: "https://www.tiktok.com/@agriflock_360"
-        }
-      },
-      {
-        id: 4,
-        title: "M'Global Farm - Social Media Management",
-        description: "Complete social media presence management for M'Global Farm. We develop and execute content calendars, engage with the farming community, and promote sustainable agricultural practices across LinkedIn, Facebook, Instagram, X, and TikTok.",
-        image: "/M_Global_Farm_Logo.png",
-        liveUrl: "https://www.facebook.com/profile.php?id=100068009874336",
-        detailsUrl: "#",
-        tags: ["Social Media", "Agriculture", "Brand Building"],
-        socialLinks: {
-          facebook: "https://www.facebook.com/profile.php?id=100068009874336",
-          instagram: "https://www.instagram.com/m_global_farm",
-          x: "https://x.com/m_global_farm"
-        }
-      }
-    ]
-  },
-  {
-    id: "system-design",
-    label: "System Design & Deployment",
-    items: []
-  },
-  {
-    id: "it-consulting",
-    label: "IT Consulting & Tech Support",
-    items: []
-  }
-];
-
-// Design work items (videos and images) for the Design & Marketing tab
-interface DesignWorkItem {
-  id: number;
-  title: string;
-  type: 'video' | 'image';
-  src: string;
-}
-
-const designWorkItems: DesignWorkItem[] = [
-  {
-    id: 1,
-    title: "TRUKFLOW Animation Video",
-    type: "video",
-    src: "/TRUK_Animation_video_1.mp4"
-  }
-];
-
-interface PortfolioCarouselProps {
-  items: PortfolioItem[];
-}
-
-const PortfolioCarousel: React.FC<PortfolioCarouselProps> = ({ items }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
-  const getItemsPerView = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 768) return 1;
-      if (window.innerWidth < 1024) return 2;
-      return 3;
-    }
-    return 3;
-  };
-  
-  const [itemsPerView, setItemsPerView] = useState(getItemsPerView);
-  const maxIndex = Math.max(0, items.length - itemsPerView);
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      const newItemsPerView = getItemsPerView();
-      setItemsPerView(newItemsPerView);
-      setCurrentIndex(0);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  React.useEffect(() => {
-    setCurrentIndex(0);
-  }, [items]);
-
-  const goToPrevious = () => {
-    setCurrentIndex(prev => Math.max(0, prev - 1));
-  };
-
-  const goToNext = () => {
-    setCurrentIndex(prev => Math.min(maxIndex, prev + 1));
-  };
-
-  if (items.length === 0) {
-    return (
-      <div className="text-center py-16">
-        <p className="text-white/60 text-lg">Coming soon! We're preparing amazing projects for this category.</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="relative">
-      <div className="flex justify-between items-center mb-8 px-2">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={goToPrevious}
-          disabled={currentIndex === 0}
-          aria-label="Previous projects"
-          className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 disabled:opacity-30 flex-shrink-0 bg-white/5 backdrop-blur-sm"
-        >
-          <ChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
-        </Button>
-        
-        <div className="flex space-x-2 mx-4">
-          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                currentIndex === index ? 'bg-gradient-to-r from-blue-400 to-purple-400' : 'bg-white/30'
-              }`}
-            />
-          ))}
-        </div>
-
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={goToNext}
-          disabled={currentIndex === maxIndex}
-          aria-label="Next projects"
-          className="h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-white/20 text-white hover:bg-white/10 hover:border-white/40 disabled:opacity-30 flex-shrink-0 bg-white/5 backdrop-blur-sm"
-        >
-          <ChevronRight className="h-4 w-4 md:h-6 md:w-6" />
-        </Button>
-      </div>
-
-      <div className="overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            initial={{ x: 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -300, opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className={`grid gap-4 md:gap-6 lg:gap-8 ${
-              itemsPerView === 1 ? 'grid-cols-1' : 
-              itemsPerView === 2 ? 'grid-cols-1 md:grid-cols-2' : 
-              'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-            }`}
-          >
-            {items.slice(currentIndex, currentIndex + itemsPerView).map((item) => (
-              <motion.div
-                key={item.id}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Card className="overflow-hidden border border-white/10 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 bg-white/5 backdrop-blur-xl">
-                  <div className="relative group">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-40 md:h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    {item.liveUrl && (
-                      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <Button
-                          size="icon"
-                          className="h-10 w-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20"
-                          asChild
-                        >
-                          <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="h-5 w-5 text-white" />
-                          </a>
-                        </Button>
-                      </div>
-                    )}
-                  </div>
-                  <CardContent className="p-4 md:p-6">
-                    <h3 className="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">{item.title}</h3>
-                    <p className="text-white/70 mb-3 md:mb-4 text-xs md:text-sm leading-relaxed">{item.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {item.tags.map((tag, index) => (
-                        <span
-                          key={index}
-                          className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 rounded-full border border-blue-400/30"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    {item.socialLinks ? (
-                      <div className="flex flex-col gap-3">
-                        <div className="flex justify-center gap-3">
-                          {item.socialLinks.facebook && (
-                            <a href={item.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
-                              <FaFacebook className="h-5 w-5" />
-                            </a>
-                          )}
-                          {item.socialLinks.linkedin && (
-                            <a href={item.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
-                              <FaLinkedin className="h-5 w-5" />
-                            </a>
-                          )}
-                          {item.socialLinks.instagram && (
-                            <a href={item.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-pink-400 hover:text-pink-300 transition-colors">
-                              <FaInstagram className="h-5 w-5" />
-                            </a>
-                          )}
-                          {item.socialLinks.x && (
-                            <a href={item.socialLinks.x} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
-                              <FaXTwitter className="h-5 w-5" />
-                            </a>
-                          )}
-                          {item.socialLinks.tiktok && (
-                            <a href={item.socialLinks.tiktok} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
-                              <FaTiktok className="h-5 w-5" />
-                            </a>
-                          )}
-                        </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="w-full border-white/20 text-white hover:bg-white/10 hover:border-white/40 bg-white/5"
-                          asChild
-                        >
-                          <Link to={item.detailsUrl}>
-                            Learn More
-                          </Link>
-                        </Button>
-                      </div>
-                    ) : item.liveUrl ? (
-                      <div className="flex gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1 border-white/20 text-white hover:bg-white/10 hover:border-white/40 bg-white/5"
-                          asChild
-                        >
-                          <Link to={item.detailsUrl}>
-                            Learn More
-                          </Link>
-                        </Button>
-                        <Button
-                          size="sm"
-                          className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0"
-                          asChild
-                        >
-                          <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="mr-1 h-4 w-4" />
-                            Live
-                          </a>
-                        </Button>
-                      </div>
-                    ) : (
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="w-full border-white/20 text-white hover:bg-white/10 hover:border-white/40 bg-white/5"
-                        asChild
-                      >
-                        <Link to={item.detailsUrl}>
-                          Learn More
-                        </Link>
-                      </Button>
-                    )}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    </div>
-  );
+const socialIcons = {
+  facebook: FaFacebook,
+  linkedin: FaLinkedin,
+  instagram: FaInstagram,
+  x: FaXTwitter,
+  tiktok: FaTiktok,
+};
+const categoryLabels: Record<string, string> = {
+  "web-dev": "Web & apps",
+  "design-marketing": "Design & marketing",
+  "system-design": "Systems & deployment",
+  "it-consulting": "IT consulting",
 };
 
-const PortfolioSection = () => {
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
-  const glowPulse = {
-    animate: {
-      scale: [1, 1.2, 1],
-      opacity: [0.3, 0.6, 0.3],
-    },
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  };
-
-  return (
-    <motion.div 
-      variants={fadeInUp} 
-      initial="hidden" 
-      whileInView="visible" 
-      viewport={{ once: true }}
-      className="py-20 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950 relative overflow-hidden"
-      id="portfolio"
+const ProjectCard = ({
+  item,
+  index,
+  featured = false,
+}: {
+  item: PortfolioItem;
+  index: number;
+  featured?: boolean;
+}) => (
+  <article className={`project-card${featured ? " project-featured" : ""}`}>
+    <Link
+      to={
+        item.detailsUrl === "#"
+          ? "/?service=Social%20media%20management#contact"
+          : item.detailsUrl
+      }
+      className={`project-visual project-tone-${index % 4}`}
+      aria-label={`Explore ${item.title}`}
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={glowPulse.animate}
-          transition={glowPulse.transition}
-          className="absolute top-20 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={glowPulse.animate}
-          transition={{ ...glowPulse.transition, delay: 2 }}
-          className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
-        />
+      <div className="project-preview-bar">
+        <span />
+        <span />
+        <span />
+        <span className="preview-label">{item.tags[0]}</span>
       </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-2 rounded-full bg-white/5 border border-white/10 text-blue-300 text-sm font-medium mb-6 backdrop-blur-sm"
-          >
-            Our Work
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 mb-4">
-            Our Portfolio
-          </h2>
-          <p className="text-lg text-white/70 max-w-3xl mx-auto">
-            Discover the innovative solutions we've created for our clients across various industries
+      <img
+        src={item.image}
+        alt={item.title}
+        loading="lazy"
+        decoding="async"
+        width="1200"
+        height="750"
+      />
+      <span className="project-open">
+        <ArrowUpRight size={21} />
+      </span>
+    </Link>
+    <div className="project-info">
+      {featured && (
+        <>
+          <p className="eyebrow featured-eyebrow">
+            <span className="status-dot" /> FEATURED PROJECT / 01
           </p>
-        </div>
+          <p className="featured-client">{item.title}</p>
+        </>
+      )}
+      <div className="project-tags">
+        {item.tags.slice(0, 3).map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+      <h3>
+        <Link
+          to={
+            item.detailsUrl === "#"
+              ? "/?service=Social%20media%20management#contact"
+              : item.detailsUrl
+          }
+        >
+          {featured && item.feature ? item.feature.headline : item.title}
+        </Link>
+      </h3>
+      <p>{item.description}</p>
+      {featured && item.feature && (
+        <dl className="featured-facts">
+          {item.feature.facts.map((fact) => (
+            <div key={fact.label}>
+              <dt>{fact.label}</dt>
+              <dd>{fact.value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+      <div className="project-links">
+        {item.detailsUrl !== "#" && (
+          <Link to={item.detailsUrl} className="text-link">
+            Explore project <ArrowUpRight size={15} />
+          </Link>
+        )}
+        {item.liveUrl && (
+          <a
+            href={item.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-link"
+          >
+            Visit website <ArrowUpRight size={15} />
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        )}
+        {item.socialLinks && (
+          <div className="project-socials">
+            {Object.entries(item.socialLinks).map(([network, url]) => {
+              const Icon = socialIcons[network as keyof typeof socialIcons];
+              return (
+                <a
+                  key={network}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${item.title} on ${network}`}
+                >
+                  <Icon size={17} />
+                </a>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  </article>
+);
 
-        <Tabs defaultValue="web-dev" className="w-full">
-          <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 mb-8 h-auto gap-2 bg-white/5 backdrop-blur-sm border border-white/10 p-2 rounded-xl">
+const PortfolioSection = () => {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <section
+      id="portfolio"
+      className="section-pad portfolio-section"
+      aria-labelledby="portfolio-heading"
+    >
+      <div className="site-container">
+        <Reveal className="section-heading">
+          <div>
+            <p className="eyebrow">
+              <span className="section-index">02 /</span> SELECTED WORK
+            </p>
+            <h2 id="portfolio-heading">
+              Real challenges.
+              <br />
+              <span className="muted">Remarkable possibilities.</span>
+            </h2>
+          </div>
+          <p className="section-intro">
+            A closer look at the platforms, experiences, and brands we’ve helped
+            bring into the world.
+          </p>
+        </Reveal>
+        <Tabs defaultValue="web-dev" onValueChange={() => setExpanded(false)}>
+          <TabsList className="portfolio-tabs" aria-label="Project categories">
             {portfolioCategories.map((category) => (
-              <TabsTrigger
-                key={category.id}
-                value={category.id}
-                className="py-3 px-4 text-sm md:text-base font-medium text-white/70 data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white rounded-lg data-[state=active]:shadow-lg data-[state=active]:shadow-purple-500/20 transition-all hover:text-white"
-              >
-                {category.label}
+              <TabsTrigger key={category.id} value={category.id}>
+                {categoryLabels[category.id]}
+                <span>{String(category.items.length).padStart(2, "0")}</span>
               </TabsTrigger>
             ))}
           </TabsList>
-          
           {portfolioCategories.map((category) => (
-            <TabsContent key={category.id} value={category.id}>
-              <PortfolioCarousel items={category.items} />
-              
-              {/* Design Work Section - only for Design & Marketing tab */}
-              {category.id === "design-marketing" && designWorkItems.length > 0 && (
-                <div className="mt-16">
-                  <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 mb-8 text-center">
-                    Some of our Design work
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {designWorkItems.map((item) => (
-                      <motion.div
-                        key={item.id}
-                        whileHover={{ scale: 1.02, y: -5 }}
-                        transition={{ duration: 0.2 }}
-                        className="rounded-xl overflow-hidden shadow-lg bg-white/5 backdrop-blur-xl border border-white/10 hover:shadow-purple-500/10 hover:shadow-2xl"
-                      >
-                        {item.type === 'video' ? (
-                          <video
-                            src={item.src}
-                            className="w-full h-64 object-cover"
-                            controls
-                            playsInline
-                          />
-                        ) : (
-                          <img
-                            src={item.src}
-                            alt={item.title}
-                            className="w-full h-64 object-cover"
-                          />
-                        )}
-                        <div className="p-4">
-                          <p className="text-sm font-medium text-white/80">{item.title}</p>
-                        </div>
-                      </motion.div>
-                    ))}
+            <TabsContent
+              key={category.id}
+              value={category.id}
+              className="portfolio-tab-content"
+            >
+              {category.items.length ? (
+                <>
+                  <div
+                    className={`project-grid${category.id === "web-dev" ? " project-grid-featured" : ""}${expanded ? " is-expanded" : ""}`}
+                  >
+                    {category.items
+                      .slice(0, expanded ? undefined : 4)
+                      .map((item, index) => (
+                        <ProjectCard
+                          key={item.id}
+                          item={item}
+                          index={index}
+                          featured={category.id === "web-dev" && index === 0}
+                        />
+                      ))}
                   </div>
+                  {category.items.length > 4 && (
+                    <div className="portfolio-more">
+                      <span aria-live="polite">
+                        Showing {expanded ? category.items.length : 4} of{" "}
+                        {category.items.length} projects
+                      </span>
+                      <button
+                        type="button"
+                        className="button button-outline"
+                        aria-expanded={expanded}
+                        onClick={() => setExpanded(!expanded)}
+                      >
+                        {expanded ? "Show fewer projects" : "View all projects"}
+                        <ArrowDown
+                          size={16}
+                          className={expanded ? "rotate-180" : ""}
+                        />
+                      </button>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="portfolio-empty">
+                  <Layers3 size={32} strokeWidth={1.2} />
+                  <h3>Your next project could be here.</h3>
+                  <p>
+                    We’re preparing case studies in this area. In the meantime,
+                    let’s talk about what we can build for your business.
+                  </p>
+                  <Link
+                    to={`/?service=${encodeURIComponent(category.label)}#contact`}
+                    className="button button-outline"
+                  >
+                    Discuss your project <ArrowUpRight size={17} />
+                  </Link>
+                </div>
+              )}
+              {category.id === "design-marketing" && (
+                <div className="design-work">
+                  <div>
+                    <p className="eyebrow">BRANDS IN MOTION</p>
+                    <h3>Ideas that move.</h3>
+                    <p>
+                      A look at our animation and creative work for TRUKFLOW.
+                    </p>
+                  </div>
+                  <figure>
+                    <video
+                      controls
+                      playsInline
+                      preload="none"
+                      poster="/previews/trukflow.jpg"
+                      aria-label="TRUKFLOW animation video"
+                    >
+                      <source
+                        src="/TRUK_Animation_video_1.mp4"
+                        type="video/mp4"
+                      />
+                      <a href="/TRUK_Animation_video_1.mp4">
+                        Download the TRUKFLOW animation video
+                      </a>
+                    </video>
+                    <figcaption>TRUKFLOW Animation Video</figcaption>
+                  </figure>
                 </div>
               )}
             </TabsContent>
           ))}
         </Tabs>
       </div>
-    </motion.div>
+    </section>
   );
 };
 

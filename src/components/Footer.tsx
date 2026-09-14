@@ -1,79 +1,105 @@
-import React from 'react';
-import { Facebook, Instagram } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowUpRight, Facebook, Instagram } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
-const XLogo = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" className={className}>
-    <path d="M22.97 2H19.7l-6.3 7.92L7.9 2H1.03L9.4 12.47 1.03 22h3.3l6.9-8.6 5.7 8.6h6.8l-8.8-11.36L22.97 2z"/>
-  </svg>
-);
-
-const Footer = () => {
-  return (
-    <footer className="bg-blue-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-          <div>
-            <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">M'Global Business Consultancy</h3>
-            <p className="text-blue-200 mb-4">
-              Transforming businesses through innovative digital solutions.
-            </p>
-            <div className="flex space-x-4 justify-center md:justify-start">
-              <Link to="https://x.com/mglobalbconsult?s=11&t=p6v18hsMnUboiUq__V9F5A" target='_blank' className="text-white hover:text-blue-300">
-                <XLogo className="h-5 w-5" />
-              </Link>
-              <Link to="https://www.facebook.com/share/1ABgx22hrx/?mibextid=wwXIfr" target='_blank' className="text-white hover:text-blue-300">
-                <Facebook className="h-5 w-5" />
-              </Link>
-              <Link to="https://www.instagram.com/mglobalbconsult?igsh=MWt1ODdkN3Qxdmdwdw%3D%3D&utm_source=qr" target='_blank' className="text-white hover:text-blue-300">
-                <Instagram className="h-5 w-5" />
-              </Link>
-            </div>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">Services</h3>
-            <ul className="space-y-2">
-              <li><Link to="#" className="text-blue-200 hover:text-white">Web Design & Development</Link></li>
-              <li><Link to="#" className="text-blue-200 hover:text-white">App Development</Link></li>
-              <li><Link to="#" className="text-blue-200 hover:text-white">Graphic Design</Link></li>
-              <li><Link to="#" className="text-blue-200 hover:text-white">Digital Marketing</Link></li>
-              <li><Link to="#" className="text-blue-200 hover:text-white">Social Media Management</Link></li>
-              <li><Link to="#" className="text-blue-200 hover:text-white">Business Plan design & Registration</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">Company</h3>
-            <ul className="space-y-2">
-              <li><Link to="/about" className="text-blue-200 hover:text-white">About Us</Link></li>
-              <li><Link to="/team" className="text-blue-200 hover:text-white">Our Team</Link></li>
-              <li><Link to="#" className="text-blue-200 hover:text-white">Careers</Link></li>
-              <li><Link to="#" className="text-blue-200 hover:text-white">Privacy Policy</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">Contact Us</h3>
-              <p className="text-blue-200 mb-2">
-                <a href="mailto:hello@mglobalbusinessconsultancy.com" className="hover:underline">
-                  hello@mglobalbusinessconsultancy.com
-                </a>
-              </p>
-              <p className="text-blue-200 mb-2">
-                <a href="tel:+254799863070" className="hover:underline">
-                  +254 799 863 070
-                </a>
-              </p>
+const Footer = () => (
+  <footer id="footer" className="site-footer">
+    <div className="site-container">
+      <div className="footer-top">
+        <div className="footer-brand">
+          <Logo />
+          <p>
+            Independent minds.
+            <br />
+            Extraordinary possibilities.
+          </p>
+          <div className="footer-socials">
+            <a
+              href="https://x.com/mglobalbconsult?s=11&t=p6v18hsMnUboiUq__V9F5A"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="M'Global on X"
+            >
+              <FaXTwitter size={17} />
+            </a>
+            <a
+              href="https://www.facebook.com/share/1ABgx22hrx/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="M'Global on Facebook"
+            >
+              <Facebook size={18} />
+            </a>
+            <a
+              href="https://www.instagram.com/mglobalbconsult?igsh=MWt1ODdkN3Qxdmdwdw%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="M'Global on Instagram"
+            >
+              <Instagram size={18} />
+            </a>
           </div>
         </div>
-        
-        <div className="border-t border-blue-800 mt-12 pt-6 text-center bg-gradient-to-r from-pink-400 to-yellow-200 bg-clip-text text-transparent">
-          <p>© {new Date().getFullYear()} M'Global Business Consultancy. All rights reserved.</p>
+        <div className="footer-column">
+          <h2>EXPERTISE</h2>
+          {[
+            "Web design & development",
+            "App development",
+            "Graphic design",
+            "Digital marketing",
+            "Social media management",
+            "System design & deployment",
+            "IT consulting & tech support",
+            "Business planning & registration",
+          ].map((service) => (
+            <Link
+              key={service}
+              to={`/?service=${encodeURIComponent(service)}#contact`}
+            >
+              {service}
+            </Link>
+          ))}
+        </div>
+        <div className="footer-column">
+          <h2>EXPLORE</h2>
+          <Link to="/about">About us</Link>
+          <Link to="/team">Our team</Link>
+          <Link to="/#portfolio">Our work</Link>
+          <Link to="/#approach">Our approach</Link>
+          <Link to="/#contact">Get in touch</Link>
+          <a href="mailto:hello@mglobalbusinessconsultancy.com?subject=Careers%20at%20M%27Global">
+            Careers <ArrowUpRight size={13} />
+          </a>
+        </div>
+        <div className="footer-column footer-contact">
+          <h2>LET’S MAKE IT HAPPEN</h2>
+          <a href="mailto:hello@mglobalbusinessconsultancy.com">
+            hello@mglobalbusinessconsultancy.com
+          </a>
+          <a href="tel:+254799863070">+254 799 863 070</a>
+          <p>
+            Based in Kenya.
+            <br />
+            Building beyond borders.
+          </p>
+          <Link to="/#contact" className="text-link">
+            Start a conversation <ArrowUpRight size={16} />
+          </Link>
         </div>
       </div>
-    </footer>
-  );
-};
+      <div className="footer-bottom">
+        <p>
+          © {new Date().getFullYear()} M’Global Business Consultancy. All
+          rights reserved.
+        </p>
+        <span>STRATEGY. DESIGN. TECHNOLOGY.</span>
+        <Link to="/#main-content" className="text-link">
+          Back to top ↑
+        </Link>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

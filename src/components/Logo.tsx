@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom";
 
-import React from 'react';
-import LogoImage from '../../src/Logo.png';
-
-const Logo = () => {
-  return (
-    <div className="flex items-center gap-2 shrink-0">
-      <img src={LogoImage} alt="Company Logo" className="h-12 w-12 sm:h-14 sm:w-14 text-blue-900" />
-    </div>
-  );
-};
+const Logo = () => (
+  <Link
+    to="/"
+    className="brand"
+    aria-label="M'Global Business Consultancy home"
+  >
+    <img src="/Logo.png" alt="" width="48" height="48" />
+    <span className="brand-wordmark">
+      M’Global<span>BUSINESS CONSULTANCY</span>
+    </span>
+  </Link>
+);
 
 export default Logo;
