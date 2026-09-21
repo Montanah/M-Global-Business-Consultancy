@@ -9,6 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Logo from "./Logo";
+import { normalizePath } from "@/lib/seo";
 
 const links = [
   { label: "Services", to: "/#services" },
@@ -67,7 +68,7 @@ const SiteHeader = () => {
       return location.pathname === "/" && to === `/#${visibleSection}`
         ? "location"
         : undefined;
-    return to === location.pathname ? "page" : undefined;
+    return to === normalizePath(location.pathname) ? "page" : undefined;
   };
 
   return (

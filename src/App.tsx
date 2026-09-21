@@ -2,7 +2,8 @@ import { lazy, Suspense } from "react";
 import { MotionConfig } from "framer-motion";
 import SiteHeader from "./components/SiteHeader";
 import Footer from "./components/Footer";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Seo from "./components/Seo";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 const About = lazy(() => import("./pages/About"));
@@ -23,8 +24,8 @@ const EducationalPlatform = lazy(
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
-  <BrowserRouter>
     <MotionConfig reducedMotion="user">
+      <Seo />
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
@@ -61,7 +62,6 @@ const App = () => (
       </Suspense>
       <Footer />
     </MotionConfig>
-  </BrowserRouter>
 );
 
 export default App;

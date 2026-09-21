@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build && npm run test:seo"
+  publish = "dist"
+
+# Search engines should index the production domain, not review deployments.
+[context.deploy-preview]
+  command = "npm run build && npm run test:seo && node scripts/noindex-preview.mjs"
+
+[context.branch-deploy]
+  command = "npm run build && npm run test:seo && node scripts/noindex-preview.mjs"
