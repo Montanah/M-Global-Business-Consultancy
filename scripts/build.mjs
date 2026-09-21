@@ -29,7 +29,7 @@ try {
       } },
     },
   });
-  const { renderPage, renderSeoHead, seoPages, SITE_URL } =
+  const { renderPage, renderSeoHead, getPageSeo, seoPages, SITE_URL } =
     await import(pathToFileURL(join(serverDir, "entry-server.mjs")).href);
   const template = await readFile(join(outDir, "index.html"), "utf8");
   if (!template.includes("<!--seo-head-->") || !template.includes('<div id="root"></div>')) {
@@ -51,7 +51,7 @@ try {
   }
   const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    paths.map(pathname => `  <url><loc>${SITE_URL}${pathname}</loc></url>`).join("\n") +
+    paths.map(pathname => `  <url><loc>${getPageSeo(pathname).canonical}</loc></url>`).join("\n") +
     "\n</urlset>\n";
   await writeFile(join(outDir, "sitemap.xml"), sitemap);
   await writeFile(join(outDir, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);

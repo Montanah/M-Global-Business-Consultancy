@@ -2,7 +2,7 @@ import { PassThrough } from "node:stream";
 import { renderToPipeableStream } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server.js";
 import App from "./App";
-export { seoPages, SITE_URL, renderSeoHead } from "./lib/seo";
+export { seoPages, SITE_URL, getPageSeo, renderSeoHead } from "./lib/seo";
 
 export function renderPage(pathname: string): Promise<string> {
   return new Promise((resolve, reject) => {

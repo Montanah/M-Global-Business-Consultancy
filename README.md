@@ -50,7 +50,7 @@ The site supports direct section links such as `/#portfolio` and `/#contact`, in
 
 `npm run build` uses Vite and React to generate complete HTML for all 12 public routes, a custom `404.html`, `sitemap.xml`, and `robots.txt`. It waits for lazy pages to finish rendering. React hydrates the generated content in the browser so navigation, project filters, the mobile menu, and the enquiry form remain interactive. Content is visible with JavaScript disabled.
 
-`src/lib/seo.ts` is the source for route titles, descriptions, canonical URLs, social previews, and Organization, WebSite, WebPage, breadcrumb, and homepage Service structured data. Add metadata there when adding a route to `src/App.tsx`. The sitemap contains only public page URLs; query parameters, section anchors, and missing pages are excluded. Client-side navigation updates the metadata, including clearing `noindex` when leaving a missing page.
+`src/lib/seo.ts` is the source for route titles, descriptions, canonical URLs, social previews, and Organization, WebSite, WebPage, breadcrumb, and homepage Service structured data. Add metadata there when adding a route to `src/App.tsx`. Canonical URLs and sitemap entries use the trailing slashes served by Netlify's static-directory routing. The sitemap contains only public page URLs; query parameters, section anchors, and missing pages are excluded. Client-side navigation updates the metadata, including clearing `noindex` when leaving a missing page.
 
 Validate a production build with:
 

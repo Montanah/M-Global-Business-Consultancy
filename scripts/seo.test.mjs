@@ -8,7 +8,8 @@ const domain = "https://mglobalbusinessconsultancy.com";
 const read = file => readFile(join(outputDir, file), "utf8");
 const sitemap = await read("sitemap.xml");
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
-const paths = urls.map(url => new URL(url).pathname);
+const paths = urls.map(url => new URL(url).pathname.replace(/\/+$/, "") || "/");
+const canonicalFor = pathname => `${domain}${pathname === "/" ? "/" : `${pathname}/`}`;
 const headOf = html => html.match(/<head>([\s\S]*?)<\/head>/)?.[1] ?? "";
 const titleOf = html => headOf(html).match(/<title>([^<]+)<\/title>/)?.[1];
 const metaOf = (head, name) => head.match(new RegExp(`(?:name|property)="${name}" content="([^"]*)"`))?.[1];
@@ -21,6 +22,7 @@ test("sitemap covers every public application route exactly once", async () => {
   assert.match(sitemap, /^<\?xml version="1\.0" encoding="UTF-8"\?>/);
   assert.match(sitemap, /<urlset xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9">/);
   assert.ok(urls.every(url => url.startsWith(`${domain}/`) && !/[?#]/.test(url)));
+  assert.deepEqual(urls, paths.map(canonicalFor));
 });
 
 test("robots is plain text and advertises the production sitemap", async () => {
@@ -44,8 +46,8 @@ for (const pathname of paths) {
     descriptions.add(description);
     assert.equal([...head.matchAll(/<title>/g)].length, 1);
     assert.equal([...head.matchAll(/rel="canonical"/g)].length, 1);
-    assert.ok(head.includes(`rel="canonical" href="${domain}${pathname}"`));
-    assert.equal(metaOf(head, "og:url"), `${domain}${pathname}`);
+    assert.ok(head.includes(`rel="canonical" href="${canonicalFor(pathname)}"`));
+    assert.equal(metaOf(head, "og:url"), canonicalFor(pathname));
     assert.equal(metaOf(head, "og:title"), title);
     assert.equal(metaOf(head, "twitter:title"), title);
     assert.equal(metaOf(head, "og:description"), description);

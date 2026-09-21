@@ -91,7 +91,7 @@ export function getPageSeo(pathname: string) {
   return {
     ...(page ?? notFound),
     path,
-    canonical: page ? `${SITE_URL}${path === "/" ? "/" : path}` : undefined,
+    canonical: page ? `${SITE_URL}${path === "/" ? "/" : `${path}/`}` : undefined,
     robots: page ? "index, follow, max-image-preview:large" : "noindex, follow",
     isNotFound: !page,
   };
