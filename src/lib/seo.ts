@@ -74,6 +74,16 @@ export const seoPages: Record<string, PageSeo> = {
     description: "Explore M’Global’s educational platform project: a learning management system with video lessons, progress tracking and collaborative learning tools.",
     label: "Educational Platform",
   },
+  "/projects/mtaa-walk": {
+    title: "Mtaa Walk: 3D Web Mural Walk Built with Three.js | M’Global",
+    description: "Explore Mtaa Walk, M’Global’s custom 3D street walk past eight murals of an imagined Nairobi, with an audio guide, captions and a low-bandwidth list view.",
+    label: "Mtaa Walk",
+  },
+  "/projects/walls-that-talk": {
+    title: "Walls That Talk: Virtual Mural Exhibition | M’Global",
+    description: "See Walls That Talk, a twelve-work virtual exhibition of mural concepts for Nairobi, curated and installed by M’Global on KUNSTMATRIX with a guided tour.",
+    label: "Walls That Talk",
+  },
 };
 
 const notFound: PageSeo = {

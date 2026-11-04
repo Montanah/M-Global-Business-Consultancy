@@ -21,6 +21,8 @@ const FinTech = lazy(() => import("./pages/projects/FinTech"));
 const EducationalPlatform = lazy(
   () => import("./pages/projects/EducationalPlatform"),
 );
+const MtaaWalk = lazy(() => import("./pages/projects/MtaaWalk"));
+const WallsThatTalk = lazy(() => import("./pages/projects/WallsThatTalk"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
@@ -56,6 +58,11 @@ const App = () => (
           <Route
             path="/projects/educational-platform"
             element={<EducationalPlatform />}
+          />
+          <Route path="/projects/mtaa-walk" element={<MtaaWalk />} />
+          <Route
+            path="/projects/walls-that-talk"
+            element={<WallsThatTalk />}
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
