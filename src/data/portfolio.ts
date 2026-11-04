@@ -220,4 +220,31 @@ export const portfolioCategories: PortfolioCategory[] = [
     label: "IT Consulting & Tech Support",
     items: [],
   },
+  {
+    id: "immersive-3d",
+    label: "3D & Immersive Web Experiences",
+    items: [
+      {
+        id: 1,
+        title: "Mtaa Walk: 3D Street Mural Walk",
+        description:
+          "A custom browser-based 3D street walk past eight murals of an imagined Nairobi neighbourhood, built with Three.js. Visitors scroll, swipe or use the keyboard to walk while the sky moves from dawn through night, with a narrated audio guide, captions and a lightweight list view for phones and slow connections.",
+        image: "/previews/immersive/mtaa-street.jpg",
+        liveUrl: "https://mtaa-walk.mglobalbusinessconsultancy.com",
+        detailsUrl: "/projects/mtaa-walk",
+        tags: ["Three.js / WebGL", "Custom 3D", "Audio Guide", "Accessibility"],
+      },
+      {
+        id: 2,
+        title: "Walls That Talk: Virtual Mural Exhibition",
+        description:
+          "A curated virtual exhibition of twelve digital mural concepts for Nairobi, written, hung and installed on KUNSTMATRIX Art.Spaces in three themed groups, with a guided tour, captions for every work and an exhibition catalogue.",
+        image: "/previews/immersive/wtt-room.jpg",
+        liveUrl:
+          "https://artspaces.kunstmatrix.com/en/exhibition/16106085/walls-talk-mural-concepts-nairobi",
+        detailsUrl: "/projects/walls-that-talk",
+        tags: ["Virtual Exhibition", "KUNSTMATRIX", "Curation", "Guided Tour"],
+      },
+    ],
+  },
 ];

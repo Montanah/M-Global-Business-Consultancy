@@ -19,6 +19,7 @@ const categoryLabels: Record<string, string> = {
   "design-marketing": "Design & marketing",
   "system-design": "Systems & deployment",
   "it-consulting": "IT consulting",
+  "immersive-3d": "3D & immersive",
 };
 
 const ProjectCard = ({
