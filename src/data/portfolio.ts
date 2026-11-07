@@ -225,6 +225,16 @@ export const portfolioCategories: PortfolioCategory[] = [
     label: "3D & Immersive Web Experiences",
     items: [
       {
+        id: 3,
+        title: "UNMUTE: 3D Virtual Exhibition Concept",
+        description:
+          "A concept 3D virtual exhibition for the 16 Days of Activism against Gender-Based Violence: a welcome hall and three themed rooms of photographs and stories, with a narrated guided tour, a staff panel to publish or take down items instantly, privacy-respecting analytics and a 2D gallery for slow connections.",
+        image: "/previews/immersive/unmute-room.jpg",
+        liveUrl: "https://unmute.mglobalbusinessconsultancy.com",
+        detailsUrl: "/projects/unmute",
+        tags: ["Three.js / WebGL", "Virtual Exhibition", "Content Management", "Guided Tour"],
+      },
+      {
         id: 1,
         title: "Mtaa Walk: 3D Street Mural Walk",
         description:
