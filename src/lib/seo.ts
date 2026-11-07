@@ -84,6 +84,11 @@ export const seoPages: Record<string, PageSeo> = {
     description: "See Walls That Talk, a twelve-work virtual exhibition of mural concepts for Nairobi, curated and installed by M’Global on KUNSTMATRIX with a guided tour.",
     label: "Walls That Talk",
   },
+  "/projects/unmute": {
+    title: "UNMUTE: 3D Virtual Exhibition Concept | M’Global",
+    description: "Explore UNMUTE, M’Global’s concept 3D virtual exhibition for the 16 Days of Activism, with a guided audio tour, staff editing panel and low-bandwidth 2D gallery.",
+    label: "UNMUTE",
+  },
 };
 
 const notFound: PageSeo = {

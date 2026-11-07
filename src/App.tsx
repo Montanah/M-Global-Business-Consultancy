@@ -23,6 +23,7 @@ const EducationalPlatform = lazy(
 );
 const MtaaWalk = lazy(() => import("./pages/projects/MtaaWalk"));
 const WallsThatTalk = lazy(() => import("./pages/projects/WallsThatTalk"));
+const Unmute = lazy(() => import("./pages/projects/Unmute"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
@@ -64,6 +65,7 @@ const App = () => (
             path="/projects/walls-that-talk"
             element={<WallsThatTalk />}
           />
+          <Route path="/projects/unmute" element={<Unmute />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
