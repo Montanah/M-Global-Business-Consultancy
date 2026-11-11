@@ -213,7 +213,28 @@ export const portfolioCategories: PortfolioCategory[] = [
   {
     id: "system-design",
     label: "System Design & Deployment",
-    items: [],
+    items: [
+      {
+        id: 1,
+        title: "AgriFlock360 Smart Brooder IoT System",
+        description:
+          "End-to-end design and deployment of a connected poultry system: custom PCB schematics and layout, Gerber generation and fabrication with manufacturers in China, assembly and testing of the smart brooder controllers, solar-powered environmental sensors, automated climate control, and an offline-first mobile app and admin panel that manage devices, firmware and deployments in the field.",
+        image: "/agriflock-pcb-3d.jpeg",
+        liveUrl: "https://www.agriflock360.com/",
+        detailsUrl: "/projects/agriflock360",
+        tags: ["IoT", "PCB Design", "Firmware & Deployment", "Solar Sensors"],
+      },
+      {
+        id: 2,
+        title: "SmartDrop Smart Locker Network",
+        description:
+          "System design for a network of secure neighbourhood parcel lockers: locker hardware integration, OTP-based access control, SMS collection flows and a merchant platform that tracks every parcel from drop-off to 24/7 customer pickup.",
+        image: "/previews/smartdrop.jpg",
+        liveUrl: "https://smartdrop.africa/",
+        detailsUrl: "/projects/smartdrop",
+        tags: ["IoT", "Smart Lockers", "Access Control", "Logistics"],
+      },
+    ],
   },
   {
     id: "it-consulting",

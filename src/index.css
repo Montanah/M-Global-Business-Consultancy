@@ -1079,7 +1079,37 @@
   min-height: 300px;
 }
 .testimonial-quote blockquote {
+  display: none;
+}
+.testimonial-quote blockquote.is-active {
+  display: block;
   animation: quote-enter 0.3s ease-out;
+}
+.testimonial-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+.testimonial-dots button {
+  width: 22px;
+  height: 4px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: var(--line);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    width 0.2s;
+}
+.testimonial-dots button.is-active {
+  width: 38px;
+  background: var(--brand-accent);
+}
+.testimonial-dots button:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 3px;
 }
 .testimonial-quote blockquote > p {
   font-family: var(--heading-font);

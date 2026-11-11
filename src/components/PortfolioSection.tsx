@@ -7,6 +7,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { portfolioCategories, type PortfolioItem } from "@/data/portfolio";
 import Reveal from "./Reveal";
 
+// Only show categories that have published work; empty tabs read as "00 projects".
+const visibleCategories = portfolioCategories.filter(
+  (category) => category.items.length > 0,
+);
+
 const socialIcons = {
   facebook: FaFacebook,
   linkedin: FaLinkedin,
@@ -17,7 +22,7 @@ const socialIcons = {
 const categoryLabels: Record<string, string> = {
   "web-dev": "Web & apps",
   "design-marketing": "Design & marketing",
-  "system-design": "Systems & deployment",
+  "system-design": "Systems & IoT",
   "it-consulting": "IT consulting",
   "immersive-3d": "3D & immersive",
 };
@@ -162,14 +167,14 @@ const PortfolioSection = () => {
         </Reveal>
         <Tabs defaultValue="web-dev" onValueChange={() => setExpanded(false)}>
           <TabsList className="portfolio-tabs" aria-label="Project categories">
-            {portfolioCategories.map((category) => (
+            {visibleCategories.map((category) => (
               <TabsTrigger key={category.id} value={category.id}>
                 {categoryLabels[category.id]}
                 <span>{String(category.items.length).padStart(2, "0")}</span>
               </TabsTrigger>
             ))}
           </TabsList>
-          {portfolioCategories.map((category) => (
+          {visibleCategories.map((category) => (
             <TabsContent
               key={category.id}
               value={category.id}
