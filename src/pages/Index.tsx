@@ -2,6 +2,7 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  Briefcase,
   Code2,
   Cpu,
   Globe2,
@@ -58,6 +59,13 @@ const services = [
       "Clarity in a complex digital world. Practical guidance and dependable support to keep you moving.",
     icon: Layers3,
     tags: "IT strategy · Technical support · Consulting",
+  },
+  {
+    title: "Business planning & registration",
+    description:
+      "A solid foundation for what you’re building. Clear plans, sound structure, and the paperwork handled properly.",
+    icon: Briefcase,
+    tags: "Business plans · Company registration · Compliance",
   },
 ];
 

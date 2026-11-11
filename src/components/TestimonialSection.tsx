@@ -5,7 +5,6 @@ import Reveal from "./Reveal";
 
 const TestimonialSection = () => {
   const [index, setIndex] = useState(0);
-  const testimonial = testimonials[index];
   return (
     <section
       id="testimonials"
@@ -67,19 +66,39 @@ const TestimonialSection = () => {
             className="brand-accent-text"
             aria-hidden="true"
           />
-          <blockquote key={testimonial.name}>
-            <p>“{testimonial.quote}”</p>
-            <footer>
-              <span className="testimonial-avatar" aria-hidden="true">
-                {testimonial.name.replace("Pst. ", "").charAt(0)}
-              </span>
-              <div>
-                <strong>{testimonial.name}</strong>
-                <span>{testimonial.location}</span>
-              </div>
-              <span className="testimonial-service">{testimonial.service}</span>
-            </footer>
-          </blockquote>
+          {testimonials.map((testimonial, i) => (
+            <blockquote
+              key={testimonial.name}
+              className={i === index ? "is-active" : undefined}
+              aria-hidden={i !== index}
+            >
+              <p>“{testimonial.quote}”</p>
+              <footer>
+                <span className="testimonial-avatar" aria-hidden="true">
+                  {testimonial.name.replace("Pst. ", "").charAt(0)}
+                </span>
+                <div>
+                  <strong>{testimonial.name}</strong>
+                  <span>{testimonial.location}</span>
+                </div>
+                <span className="testimonial-service">
+                  {testimonial.service}
+                </span>
+              </footer>
+            </blockquote>
+          ))}
+          <div className="testimonial-dots" role="group" aria-label="Choose a testimonial">
+            {testimonials.map((testimonial, i) => (
+              <button
+                key={testimonial.name}
+                type="button"
+                className={i === index ? "is-active" : undefined}
+                aria-label={`Testimonial ${i + 1}: ${testimonial.name}`}
+                aria-current={i === index}
+                onClick={() => setIndex(i)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
